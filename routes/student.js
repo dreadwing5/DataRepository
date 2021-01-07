@@ -44,7 +44,6 @@ router.post("/students/search", (req, res) => {
       if (req.body.details == "false") {
         delete res.description;
       }
-      delete res.id;
       delete res.filterDate;
       if (
         (res.department == "NULL" || dept == "ALL" || res.department == dept) &&
@@ -62,6 +61,7 @@ router.post("/students/search", (req, res) => {
     res.render("stu_report", {
       title: "Student Report",
       data: data,
+      event: event,
     });
   });
 });

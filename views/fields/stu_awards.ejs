@@ -140,15 +140,14 @@
 
 
           </div>
+          <%- include ("../partials/description") %>
 
-          <label>Description (Optional)</label>
-          <div id="editor">
-            <p>This is the editor content.</p>
-          </div>
-          <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
-              Submit</button>
-          </div>
+
+            <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
+                Submit</button>
+            </div>
         </div>
+
 
 
       </form>
@@ -166,15 +165,16 @@
     <!-- Script for submiting form -->
 
     <script>
-      CKEDITOR.replace('editor');
-      const element = CKEDITOR.document.getById('editor');
+
 
       function submitForm(e) {
+
+
         // e.preventDefault()
         var formData = new FormData(awardsForm);
-        const description = element.getText();
+        const description = quill.root.innerHTML;
         console.log(description);
-        formData.append("description", description)
+        formData.append("description", description);
         if (formData.get("category") === "others") {
           formData.set("category", document.querySelector(".other-text").value)
         } else {

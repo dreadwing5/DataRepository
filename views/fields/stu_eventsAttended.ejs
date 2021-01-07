@@ -148,11 +148,8 @@
 
 
 
-                    <label>Description</label>
-                    <div name="description" id="editor">
-                        <p>This is the editor content.</p>
-                    </div>
-                    <button class="btn btn-primary btn-lg btn-block buttons" type="submit">Submit</button>
+                    <%- include ("../partials/description") %>
+                        <button class="btn btn-primary btn-lg btn-block buttons" type="submit">Submit</button>
                 </div>
             </form>
         </section>
@@ -166,13 +163,11 @@
     <%- include ("../partials/footer") %>
 
         <script>
-            CKEDITOR.replace('editor');
-            const element = CKEDITOR.document.getById('editor');
 
             function submitForm(e) {
                 // e.preventDefault()
                 var formData = new FormData(eventsAttendedForm);
-                const description = element.getText();
+                const description = quill.root.innerHTML;
                 console.log(description);
                 formData.append("description", description)
                 if (formData.get("activityType") === "others") {
