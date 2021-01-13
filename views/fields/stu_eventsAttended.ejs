@@ -38,12 +38,14 @@
                     </div>
                     <div class="row data-row">
                         <div class="col-md-6 mb-3">
+
                             <label class="required">Start Date</label>
                             <input type="date" name="startDate" class="form-control" onchange="setDate()">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="required">End Date</label>
                             <input type="date" class="form-control eDate" name="endDate">
+
                         </div>
                     </div>
                     <div class="row data-row">
@@ -148,11 +150,8 @@
 
 
 
-                    <label>Description</label>
-                    <div name="description" id="editor">
-                        <p>This is the editor content.</p>
-                    </div>
-                    <button class="btn btn-primary btn-lg btn-block buttons" type="submit">Submit</button>
+                    <%- include ("../partials/description") %>
+                        <button class="btn btn-primary btn-lg btn-block buttons" type="submit">Submit</button>
                 </div>
             </form>
         </section>
@@ -166,7 +165,10 @@
     <%- include ("../partials/footer") %>
 
         <script>
-        document.addEventListener("DOMContentLoaded", function (event) {
+
+
+document.addEventListener("DOMContentLoaded", function (event) {
+
 
                 const setMaxDate = () => {
                     const dateControl = document.querySelectorAll('input[type="date"]');
@@ -177,21 +179,21 @@
                 }
                 setMaxDate();
 
-                
+
+
             });
             const setDate = () => {
-                    let sDate = document.getElementsByName('startDate')[0].value;
-                    let eDate = document.getElementsByName('endDate')[0];
-                    eDate.setAttribute('min', sDate);
+                let sDate = document.getElementsByName('startDate')[0].value;
+                let eDate = document.getElementsByName('endDate')[0];
+                eDate.setAttribute('min', sDate);
 
-                }
-            CKEDITOR.replace('editor');
-            const element = CKEDITOR.document.getById('editor');
+            }
+
 
             function submitForm(e) {
                 // e.preventDefault()
                 var formData = new FormData(eventsAttendedForm);
-                const description = element.getText();
+                const description = quill.root.innerHTML;
                 console.log(description);
                 formData.append("description", description)
                 if (formData.get("activityType") === "others") {

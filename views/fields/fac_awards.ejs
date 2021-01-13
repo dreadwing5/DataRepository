@@ -111,16 +111,11 @@
             </div>
           </div>
 
+          <%- include ("../partials/description") %>
 
-          <label>Award Description</label>
-
-          <div name="description" id="editor">
-            <p>This is the editor content.</p>
-          </div>
-
-          <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
-              Submit</button>
-          </div>
+            <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
+                Submit</button>
+            </div>
         </div>
 
     </section>
@@ -138,19 +133,17 @@
       crossorigin="anonymous"></script>
 
     <script>
+
       const dateControl = document.querySelectorAll('input[type="date"]');
       let today = new Date().toISOString().slice(0, 10);
       dateControl.forEach(date => {
         date.setAttribute('max', today);
       })
-      CKEDITOR.replace('editor');
-      const element = CKEDITOR.document.getById('editor');
 
       function submitForm(e) {
         // e.preventDefault()
         var formData = new FormData(awardsForm);
-        const description = element.getText();
-        console.log(description);
+        const description = quill.root.innerHTML;
         formData.append("description", description)
         if (formData.get("category") === "others") {
           formData.set("category", document.querySelector(".other-text").value)

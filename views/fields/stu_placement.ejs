@@ -127,14 +127,11 @@
               </div>
             </div>
           </div>
-          <label for="description">Description (Optional)</label>
-          <div name="description" id="editor">
-            <p>This is the editor content.</p>
-          </div>
-          <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
-              Submit</button>
+          <%- include ("../partials/description") %>
+            <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
+                Submit</button>
 
-          </div>
+            </div>
         </div>
       </form>
     </section>
@@ -151,6 +148,8 @@
     <!-- Script for submiting form -->
 
     <script>
+
+
     document.addEventListener("DOMContentLoaded", function (event) {
 
                 const setMaxDate = () => {
@@ -170,13 +169,12 @@
                     eDate.setAttribute('min', sDate);
 
                 }
-      CKEDITOR.replace('editor');
-      const element = CKEDITOR.document.getById('editor');
+
+
 
       function submitForm(e) {
         var formData = new FormData(placementsForm);
-        const description = element.getText();
-        console.log(description);
+        const description = quill.root.innerHTML;
         formData.append("description", description)
         var object = {};
         formData.forEach(function (value, key) {

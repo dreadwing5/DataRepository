@@ -5,14 +5,17 @@ const flash = require("connect-flash");
 const session = require("express-session");
 const connection = require("./configs/DBConnection");
 const passport = require("passport");
+const fs = require("fs");
 
 require("./configs/passport")(passport);
 
 // Setting public direction
 app.use(express.static(__dirname + "/public"));
+
+app.use("/scripts", express.static(__dirname + "/node_modules"));
+
 // Set ejs template
 app.set("view engine", "ejs");
-app.use(express.static(__dirname + "/node_modules/ckeditor"));
 
 app.use(express.json());
 app.use(
@@ -54,6 +57,7 @@ app.use("/", require("./routes/user"));
 app.use("/", require("./routes/admin"));
 app.use("/", require("./routes/student"));
 app.use("/", require("./routes/faculty"));
+app.use("/", require("./routes/report"));
 
 //Create Default admin
 

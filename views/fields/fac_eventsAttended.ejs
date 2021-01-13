@@ -117,14 +117,10 @@
                 </div>
             </div>
           </div>
-          <label>Event Description</label><br>
-
-          <div name="description" id="editor">
-            <p>This is the editor content.</p>
-          </div>
-          <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
-              Submit</button>
-          </div>
+          <%- include ("../partials/description") %>
+            <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
+                Submit</button>
+            </div>
         </div>
 
       </form>
@@ -146,8 +142,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"
       integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ=="
       crossorigin="anonymous"></script>
-    <script src="/ckeditor.js"></script>
     <script>
+
     document.addEventListener("DOMContentLoaded", function (event) {
 
                 const setMaxDate = () => {
@@ -168,23 +164,12 @@
 
                 }
 
-      CKEDITOR.replace('editor');
-      const element = CKEDITOR.document.getById('editor');
-      // let eventsAttendedForm = document.querySelector('#eventsAttendedForm')
-      // AJAX
-      // console.log(eventsAttendedForm)
-      // var formData = new FormData(eventsAttendedForm);
-      // const description = element.getText();
-      // console.log(description);
-      // formData.append("description", description)
-      // $("#eventsAttendedForm").ajaxForm({url: '/faculty/eventsAttended', type: 'post'})
-
 
       function submitForm(e) {
         // e.preventDefault()
         var formData = new FormData(eventsAttendedForm);
-        const description = element.getText();
-        console.log(description);
+        const description = quill.root.innerHTML;
+
         formData.append("description", description)
         if (formData.get("activityType") === "others") {
           formData.set("activityType", document.querySelector(".other-text").value)

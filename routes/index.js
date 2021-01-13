@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
-
+const connection = require("../configs/DBConnection");
 const {
   ensureAuthenticated,
   forwardAuthenticated,
 } = require("../configs/auth");
+const multer = require("multer");
 
 router.get("/", ensureAuthenticated, (req, res) => {
   res.render("home", {
@@ -40,16 +41,6 @@ router.get("/faculty/awards", ensureAuthenticated, (req, res) => {
   });
 });
 
-//Route for Report Generation
-
-router.get("/faculty/search", ensureAuthenticated, (req, res) => {
-  res.render("fac_search", {
-    title: "",
-    module: "Faculty",
-    Username: req.user.name,
-  });
-});
-
 //Student Routes
 
 router.get("/students/eventsAttended", ensureAuthenticated, (req, res) => {
@@ -76,13 +67,19 @@ router.get("/students/placement", ensureAuthenticated, (req, res) => {
   });
 });
 
-//Route for Report Generation
-router.get("/students/search", ensureAuthenticated, (req, res) => {
-  res.render("stu_search", {
-    module: "Student",
-    title: "",
-    Username: req.user.name,
-  });
+/* //For later use, where we need to make our own api for image upload
+const storage = multer.diskStorage({
+  destination: "./public/uploads",
+  filename: (req, file, cb) => {
+    cb(
+      null,
+      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+    );
+  },
 });
+
+const upload = multer({
+  storage: storage,
+}).single("file"); */
 
 module.exports = router;
