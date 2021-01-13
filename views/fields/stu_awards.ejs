@@ -70,7 +70,7 @@
           <div class="row data-row">
             <div class="col-md-6 mb-3">
               <label>Date</label>
-              <input type="date" name="date" class="form-control">
+              <input type="date" name="date" class="form-control date" max="">
             </div>
             <div class="col-md-6 mb-3">
               <label for="status">Status</label>
@@ -132,7 +132,7 @@
             </div>
             <div class="col-md-6 mb-3">
               <label>Submission Date</label>
-              <input type="date" class="form-control" name="filterDate">
+              <input type="date" class="form-control date" name="filterDate" max="">
               <div class="invalid-feedback">
                 Please select a valid date.
               </div>
@@ -166,6 +166,12 @@
 
     <script>
 
+      // const dateControl = document.querySelectorAll('input[type="date"]');
+      // console.log(dateControl);
+
+      // let today = new Date().toISOString().slice(0, 10);
+      // dateControl[i].setAttribute('max', today);
+
 
       function submitForm(e) {
 
@@ -185,8 +191,8 @@
         formData.forEach(function (value, key) {
           object[key] = value;
         });
+
         var json = JSON.stringify(object);
-        console.log(json);
         fetch("/students/awards", {
           method: "POST",
           headers: {
