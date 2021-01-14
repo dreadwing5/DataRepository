@@ -40,7 +40,7 @@ router.post("/search", (req, res) => {
     eventName.charAt(0).toUpperCase() +
     eventName.slice(1).replace(/([a-z])([A-Z])/g, "$1 $2");
   //All should  look for all the table in database
-  console.log(req.body);
+
   if (req.body.event == "all") {
     res.json({
       message: "All field is under development",
