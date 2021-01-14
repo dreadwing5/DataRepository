@@ -1,5 +1,3 @@
-console.log("Hello");
-
 Quill.register("modules/imageUploader", ImageUploader);
 
 var quill = new Quill("#editor-container", {
