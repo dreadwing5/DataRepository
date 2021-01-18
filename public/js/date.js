@@ -17,6 +17,6 @@ const setDate = () => {
   if (sDate) {
     sDate = sDate.value;
     let eDate = document.getElementsByName("endDate")[0];
-    eDate.setAttribute("min", sDate);
+    enDate.setAttribute("min", sDate);
   }
 };
