@@ -112,9 +112,11 @@
                             <tfoot>
                                 <tr>
 
-                                    <td colspan="100">
-                                        <%-object.description%>
-                                    </td>
+                                    <%if(object.description!=='null') {%>
+                                        <td colspan="100">
+                                            <%-object.description%>
+                                        </td>
+                                        <%}%>
                                 </tr>
 
 
