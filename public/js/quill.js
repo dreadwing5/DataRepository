@@ -2,6 +2,7 @@ Quill.register("modules/imageUploader", ImageUploader);
 
 var quill = new Quill("#editor-container", {
   theme: "snow",
+  placeholder: "Add Description here...",
   modules: {
     imageResize: {
       displaySize: true,

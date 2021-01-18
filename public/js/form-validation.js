@@ -14,10 +14,10 @@
             if (form.checkValidity() === false) {
               event.preventDefault();
               event.stopPropagation();
+              form.classList.add("was-validated");
             } else {
               submitForm(event);
             }
-            form.classList.add("was-validated");
           },
           false
         );
@@ -28,16 +28,23 @@
 })();
 
 function submitForm(event) {
+  event.preventDefault();
   const formData = new FormData(myForm);
-  const description = quill.root.innerHTML;
+  let description = quill.root.innerHTML;
+  if (description === "<p><br></p>") {
+    description = null;
+  }
   formData.append("description", description);
-  if (formData.get("category") === "others") {
-    formData.set("category", document.querySelector(".other-text").value);
-  } else {
-    formData.set(
-      "category",
-      document.querySelector("select[name='category']").value
-    );
+
+  if (formData.get("category")) {
+    if (formData.get("category") === "others") {
+      formData.set("category", document.querySelector(".other-text").value);
+    } else {
+      formData.set(
+        "category",
+        document.querySelector("select[name='category']").value
+      );
+    }
   }
 
   const object = {};
@@ -45,14 +52,14 @@ function submitForm(event) {
     object[key] = value;
   });
 
-  const json = JSON.stringify(object);
   const url = myForm.action;
-  const fetchOptions = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: json,
-  };
-  fetch(url, fetchOptions);
+  axios({
+    method: "post",
+    url: url,
+    data: object,
+  }).then(function (response) {
+    document.getElementById("alert").style.display = "block";
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+    setTimeout(() => window.location.reload(), 2000);
+  });
 }

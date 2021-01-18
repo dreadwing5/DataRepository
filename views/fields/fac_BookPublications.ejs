@@ -45,11 +45,11 @@
               <label for="date" class="required">Date</label>
               <input type="date" name="Date" class="form-control" onchange="setDate()">
             </div>
-            
+
           </div>
-          
+
           <div class="row data-row">
-            
+
 
             <div class="col-md-4 mb-3">
               <label class="required">COE</label>
@@ -94,37 +94,25 @@
       crossorigin="anonymous"></script>
     <script src="/ckeditor.js"></script>
     <script>
-    document.addEventListener("DOMContentLoaded", function (event) {
+      document.addEventListener("DOMContentLoaded", function (event) {
 
-                const setMaxDate = () => {
-                    const dateControl = document.querySelectorAll('input[type="date"]');
-                    let today = new Date().toISOString().slice(0, 10);
-                    dateControl.forEach(date => {
-                        date.setAttribute('max', today);
-                    })
-                }
-                setMaxDate();
+        const setMaxDate = () => {
+          const dateControl = document.querySelectorAll('input[type="date"]');
+          let today = new Date().toISOString().slice(0, 10);
+          dateControl.forEach(date => {
+            date.setAttribute('max', today);
+          })
+        }
+        setMaxDate();
 
-                
-            });
-            const setDate = () => {
-                    let sDate = document.getElementsByName('startDate')[0].value;
-                    let eDate = document.getElementsByName('endDate')[0];
-                    eDate.setAttribute('min', sDate);
 
-                }
+      });
+      const setDate = () => {
+        let sDate = document.getElementsByName('startDate')[0].value;
+        let eDate = document.getElementsByName('endDate')[0];
+        eDate.setAttribute('min', sDate);
 
-      CKEDITOR.replace('editor');
-      const element = CKEDITOR.document.getById('editor');
-      // let eventsAttendedForm = document.querySelector('#eventsAttendedForm')
-      // AJAX
-      // console.log(eventsAttendedForm)
-      // var formData = new FormData(eventsAttendedForm);
-      // const description = element.getText();
-      // console.log(description);
-      // formData.append("description", description)
-      // $("#eventsAttendedForm").ajaxForm({url: '/faculty/eventsAttended', type: 'post'})
-
+      }
 
       function submitForm(e) {
         // e.preventDefault()

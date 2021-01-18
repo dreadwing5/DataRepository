@@ -3,7 +3,7 @@
   <!-- Data Entry -->
   <div class="container-fluid">
     <section id="form">
-      <form id="placementsForm" class="needs-validation" novalidate="">
+      <form id="myForm" class="needs-validation" novalidate action="/students/stu_placement">
         <div class="container-fluid">
           <div class="row data-row">
             <div class="col-md-8 mb-3">
@@ -121,7 +121,7 @@
             </div>
             <div class="col-md-4 mb-3">
               <label class="required">Submission Date</label>
-              <input type="date" class="form-control eDate" name="filterDate">
+              <input type="date" class="form-control" name="filterDate">
               <div class="invalid-feedback">
                 Please select a valid date.
               </div>
@@ -141,57 +141,10 @@
 
   <!-- Footer -->
 
+  <script type="text/javascript" src="/js/date.js"></script>
 
   <%- include ("../partials/footer") %>
 
-
-    <!-- Script for submiting form -->
-
-    <script>
-
-
-    document.addEventListener("DOMContentLoaded", function (event) {
-
-                const setMaxDate = () => {
-                    const dateControl = document.querySelectorAll('input[type="date"]');
-                    let today = new Date().toISOString().slice(0, 10);
-                    dateControl.forEach(date => {
-                        date.setAttribute('max', today);
-                    })
-                }
-                setMaxDate();
-
-                
-            });
-            const setDate = () => {
-                    let sDate = document.getElementsByName('date')[0].value;
-                    let eDate = document.getElementsByName('filterDate')[0];
-                    eDate.setAttribute('min', sDate);
-
-                }
-
-
-
-      function submitForm(e) {
-        var formData = new FormData(placementsForm);
-        const description = quill.root.innerHTML;
-        formData.append("description", description)
-        var object = {};
-        formData.forEach(function (value, key) {
-          object[key] = value;
-        });
-        var json = JSON.stringify(object);
-        console.log(json);
-        fetch("/students/placement", {
-          method: "POST",
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: json
-        })
-      }
-      placementsForm.addEventListener('submit', (e) => submitForm(e))
-    </script>
     </body>
 
     </html>

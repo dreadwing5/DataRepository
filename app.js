@@ -55,8 +55,7 @@ app.use(function (req, res, next) {
 app.use("/", require("./routes/index"));
 app.use("/", require("./routes/user"));
 app.use("/", require("./routes/admin"));
-app.use("/", require("./routes/student"));
-app.use("/", require("./routes/faculty"));
+app.use("/", require("./routes/form_submission"));
 app.use("/", require("./routes/report"));
 
 //Create Default admin
