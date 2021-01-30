@@ -52,6 +52,23 @@ function submitForm(event) {
     object[key] = value;
   });
 
+  object.filterDate = new Date();
+  let day = object.filterDate.getDate();
+  let month = object.filterDate.getMonth();
+  let year = object.filterDate.getFullYear();
+  if (day <= 5) {
+    day = 30;
+    month = month === 0 ? 11 : month - 1;
+    if (month === 11) {
+      year--;
+    }
+  } else {
+    day = 30;
+  }
+  month++;
+  object.filterDate =
+    year.toString() + "-" + month.toString() + "-" + day.toString();
+
   const url = myForm.action;
   axios({
     method: "post",
