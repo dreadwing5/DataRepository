@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 const setDate = () => {
   let sDate = document.getElementsByName("startDate")[0];
   if (sDate) {
-    sDate = Sdate.value;
+    sDate = sDate.value;
     let eDate = document.getElementsByName("endDate")[0];
     eDate.setAttribute("min", sDate);
   }

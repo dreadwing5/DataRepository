@@ -2,72 +2,89 @@
 
   <div class="container-fluid">
     <section id="form">
-      <form id="myForm" class="needs-validation" novalidate action="/faculty/fac_JournalPaperPublication">
+      <form id="myForm" class="needs-validation" novalidate action="/faculty/fac_entrepreneurshipDetails">
         <div class="container-fluid">
 
           <!-- Header Section -->
 
           <div class="row data-row">
             <div class="col-md-8 mb-3">
-              <h4 class="mb-3 title">Paper and Journal Publication Form</h4>
+              <h4 class="mb-3 title">Entrepreneurship Details</h4>
             </div>
             <div class="col-md-4 mb-3 report">
               <a href="/faculty/search" class="btn btn-sm btn-primary shadow-sm"><i
                   class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
             </div>
           </div>
+          
+
           <div class="row data-row">
 
             <div class="col-md-6 mb-3">
-              <label class="required">Publisher Name</label>
-              <input type="text" name="PublisherName" class="form-control">
+              <label class="required">Company Name</label>
+              <input type="text" name="CompanyName" class="form-control">
               <div class="invalid-feedback">
                   Please enter valid details.
                 </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label class="required">Title of the Paper</label>
-              <input type="text" name="title" class="form-control">
+              <label class="required">Company Address</label>
+              <input type="text" name="CompanyAddress" class="form-control">
               <div class="invalid-feedback">
                   Please enter valid details.
                 </div>
             </div>
           </div>
-
           <div class="row data-row">
 
             <div class="col-md-6 mb-3">
-              <label class="required">ISBN Number</label>
-              <input type="text" name="isbn" class="form-control">
+              <label for="date" class="required">Establishment Date</label>
+              <input type="date" name="establishmentDate" class="form-control" onchange="setDate()">
+              <div class="invalid-feedback">
+                 Please enter valid details.
+                </div>
+            </div>
+            
+          </div>
+          <div class="row data-row">
+            
+            <div class="col-md-6 mb-3">
+              <label>Revenue Generated</label>
+              <input type="text" name="revenue" class="form-control">
               <div class="invalid-feedback">
                   Please enter valid details.
                 </div>
             </div>
+            
+            
             <div class="col-md-6 mb-3">
-              <label class="required">ISSN Number</label>
-              <input type="text" name="issn" class="form-control">
-              <div class="invalid-feedback">
-                  Please enter valid details.
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label class="required">Volume Number</label>
-              <input type="text" name="volumeNumber" class="form-control">
+              <label class="required">Objectives</label>
+              <input type="text" name="objectives" class="form-control">
               <div class="invalid-feedback">
                  Please enter valid details.
                 </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label class="required">Name of Journal/Conference</label>
-              <input type="text" name="nameOfJournal" class="form-control">
+              <label class="required">Benefit in terms of learning/Skill/Knowledge obtained</label>
+              <input type="text" name="benefit" class="form-control">
               <div class="invalid-feedback">
                   Please enter valid details.
                 </div>
             </div>
+            <div class="col-md-6 mb-3">
+              <label class="required">Company Type</label>
+              <input type="text" name="Companytype" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
+            </div>
+            
+
+
           </div>
-          
-          
           <div class="row data-row">
+            
+            
             
 
             <div class="col-md-4 mb-3">
@@ -108,7 +125,7 @@
 
   <%- include ("../partials/footer") %>
 
-    <script  type="text/javascript" src="/js/date.js">
+   <script  type="text/javascript" src="/js/date.js">
     </script>
 
     </body>

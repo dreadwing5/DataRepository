@@ -2,73 +2,100 @@
 
   <div class="container-fluid">
     <section id="form">
-      <form id="myForm" class="needs-validation" novalidate action="/faculty/fac_JournalPaperPublication">
+      <form id="myForm" class="needs-validation" novalidate action="/faculty/fac_MoUs">
         <div class="container-fluid">
 
           <!-- Header Section -->
 
           <div class="row data-row">
             <div class="col-md-8 mb-3">
-              <h4 class="mb-3 title">Paper and Journal Publication Form</h4>
+              <h4 class="mb-3 title">MoUs</h4>
             </div>
             <div class="col-md-4 mb-3 report">
               <a href="/faculty/search" class="btn btn-sm btn-primary shadow-sm"><i
                   class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
             </div>
           </div>
+          
+
           <div class="row data-row">
 
             <div class="col-md-6 mb-3">
-              <label class="required">Publisher Name</label>
-              <input type="text" name="PublisherName" class="form-control">
+              <label class="required">Company Name</label>
+              <input type="text" name="companyName" class="form-control">
               <div class="invalid-feedback">
                   Please enter valid details.
                 </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label class="required">Title of the Paper</label>
-              <input type="text" name="title" class="form-control">
+              <label class="required">Company Address</label>
+              <input type="text" name="address" class="form-control">
               <div class="invalid-feedback">
                   Please enter valid details.
                 </div>
             </div>
           </div>
-
           <div class="row data-row">
 
             <div class="col-md-6 mb-3">
-              <label class="required">ISBN Number</label>
-              <input type="text" name="isbn" class="form-control">
+              <label for="date" class="required">Start Date</label>
+              <input type="date" name="startDate" class="form-control" onchange="setDate()">
               <div class="invalid-feedback">
                   Please enter valid details.
                 </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label class="required">ISSN Number</label>
-              <input type="text" name="issn" class="form-control">
-              <div class="invalid-feedback">
-                  Please enter valid details.
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label class="required">Volume Number</label>
-              <input type="text" name="volumeNumber" class="form-control">
-              <div class="invalid-feedback">
-                 Please enter valid details.
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label class="required">Name of Journal/Conference</label>
-              <input type="text" name="nameOfJournal" class="form-control">
+              <label for="date" class="required">End Date</label>
+              <input type="date" name="endDate" class="form-control eDate">
               <div class="invalid-feedback">
                   Please enter valid details.
                 </div>
             </div>
           </div>
-          
-          
           <div class="row data-row">
             
+            <div class="col-md-6 mb-3">
+              <label class="required">Collaboration Title</label>
+              <input type="text" name="collaborationTitle" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
+            </div>
+            
+            
+            <div class="col-md-6 mb-3">
+              <label class="required">Objectives</label>
+              <input type="text" name="objectives" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="required">Benefit in terms of learning/Skill/Knowledge obtained</label>
+              <input type="text" name="benefit" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
+            </div>
+            
+
+
+          </div>
+          <div class="row data-row">
+            
+            
+            <div class="col-md-4 mb-3">
+              <label class="required">National/International</label>
+              <select name="level" class="custom-select d-block w-100">
+                <option value="">Choose...</option>
+                <option>National</option>
+                <option>International</option>
+                
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid type.
+              </div>
+            </div>
 
             <div class="col-md-4 mb-3">
               <label class="required">COE</label>

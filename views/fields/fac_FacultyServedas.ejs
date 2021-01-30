@@ -2,14 +2,14 @@
 
   <div class="container-fluid">
     <section id="form">
-      <form id="myForm" class="needs-validation" novalidate action="/faculty/fac_JournalPaperPublication">
+      <form id="myForm" class="needs-validation" novalidate action="/faculty/fac_FacultyServedas">
         <div class="container-fluid">
 
           <!-- Header Section -->
 
           <div class="row data-row">
             <div class="col-md-8 mb-3">
-              <h4 class="mb-3 title">Paper and Journal Publication Form</h4>
+              <h4 class="mb-3 title">Faculty Served As</h4>
             </div>
             <div class="col-md-4 mb-3 report">
               <a href="/faculty/search" class="btn btn-sm btn-primary shadow-sm"><i
@@ -19,57 +19,64 @@
           <div class="row data-row">
 
             <div class="col-md-6 mb-3">
-              <label class="required">Publisher Name</label>
-              <input type="text" name="PublisherName" class="form-control">
+              <label class="required">University/College Name</label>
+              <input type="text" name="college_university_name" class="form-control">
               <div class="invalid-feedback">
                   Please enter valid details.
                 </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label class="required">Title of the Paper</label>
-              <input type="text" name="title" class="form-control">
+              <label class="required">Event Name</label>
+              <input type="text" name="Eventname" class="form-control">
               <div class="invalid-feedback">
                   Please enter valid details.
                 </div>
             </div>
           </div>
 
+          
           <div class="row data-row">
 
             <div class="col-md-6 mb-3">
-              <label class="required">ISBN Number</label>
-              <input type="text" name="isbn" class="form-control">
+              <label for="date" class="required">Start Date</label>
+              <input type="date" name="startDate" class="form-control" onchange="setDate()">
               <div class="invalid-feedback">
                   Please enter valid details.
                 </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label class="required">ISSN Number</label>
-              <input type="text" name="issn" class="form-control">
-              <div class="invalid-feedback">
-                  Please enter valid details.
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label class="required">Volume Number</label>
-              <input type="text" name="volumeNumber" class="form-control">
+              <label for="date" class="required">End Date</label>
+              <input type="date" name="endDate" class="form-control eDate">
               <div class="invalid-feedback">
                  Please enter valid details.
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
-              <label class="required">Name of Journal/Conference</label>
-              <input type="text" name="nameOfJournal" class="form-control">
-              <div class="invalid-feedback">
-                  Please enter valid details.
-                </div>
-            </div>
           </div>
           
-          
           <div class="row data-row">
+            <div class="col-md-4 mb-3">
+              <label class="required">Served As</label>
+              <select name="servedAs" class="custom-select d-block w-100" id="selectBox" onChange="changeFunc();">
+                <option value="">Choose...</option>
+                <option>BOE</option>
+                <option>BOS</option>
+                <option>Chairpersons</option>
+                <option>Evaluations</option>
+                <option>Experts</option>
+                <option>External DCS</option>
+                <option>Journal Reviewer</option>
+                <option>Resource Persons</option>
+                
+                
+                <option value="others">Others</option>
+                <input name="activityType" placeholder="Mention Here..." class="form-control other-text" type="text"
+                  style="display: none" id="textboxes">
+                <div class="invalid-feedback">
+                  Please select a valid type.
+                </div>
+              </select>
+            </div>
             
-
             <div class="col-md-4 mb-3">
               <label class="required">COE</label>
 
@@ -81,6 +88,8 @@
                   Please select a valid type.
                 </div>
             </div>
+
+            
           </div>
           <label class="required">Description</label><br>
 
