@@ -4,8 +4,6 @@ const connection = require("../configs/DBConnection");
 
 router.post("/students/:module", (req, res) => {
   const module = req.params.module;
-  console.log(module);
-
   connection.query(
     `INSERT INTO ${module} SET ?`,
     req.body,
