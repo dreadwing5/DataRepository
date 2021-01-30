@@ -36,15 +36,19 @@ function submitForm(event) {
   }
   formData.append("description", description);
 
-  if (formData.get("category")) {
-    if (formData.get("category") === "others") {
-      formData.set("category", document.querySelector(".other-text").value);
-    } else {
-      formData.set(
-        "category",
-        document.querySelector("select[name='category']").value
-      );
-    }
+  const categoryName = document
+    .getElementById("selectBox")
+    ?.getAttribute("name");
+  if (categoryName) {
+    const category = document.querySelector(`select[name=${categoryName}]`)
+      .value;
+
+    //Check for others
+    const categoryValue =
+      category === "others"
+        ? document.querySelector(".other-text").value
+        : category;
+    formData.set(categoryName, categoryValue);
   }
 
   const object = {};
@@ -68,6 +72,8 @@ function submitForm(event) {
   month++;
   object.filterDate =
     year.toString() + "-" + month.toString() + "-" + day.toString();
+
+  console.log(object);
 
   const url = myForm.action;
   axios({
