@@ -1,6 +1,8 @@
 # DataRepository
 
 ## TODO : 
-  1.Add All option in report generation\
-  2.UI Update for adding more fields (Show Modal box/Seperate Page)\
-  3.Add Search option for searching through various modules
+ ### Add All option in report generation\
+ ### UI Update for adding more fields (Show Modal box/Seperate Page)\
+ ### Add Search option for searching through various modules\
+ ### Create tables for new fileds
+ ### Show error if data couldn't submitted
