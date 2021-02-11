@@ -1,69 +1,64 @@
 const express = require("express");
 const router = express.Router();
 const connection = require("../configs/DBConnection");
-const {
-  ensureAuthenticated,
-  forwardAuthenticated,
-} = require("../configs/auth");
-const multer = require("multer");
 
-router.get("/", ensureAuthenticated, (req, res) => {
+router.get("/", (req, res) => {
   res.render("home", {
-    Username: req.user.name,
+    Username: "test",
   });
 });
 
 //Faculty Routes
 
-router.get("/faculty/eventsAttended", ensureAuthenticated, (req, res) => {
+router.get("/faculty/eventsAttended", (req, res) => {
   res.render("fields/fac_eventsAttended", {
     title: "Events",
     module: "Faculty",
-    Username: req.user.name,
+    Username: "test",
   });
 });
 
 // Faculty Club Activities Page
-router.get("/faculty/clubActivities", ensureAuthenticated, (req, res) => {
+router.get("/faculty/clubActivities", (req, res) => {
   res.render("fields/fac_clubActivities", {
     title: "Club",
     module: "Faculty",
-    Username: req.user.name,
+    Username: "test",
   });
 });
 
 // Faculty Awards Page
-router.get("/faculty/awards", ensureAuthenticated, (req, res) => {
+router.get("/faculty/awards", (req, res) => {
   res.render("fields/fac_awards", {
     title: "Awards",
     module: "Faculty",
-    Username: req.user.name,
+    Username: "test",
   });
 });
 
 //Student Routes
 
-router.get("/students/eventsAttended", ensureAuthenticated, (req, res) => {
+router.get("/students/eventsAttended", (req, res) => {
   res.render("fields/stu_eventsAttended", {
     title: "Events",
     module: "Student",
-    Username: req.user.name,
+    Username: "test",
   });
 });
 
-router.get("/students/awards", ensureAuthenticated, (req, res) => {
+router.get("/students/awards", (req, res) => {
   res.render("fields/stu_awards", {
     title: "Awards",
     module: "Student",
-    Username: req.user.name,
+    Username: "test",
   });
 });
 
-router.get("/students/placement", ensureAuthenticated, (req, res) => {
+router.get("/students/placement", (req, res) => {
   res.render("fields/stu_placement", {
     title: "Placement",
     module: "Student",
-    Username: req.user.name,
+    Username: "test",
   });
 });
 

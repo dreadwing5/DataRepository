@@ -1,26 +1,22 @@
 const express = require("express");
 const router = express.Router();
 const connection = require("../configs/DBConnection");
-const {
-  ensureAuthenticated,
-  forwardAuthenticated,
-} = require("../configs/auth");
 
 //Route for Student Report Generation
-router.get("/students/search", ensureAuthenticated, (req, res) => {
+router.get("/students/search", (req, res) => {
   res.render("report/stu_search", {
     module: "Student",
     title: "",
-    Username: req.user.name,
+    Username: "test",
   });
 });
 
-//Route for Faculty FacReport Generation
-router.get("/faculty/search", ensureAuthenticated, (req, res) => {
+//Route for Faculty Report Generation
+router.get("/faculty/search", (req, res) => {
   res.render("report/fac_search", {
     title: "",
     module: "Faculty",
-    Username: req.user.name,
+    Username: "test",
   });
 });
 
