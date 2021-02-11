@@ -50,8 +50,12 @@
           <div class="row data-row">
             <div class="col-md-6 mb-3">
               <label class="required">Drive Date</label>
-              <input type="date" class="form-control" name="date" onchange="setDate()">
+              <input type="date" class="form-control" name="date" onchange="setDate()" required>
             </div>
+            <div class="invalid-feedback">
+              Valid Date is required.
+            </div>
+
             <div class="col-md-6 mb-3">
               <label class="required">Drive Type</label>
               <select class="custom-select d-block w-100" name="driveType">

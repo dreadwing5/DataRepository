@@ -26,12 +26,6 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 
 
@@ -59,10 +53,10 @@
                 <div class="sidebar-brand-icon">
 
                     <%if (module==='Student' ) {%>
-                        <i class="fas fa-user-graduate"></i>
-                        <% } else { %>
-                            <i class="fas fa-chalkboard-teacher"></i>
-                            <% } %>
+                    <i class="fas fa-user-graduate"></i>
+                    <% } else { %>
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <% } %>
                 </div>
                 <div class=" sidebar-brand-text mx-3">
                     <%=module%>
@@ -75,55 +69,52 @@
             <!-- Render only on Student Module -->
 
             <%if (module==='Student' ) {%>
-                <li <% if (title==='Awards' ) { %> class="nav-item active" <% } else { %> class="nav-item" <% } %>>
-                            <a class="nav-link" href="/students/Awards">
-                                <i class="fas fa-trophy"></i>
-                                <span>Awards</span></a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/students/Awards">
+                    <i class="fas fa-trophy"></i>
+                    <span>Awards</span></a>
+            </li>
 
 
 
-                <li <% if (title==='Placement' ) { %> class="nav-item active" <% } else { %> class="nav-item" <% } %>>
-                            <a class="nav-link" href="/students/placement">
-                                <i class="fas fa-graduation-cap"></i>
-                                <span>Placement</span></a>
-                </li>
-                <li <% if (title==='Events' ) { %> class="nav-item active" <% } else { %> class="nav-item" <% } %>>
-                            <a class="nav-link" href="/students/eventsAttended">
-                                <i class="fas fa-calendar-check"></i>
-                                <span>Events Attended</span></a>
-                </li>
-                <% } %>
+            <li class="nav-item">
+                <a class="nav-link" href="/students/placement">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Placement</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/students/eventsAttended">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Events Attended</span></a>
+            </li>
+            <% } %>
 
-                    <!-- Render only on Faculty module -->
+            <!-- Render only on Faculty module -->
 
-                    <%if (module==='Faculty' ) {%>
-                        <li <% if (title==='Awards' ) { %> class="nav-item active" <% } else { %> class="nav-item" <% }
-                                    %>>
-                                    <a class="nav-link" href="/faculty/Awards">
-                                        <i class="fas fa-trophy"></i>
-                                        <span>Awards</span></a>
-                        </li>
+            <%if (module==='Faculty' ) {%>
+            <li class="nav-item">
+                <a class="nav-link" href="/faculty/Awards">
+                    <i class="fas fa-trophy"></i>
+                    <span>Awards</span></a>
+            </li>
 
-                        <li <% if (title==='Club' ) { %> class="nav-item active" <% } else { %> class="nav-item" <% } %>
-                                    >
-                                    <a class="nav-link" href="/faculty/clubActivities">
-                                        <i class="fas fa-users"></i>
-                                        <span>Club Activities</span></a>
-                        </li>
-                        <li <% if (title==='Events' ) { %> class="nav-item active" <% } else { %> class="nav-item" <% }
-                                    %>>
-                                    <a class="nav-link" href="/faculty/eventsAttended">
-                                        <i class="fas fa-calendar-check"></i>
-                                        <span class="sidebar-text">Events Attended</span></a>
-                        </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/faculty/clubActivities">
+                    <i class="fas fa-users"></i>
+                    <span>Club Activities</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/faculty/eventsAttended">
+                    <i class="fas fa-calendar-check"></i>
+                    <span class="sidebar-text">Events Attended</span></a>
+            </li>
 
 
-                        <%} %>
-                            <!-- Sidebar Toggler (Sidebar) -->
-                            <div class="text-center d-none d-md-inline sidebar-button">
-                                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-                            </div>
+            <%} %>
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline sidebar-button">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
 
 
         </ul>
