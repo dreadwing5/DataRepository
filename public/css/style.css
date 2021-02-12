@@ -5894,6 +5894,7 @@ a.close.disabled {
   outline: 0;
 }
 
+
 .modal-dialog {
   position: relative;
   width: auto;
@@ -12289,4 +12290,85 @@ body.sidebar-toggled footer.sticky-footer {
 
 .description {
   margin-top: 20px;
+}
+
+/* Modal Window */
+
+.nav-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 5rem 3rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 15px;
+  z-index: 1000;
+  transition: all 0.5s;
+  height: 800px;
+  width : 450px;
+  overflow-y: auto;
+
+}
+
+.nav__hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  transition: all 0.5s;
+}
+
+.btn--close-modal {
+  font-family: inherit;
+  color: inherit;
+  position: absolute;
+  top: 0.5rem;
+  right: 2rem;
+  font-size: 3rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.items-body {
+  padding: 10px;
+  margin: 10px;
+  display: grid;
+  grid-gap: 10px;
+}
+
+.items-body-content {
+  padding: 10px;
+  padding-right: 0px;
+  display: grid;
+  grid-template-columns: 10fr 1fr;
+  font-size: 15px;
+  grid-gap: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.items-body-content:hover {
+  border-radius: 15px;
+  border: 1px solid #0B5AA2;
+}
+
+.items-body-content i {
+  color: #0B5AA2;
+  font-weight: bold;
+}
+
+.nav-modal .items-body-content .nav-link span{
+font-size: 1rem;
+font-family: "Ubuntu", sans-serif;
+color: #264653;
 }
