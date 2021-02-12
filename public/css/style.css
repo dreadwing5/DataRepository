@@ -12300,7 +12300,7 @@ body.sidebar-toggled footer.sticky-footer {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #ffffff;
-  padding: 5rem 3rem;
+  padding: 5rem 2rem;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   border-radius: 15px;
   z-index: 1000;
@@ -12371,4 +12371,9 @@ body.sidebar-toggled footer.sticky-footer {
 font-size: 1rem;
 font-family: "Ubuntu", sans-serif;
 color: #264653;
+}
+
+.nav__search{
+  position: absolute;
+  top: 2rem;
 }
