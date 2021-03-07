@@ -42,9 +42,44 @@ router.post("/search", (req, res) => {
   //All should  look for all the table in database
 
   if (req.body.event == "all") {
-    res.json({
-      message: "All field is under development",
-    });
+    let sql = `select table_name from information_schema.tables where table_schema="data_repository"`;
+    connection.query(sql,(err,result,fields)=>{
+      if(err) throw err;
+      // console.log(result);
+      let tables = [];
+      result.forEach(res=>{
+        let table = res.table_name;
+        let cn = 0;
+        for(let i=0;i<table.length;i++){
+          if(table[i]=='_')
+            cn++;
+        }
+
+        if(table[0]=='f' && cn>0){
+          tables.push(table);
+        }
+      })
+      // tables.forEach((res,i)=>{
+      //   console.log(res)
+      // })
+
+
+      tables.forEach(table=>{
+        let sql = `Select * from ${table}`;
+        console.log(table)
+        connection.query(sql,(err,result,fields)=>{
+          if(err)  throw err;
+
+          console.log(result);
+        })
+      })
+
+
+      res.json({
+        message: "All field is under development",
+      });
+    })
+   
     return;
   }
   let sql = `Select * from ${event} Where (filterDate BETWEEN ? AND ?)`;
