@@ -63,21 +63,70 @@ router.post("/search", (req, res) => {
       //   console.log(res)
       // })
 
-
-      tables.forEach(table=>{
+      let data = []
+      eventName = []
+      tables.forEach((table,i)=>{
+        eventName.push(
+          table.charAt(4).toUpperCase() +
+          table.slice(5).replace(/([a-z])([A-Z])/g, "$1 $2")
+        )
         let sql = `Select * from ${table}`;
         console.log(table)
         connection.query(sql,(err,result,fields)=>{
           if(err)  throw err;
 
-          console.log(result);
+          // console.log(result);
+
+          let datatemp = [];
+          let detailsReq = true;
+          result.forEach((res) => {
+            if (res.department == null) {
+              res.department = "NULL";
+            }
+            if (req.body.details == "false") {
+              delete res.description;
+              detailsReq = false;
+            }
+            delete res.filterDate;
+            if (
+              (res.department == "NULL" || dept == "ALL" || res.department == dept) &&
+              (COE == "All" || COE == res.COE)
+            ) {
+              datatemp.push(res);
+            }
+          });
+        
+        // console.log(datatemp)
+        data.push(datatemp)
+        if(i==tables.length-1){
+
+          console.log(eventName)
+          if (detailsReq) {
+            res.render("report/full_report", {
+              module: module,
+              data: data,
+              event: eventName,
+            });
+          } else {
+            res.render("report/report_without_desc", {
+              module: module,
+              data: data,
+              event: eventName,
+            });
+          }
+          
+          // res.json({
+          //   message: "All field is under development",
+          // });
+        }
         })
       })
+      // console.log('data',data)
 
 
-      res.json({
-        message: "All field is under development",
-      });
+      
+
+     
     })
    
     return;
@@ -113,6 +162,10 @@ router.post("/search", (req, res) => {
 
     //Check for Details req
 
+    module = [module];
+    eventName = [eventName];
+    console.log(module,eventName);
+    data = [data]
     if (detailsReq) {
       res.render("report/full_report", {
         module: module,
