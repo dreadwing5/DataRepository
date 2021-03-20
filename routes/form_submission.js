@@ -21,6 +21,7 @@ router.post("/students/:module", (req, res) => {
 router.post("/faculty/:module", (req, res) => {
   const module = req.params.module;
   console.log(module)
+  console.table(req.body)
   connection.query(
     `INSERT INTO ${module} SET ?`,
     req.body,
