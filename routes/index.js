@@ -77,15 +77,6 @@ router.get("/faculty/bookpublications", ensureAuthenticated, (req, res) => {
   });
 });
 
-// Faculty Book Publications Page
-router.get("/faculty/bookpublications", ensureAuthenticated, (req, res) => {
-  res.render("fields/fac_BookPublications", {
-    title: "Book Publications",
-    module: "Faculty",
-    Username: req.user.name,
-  });
-});
-
 // Faculty Consultancy Page
 router.get("/faculty/consultancy", ensureAuthenticated, (req, res) => {
   res.render("fields/fac_consultancy", {
