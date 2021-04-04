@@ -1,6 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const connection = require("../configs/DBConnection");
+
+function formatDate(date) { 
+  let d=new Date(date), month='' + (d.getMonth() + 1), day='' + d.getDate(), year=d.getFullYear();
+  if (month.length < 2) month='0' + month; if (day.length < 2)
+    day='0' + day; 
+  return [day, month, year].join('/'); }
+
 const {
   ensureAuthenticated,
   forwardAuthenticated,
@@ -80,6 +87,11 @@ router.post("/search", (req, res) => {
           let datatemp = [];
           let detailsReq = true;
           result.forEach((res) => {
+            for(let key in res){
+              if(key.includes('date') || key.includes('Date')){
+                res[key] = formatDate(res[key])
+              }
+            }
             if (res.department == null) {
               res.department = "NULL";
             }
@@ -138,6 +150,11 @@ router.post("/search", (req, res) => {
     let data = [];
     let detailsReq = true;
     result.forEach((res, i) => {
+      for(let key in res){
+        if(key.includes('date') || key.includes('Date')){
+          res[key] = formatDate(res[key])
+        }
+      }
       if (res.department == null) {
         res.department = "NULL";
       }

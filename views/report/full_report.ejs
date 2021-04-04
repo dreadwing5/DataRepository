@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Student Report</title>
+    <title> Report</title>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
         integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
@@ -86,7 +86,7 @@
                                                                     <%if(key==='date'|| key==='fromDate' || key==='startDate'
                                                                         ||key==='endDate' ) {%>
                                                                         <td>
-                                                                            <%=formatDate(value)%>
+                                                                            <%= value %>
                                                                         </td>
                                                                         <% function formatDate(date) { let d=new Date(date), month='' +
                                                                             (d.getMonth() + 1), day='' + d.getDate(), year=d.getFullYear();
