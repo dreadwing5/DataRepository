@@ -65,6 +65,8 @@
                                                                 </th>
                                                                 <%}%>
                                                                     <% }) %>
+                                                    <th scope="col">Edit</th>
+                                                    <th scope="col">Delete</th>
                                                 </tr>
                     
                                             </thead>
@@ -114,6 +116,12 @@
                                                                                 <%}%>
                     
                                                                                     <% }) %>
+                                                                        <td>
+                                                                            <button data-id1="<%=j%>" data-id2="<%=i%>" data-mod = "<%=event%>" class="btn btn-primary edit-entry">Edit</button>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button class="btn btn-danger delete-entry">Delete</button>
+                                                                        </td>
                     
                                                     </tr>
                     
@@ -149,7 +157,30 @@
         </div>
        
     </div>
-
+    <script>
+        let editBtn = document.querySelectorAll('.edit-entry');
+        Array.from(editBtn,eb=>{
+            eb.addEventListener('click',(e)=>{
+                let ele = e.target;
+                // console.log(ele);
+                let id1 = (ele.dataset.id1);
+                let id2 = ele.dataset.id2;
+                console.log(ele.dataset.mod);
+                id2-=2;
+                let obj = JSON.parse('<%- JSON.stringify(data) %>');
+                console.log(obj[id1][id2]);
+                delete obj[id1][id2]
+                data = obj;
+                console.log(obj[id1])
+                // location.reload();
+                // location.href = location.href;
+                // console.log(data)
+                // console.log(document.body)
+                // console.log(request.body)
+                
+            })
+        })
+    </script>
 </body>
 
 </html>

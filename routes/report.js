@@ -33,6 +33,8 @@ router.get("/faculty/search", ensureAuthenticated, (req, res) => {
 
 //Filter Data and Print for both Faculty & Student
 router.post("/search", (req, res) => {
+  console.log('inside');
+  console.log(req.body)
   let module = req.body.moduleName;
   let event = "stu_" + req.body.event;
   if (module === "Faculty") {
@@ -78,7 +80,7 @@ router.post("/search", (req, res) => {
           table.slice(5).replace(/([a-z])([A-Z])/g, "$1 $2")
         )
         let sql = `Select * from ${table}`;
-        console.log(table)
+        // console.log(table)
         connection.query(sql,(err,result,fields)=>{
           if(err)  throw err;
 
@@ -112,7 +114,7 @@ router.post("/search", (req, res) => {
         data.push(datatemp)
         if(i==tables.length-1){
 
-          console.log(eventName)
+          // console.log(eventName)
           if (detailsReq) {
             res.render("report/full_report", {
               module: module,
