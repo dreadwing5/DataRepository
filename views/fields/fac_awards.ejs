@@ -122,6 +122,38 @@
             </div>
           </div>
           <div class="col-md-6 mb-3">
+            <label class="required">Result</label>
+            <select name="result" class="custom-select d-block w-100">
+              <option value="">Choose...</option>
+              <option>Winner</option>
+              <option>Participated</option>
+              
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid type.
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="required">Semester</label>
+            <select name="sem" class="custom-select d-block w-100">
+              <option value="">Choose...</option>
+              <option>I Sem</option>
+              <option>II Sem</option>
+              <option>III Sem</option>
+              <option>IV Sem</option>
+              <option>V Sem</option>
+              <option>VI Sem</option>
+              <option>VII Sem</option>
+              <option>VIII Sem</option>
+              
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid type.
+            </div>
+          </div>
+          
+          <div class="col-md-6 mb-3">
             <label class="required">COE</label>
 
             <%- include ("../partials/coe") %>

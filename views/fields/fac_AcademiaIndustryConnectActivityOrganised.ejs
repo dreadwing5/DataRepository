@@ -129,7 +129,7 @@
 
           </div>
           <div class="row data-row">
-            <div class="col-md-4 mb-3">
+            <div class="col-md-6 mb-3">
               <label class="required">Event</label>
               <select name="activityType" class="custom-select d-block w-100" id="selectBox" onChange="changeFunc();">
                 <option value="">Choose...</option>
@@ -154,7 +154,7 @@
                 </div>
               </select>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="col-md-6 mb-3">
               <label class="required">Event Level</label>
               <select name="level" class="custom-select d-block w-100">
                 <option value="">Choose...</option>
@@ -166,20 +166,11 @@
                 Please select a valid type.
               </div>
             </div>
-            <div class="col-md-4 mb-3">
-              <label class="required">National/International</label>
-              <select name="level" class="custom-select d-block w-100">
-                <option value="">Choose...</option>
-                <option>National</option>
-                <option>International</option>
-                
-              </select>
-              <div class="invalid-feedback">
-                Please select a valid type.
-              </div>
-            </div>
+            
+          </div>
+          <div class="row data-row">
 
-            <div class="col-md-4 mb-3">
+            <div class="col-md-6 mb-3">
               <label class="required">COE</label>
 
               <!-- COE  -->
@@ -190,15 +181,20 @@
                   Please select a valid type.
                 </div>
             </div>
+            <div class="col-md-6 mb-3">
+              <label class="required">Type of Event</label>
+              <select name="level" class="custom-select d-block w-100">
+                <option value="">Choose...</option>
+                <option>National</option>
+                <option>International</option>
+                
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid type.
+              </div>
+            </div>
           </div>
-          <label class="required">Event Description</label><br>
-
-          <div name="description" id="editor">
-            <p>This is the editor content.</p>
-            <div class="invalid-feedback">
-                  Please enter valid details.
-                </div>
-          </div>
+         
 
           <%- include ("../partials/description") %>
 

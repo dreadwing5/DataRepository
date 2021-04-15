@@ -37,7 +37,7 @@ let seeddb = async () => {
   });
 
   sql =
-    "Create Table fac_awards(id varchar(255), category varchar(255),department varchar(255), filterDate Date, level varchar(255), eventName varchar(255), awardedBy varchar(255), status varchar(255), date Date, description text, COE varchar(255))";
+    "Create Table fac_awards(id varchar(255), category varchar(255),department varchar(255), filterDate Date, level varchar(255), eventName varchar(255), awardedBy varchar(255),sem varchar(255), result varchar(255), status varchar(255), date Date, description text, COE varchar(255))";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Awards Table created successfully");
@@ -58,7 +58,7 @@ let seeddb = async () => {
   });
 
   sql =
-    "Create Table fac_BookPublications(id varchar(255), PublisherName varchar(255), BookName varchar(255), isbn varchar(255), volumeNumber varchar(255), Date Date, COE varchar(255), description text, filterDate Date)";
+    "Create Table fac_BookPublications(id varchar(255), rc-id varchar(255), PublisherName varchar(255), BookName varchar(255), isbn varchar(255), volumeNumber varchar(255), doi varchar(255),Date Date, COE varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Book Publications Table created successfully");
@@ -93,7 +93,7 @@ let seeddb = async () => {
   });
 
   sql =
-    "Create Table fac_consultancy(id varchar(255), NameofPI varchar(255), COtoPI varchar(255), sanctionedDate Date, duration varchar(255), topic varchar(255), amount varchar(255), objectives text, benefit text, AgencyName varchar(255), level varchar(255), COE varchar(255), description text, filterDate Date)";
+    "Create Table fac_consultancy(id varchar(255), NameofPI varchar(255), COtoPI varchar(255), sanctionedDate Date,grantDate Date, duration varchar(255), topic varchar(255), amount varchar(255), objectives text, benefit text, AgencyName varchar(255), level varchar(255), COE varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Consultancy Table created successfully");
@@ -107,14 +107,14 @@ let seeddb = async () => {
   }); 
 
   sql =
-    "Create Table fac_FOSScell(id varchar(255), eventName varchar(255), duration varchar(255), topic varchar(255), companyName varchar(255), address text, startDate Date, endDate Date, resourcePerson varchar(255), designation varchar(255), expenditure varchar(255), fundedBy varchar(255), participantsNum varchar(255), activityType varchar(255), level varchar(255), description text, filterDate Date)";
+    "Create Table fac_FOSScell(id varchar(255), eventName varchar(255), duration varchar(255), topic varchar(255), companyName varchar(255), address text, startDate Date, endDate Date, resourcePerson varchar(255), designation varchar(255), expenditure varchar(255), fundedBy varchar(255), participantsNum varchar(255), activityType varchar(255), level varchar(255),COE varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("FOSS Cell Table created successfully");
   }); 
 
   sql =
-    "Create Table fac_EEandC(id varchar(255), topic varchar(255), duration varchar(255), companyName varchar(255), address text, startDate Date, endDate Date, resourcePerson varchar(255), designation varchar(255), expenditure varchar(255), fundedBY varchar(255), participantsNum varchar(255), objectives text, benefit text, semester varchar(255), activityType varchar(255), level varchar(255), description text, filterDate Date)";
+    "Create Table fac_EEandC(id varchar(255), topic varchar(255), duration varchar(255), companyName varchar(255), address text, startDate Date, endDate Date, resourcePerson varchar(255), designation varchar(255), expenditure varchar(255), fundedBY varchar(255), participantsNum varchar(255), objectives text, benefit text, semester varchar(255), activityType varchar(255), COE varchar(255), level varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("EE&C Table created successfully");
@@ -128,28 +128,28 @@ let seeddb = async () => {
   }); 
 
   sql =
-    "Create Table fac_ideaRepository(id varchar(255), COE varchar(255), description text, filterDate Date)";
+    "Create Table fac_ideaRepository(id varchar(255), ideadate Date, COE varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Idea Repository Table created successfully");
   }); 
 
   sql =
-    "Create Table fac_IQACdata(id varchar(255), topic varchar(255), duration varchar(255), companyName varchar(255), address text, startDate Date, endDate Date, resourcePerson varchar(255), designation varchar(255), expenditure varchar(255), fundedBy varchar(255), participantsNum varchar(255), objectives text, benefit text, semester varchar(255), activityType varchar(255), level varchar(255), description text, filterDate Date)";
+    "Create Table fac_IQACdata(id varchar(255), topic varchar(255), duration varchar(255), companyName varchar(255), address text, startDate Date, endDate Date, resourcePerson varchar(255), designation varchar(255), expenditure varchar(255), fundedBy varchar(255), participantsNum varchar(255), objectives text, benefit text, semester varchar(255), activityType varchar(255),COE varchar(255), level varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("IQAC Data Table created successfully");
   }); 
 
   sql =
-    "Create Table fac_JournalPaperPublication(id varchar(255), PublisherName varchar(255), title varchar(255), isbn varchar(255), issn varchar(255), volumeNumber varchar(255), nameOfJournal varchar(255), COE varchar(255), description text, filterDate Date)";
+    "Create Table fac_JournalPaperPublication(id varchar(255),rc-id varchar(255),type varchar(255), PublisherName varchar(255), title varchar(255), isbn varchar(255), issn varchar(255), volumeNumber varchar(255), nameOfJournal varchar(255), COE varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Journal Paper Publication Table created successfully");
   }); 
 
   sql =
-    "Create Table fac_MOOCcourse(id varchar(255), Nameofdepartment varchar(255), duration varchar(255), status varchar(255), startdate Date, enddate Date, topic varchar(255), level varchar(255), description text, filterDate Date)";
+    "Create Table fac_MOOCcourse(id varchar(255) department varchar(255), Nameofdepartment varchar(255), duration varchar(255), status varchar(255), startdate Date, enddate Date, topic varchar(255), level varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("MOOC Course Table created successfully");
@@ -163,7 +163,7 @@ let seeddb = async () => {
   });
 
   sql =
-    "Create Table fac_patent(id varchar(255), NameofPI varchar(255), COtoPI varchar(255), grantDate Date, submissionDate Date, duration varchar(255), topic varchar(255), submissionName varchar(255), amount varchar(255), objectives text, benefit text, AgencyName varchar(255), earning varchar(255), level varchar(255), COE varchar(255), description text, filterDate Date)";
+    "Create Table fac_patent(id varchar(255), NameofPI varchar(255), COtoPI varchar(255), grantDate Date, submissionDate Date, duration varchar(255), topic varchar(255), submissionName varchar(255), amount varchar(255), objectives text, benefit text, AgencyName varchar(255), earning varchar(255), level varchar(255),specification varchar(255),status varchar(255),commercialised varchar(255),  COE varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Patent Table created successfully");
@@ -177,7 +177,7 @@ let seeddb = async () => {
   });
 
   sql =
-    "Create Table fac_ProfessionalBodies(id varchar(255), topic varchar(255), duration varchar(255), companyName varchar(255), address text, startDate Date, endDate Date, resourcePerson varchar(255), designation varchar(255), expenditure varchar(255), fundedBy varchar(255), participantsNum varchar(255), objectives text, benefit text, semester varchar(255), activityType varchar(255), level varchar(255), description text, filterDate Date)";
+    "Create Table fac_ProfessionalBodies(id varchar(255), topic varchar(255), duration varchar(255), companyName varchar(255), address text, startDate Date, endDate Date, resourcePerson varchar(255), designation varchar(255), expenditure varchar(255), fundedBy varchar(255), participantsNum varchar(255), objectives text, benefit text, semester varchar(255), activityType varchar(255),COE varchar(255), level varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Professional Bodies Table created successfully");
@@ -191,14 +191,14 @@ let seeddb = async () => {
   });
 
   sql =
-    "Create Table fac_slowlearnerinitiative(id varchar(255), subjectName varchar(255), topic varchar(255), subjectCode varchar(255), startDate Date, endDate Date, activityType varchar(255), level varchar(255), description text, filterDate Date)";
+    "Create Table fac_slowlearnerinitiative(id varchar(255), subjectName varchar(255), topic varchar(255), subjectCode varchar(255), startDate Date, endDate Date, count varchar(255),department varchar(255), activityType varchar(255), level varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Slow Learner Initiative Table created successfully");
   });
 
   sql =
-    "Create Table fac_SponsoredResearchProjects(id varchar(255), NameofPI varchar(255), COtoPI varchar(255), sanctionDate Date, submissionDate Date, title varchar(255), proposedAmount varchar(255), durationYear varchar(255), amount varchar(255), objectives text, benefit text, AgencyName varchar(255), received varchar(255), level varchar(255), COE varchar(255), description text, filterDate Date)";
+    "Create Table fac_SponsoredResearchProjects(id varchar(255), NameofPI varchar(255), COtoPI varchar(255), sanctionDate Date, submissionDate Date,rcid varchar(255),status varchar(255), title varchar(255), proposedAmount varchar(255), durationYear varchar(255), amount varchar(255), objectives text, benefit text, AgencyName varchar(255), received varchar(255), level varchar(255), COE varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Sponsored Research Projects Table created successfully");

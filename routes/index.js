@@ -195,7 +195,7 @@ router.get("/faculty/patent", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty PHD Details Page
-router.get("/faculty/pdhdetails", ensureAuthenticated, (req, res) => {
+router.get("/faculty/phddetails", ensureAuthenticated, (req, res) => {
   res.render("fields/fac_PhdDetails", {
     title: "PHD Details",
     module: "Faculty",

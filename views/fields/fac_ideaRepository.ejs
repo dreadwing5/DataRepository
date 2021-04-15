@@ -17,7 +17,31 @@
             </div>
           </div>
           
+          <div class="row data-row">
+            <div class="col-md-6 mb-3">
+              <label class="required">Faculty ID</label>
+              <select name="id" class="custom-select d-block w-100">
+                <option value="">Choose...</option>
+                <option>Faculty 1</option>
+                <option>Faculty 2</option>
+                
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid type.
+              </div>
+            </div>
 
+            <div class="col-md-6 mb-3">
+              <div class="form-group">
+                <label class="required">Date of Idea Generated</label>
+                <input type="date" name="ideadate" class="form-control" required>
+                <div class="invalid-feedback">
+                  Valid details required.
+                </div>
+              </div>
+            </div>
+
+          </div>
           <div class="row data-row">
             
             
@@ -33,14 +57,6 @@
                   Please select a valid type.
                 </div>
             </div>
-          </div>
-          <label class="required">Description</label><br>
-
-          <div name="description" id="editor">
-            <p>This is the editor content.</p>
-            <div class="invalid-feedback">
-                 Please enter valid details.
-                </div>
           </div>
 
           <%- include ("../partials/description") %>
