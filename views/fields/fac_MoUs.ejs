@@ -77,6 +77,71 @@
                   Please enter valid details.
                 </div>
             </div>
+
+            <div class="col-md-6 mb-3">
+              <label class="required">MoU Signed By</label>
+              <br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="SignedBy-CSE" value="CSE">
+                <label class="form-check-label">
+                  CSE
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="SignedBy-ISE" value="ISE">
+                <label class="form-check-label">
+                  ISE
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="SignedBy-CIVIL" value="CIVIL">
+                <label class="form-check-label">
+                  CIVIL
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="SignedBy-MECH" value="MECH">
+                <label class="form-check-label">
+                  MECH
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="SignedBy-ECE" value="ECE">
+                <label class="form-check-label">
+                  ECE
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="SignedBy-EEE" value="EEE">
+                <label class="form-check-label">
+                  EEE
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="SignedBy-BS" value="BS">
+                <label class="form-check-label">
+                  BS
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="SignedBy-MBA" value="MBA">
+                <label class="form-check-label">
+                  MBA
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="SignedBy-MCA" value="MCA">
+                <label class="form-check-label">
+                  MCA
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="SignedBy-TCE" value="TCE">
+                <label class="form-check-label">
+                  TCE
+                </label>
+              </div>
+            </div>
             
 
 
@@ -84,7 +149,7 @@
           <div class="row data-row">
             
             
-            <div class="col-md-4 mb-3">
+            <div class="col-md-6 mb-3">
               <label class="required">National/International</label>
               <select name="level" class="custom-select d-block w-100">
                 <option value="">Choose...</option>
@@ -97,7 +162,7 @@
               </div>
             </div>
 
-            <div class="col-md-4 mb-3">
+            <div class="col-md-6 mb-3">
               <label class="required">COE</label>
 
               <!-- COE  -->
@@ -109,14 +174,7 @@
                 </div>
             </div>
           </div>
-          <label class="required">Description</label><br>
-
-          <div name="description" id="editor">
-            <p>This is the editor content.</p>
-            <div class="invalid-feedback">
-                  Please enter valid details.
-                </div>
-          </div>
+          
 
           <%- include ("../partials/description") %>
 
