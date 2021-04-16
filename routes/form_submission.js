@@ -20,7 +20,6 @@ router.post("/students/:module", (req, res) => {
 
 router.post("/faculty/:module", (req, res) => {
   console.log(req.body);
-  let flag1=false;
   for(const p in req.body){
     console.log(p)
     if(p.includes('-')){
@@ -33,11 +32,8 @@ router.post("/faculty/:module", (req, res) => {
       else
         req.body[ele1]+=","+ele2;      
     }
-      flag1=true;
   } 
-  console.log(req.body);
-  res.send('done');
-  return;
+  // console.log(req.body);
   const module = req.params.module.toLowerCase();
   console.log(module)
   console.table(req.body)
