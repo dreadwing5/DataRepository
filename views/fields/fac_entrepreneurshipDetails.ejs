@@ -44,6 +44,17 @@
                  Please enter valid details.
                 </div>
             </div>
+            <div class="col-md-6 mb-3">
+              <label class="required">Faculty ID</label>
+              <select name="id" class="custom-select d-block w-100">
+                <option value="">Choose...</option>
+                <option>Faculty 1</option>
+                <option>Faculty 2</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid type.
+              </div>
+            </div>
             
           </div>
           <div class="row data-row">
@@ -87,7 +98,7 @@
             
             
 
-            <div class="col-md-4 mb-3">
+            <div class="col-md-6 mb-3">
               <label class="required">COE</label>
 
               <!-- COE  -->
@@ -98,15 +109,75 @@
                   Please select a valid type.
                 </div>
             </div>
-          </div>
-          <label class="required">Description</label><br>
 
-          <div name="description" id="editor">
-            <p>This is the editor content.</p>
-            <div class="invalid-feedback">
-                  Please enter valid details.
-                </div>
+            <div class="col-md-6 mb-3">
+              <label class="required">In Association with</label>
+              <br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="Association-CSE" value="CSE">
+                <label class="form-check-label">
+                  CSE
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="Association-ISE" value="ISE">
+                <label class="form-check-label">
+                  ISE
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="Association-CIVIL" value="CIVIL">
+                <label class="form-check-label">
+                  CIVIL
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="Association-MECH" value="MECH">
+                <label class="form-check-label">
+                  MECH
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="Association-ECE" value="ECE">
+                <label class="form-check-label">
+                  ECE
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="Association-EEE" value="EEE">
+                <label class="form-check-label">
+                  EEE
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="Association-BS" value="BS">
+                <label class="form-check-label">
+                  BS
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="Association-MBA" value="MBA">
+                <label class="form-check-label">
+                  MBA
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="Association-MCA" value="MCA">
+                <label class="form-check-label">
+                  MCA
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="Association-TCE" value="TCE">
+                <label class="form-check-label">
+                  TCE
+                </label>
+              </div>
+            </div>
           </div>
+
+          <%- include ("../partials/description") %>
+
           <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
               Submit</button>
           </div>

@@ -36,7 +36,6 @@
             <div class="col-md-8 mb-3">
                 <h4 class="mb-3 title">
                     <%=module%>
-                        <%=event%> Report
                 </h4>
             </div>
             <div class="col-md-4 mb-3 report">
@@ -48,56 +47,75 @@
                     Export as PDF</button>
             </div>
         </div>
+        <div>
+            <% event.forEach((event,j)=>{ %>
+                <div class="mb-5">
+                    <div>
+                        <h4 class="title">
+                            <p>
+                                <%=event%> Report
+                            </p>
+                        </h4>
+                    </div>
+                    <div>
+                        <table id="table-data" class="table" border="1">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <% Object.keys(data[j][0]).forEach(key=> { %>
+                                        <th class="table-header">
+                                            <%= key.charAt(0).toUpperCase() + key.slice(1).replace(/([a-z])([A-Z])/g, '$1 $2' );%>
+                                        </th>
+                
+                                        <% }) %>
+                                </tr>
+                            </thead>
+                
+                            <tbody>
+                                <%let i=1%>
+                                    <% data[j].forEach((obj)=>{ %>
+                
+                                        <%const object=JSON.parse(JSON.stringify(obj))%>
+                
+                
+                                            <tr>
+                                                <th scope="row">
+                                                    <%=i++%>
+                                                </th>
+                                                <%Object.entries(object).forEach(([key,value])=> { %>
+                                                    <%if(key==='date'|| key==='fromDate' || key==='startDate' || key==='endDate' ) {%>
+                                                        <td>
+                                                            <%=formatDate(value)%>
+                                                        </td>
+                                                        <% function formatDate(date) { let d=new Date(date), month='' + (d.getMonth() +
+                                                            1), day='' + d.getDate(), year=d.getFullYear(); if (month.length < 2)
+                                                            month='0' + month; if (day.length < 2) day='0' + day; return [day, month,
+                                                            year].join('/'); } %>
+                                                            <%} else {%>
+                
+                                                                <td>
+                                                                    <%= value %>
+                
+                                                                        <%}%>
+                
+                                                                </td>
+                
+                                                                <% }) %>
+                
+                                            </tr>
+                                            <% })%>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>    
+            <% }) %>
+            
+           
+        </div>
 
 
-        <table id="table-data" class="table" border="1">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <% Object.keys(data[0]).forEach(key=> { %>
-                        <th class="table-header">
-                            <%= key.charAt(0).toUpperCase() + key.slice(1).replace(/([a-z])([A-Z])/g, '$1 $2' );%>
-                        </th>
-
-                        <% }) %>
-                </tr>
-            </thead>
-
-            <tbody>
-                <%let i=1%>
-                    <% data.forEach((obj)=>{ %>
-
-                        <%const object=JSON.parse(JSON.stringify(obj))%>
-
-
-                            <tr>
-                                <th scope="row">
-                                    <%=i++%>
-                                </th>
-                                <%Object.entries(object).forEach(([key,value])=> { %>
-                                    <%if(key==='date'|| key==='fromDate' || key==='startDate' || key==='endDate' ) {%>
-                                        <td>
-                                            <%=formatDate(value)%>
-                                        </td>
-                                        <% function formatDate(date) { let d=new Date(date), month='' + (d.getMonth() +
-                                            1), day='' + d.getDate(), year=d.getFullYear(); if (month.length < 2)
-                                            month='0' + month; if (day.length < 2) day='0' + day; return [day, month,
-                                            year].join('/'); } %>
-                                            <%} else {%>
-
-                                                <td>
-                                                    <%= value %>
-
-                                                        <%}%>
-
-                                                </td>
-
-                                                <% }) %>
-
-                            </tr>
-                            <% })%>
-            </tbody>
-        </table>
+       
 
 
     </div>

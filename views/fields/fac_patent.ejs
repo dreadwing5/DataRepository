@@ -120,11 +120,11 @@
           <div class="row data-row">
             
             
-            <div class="col-md-4 mb-3">
+            <div class="col-md-6 mb-3">
               <label class="required">Patent Level</label>
               <select name="level" class="custom-select d-block w-100">
                 <option value="">Choose...</option>
-                <option>Commercialised</option>
+                <!-- <option>Commercialised</option> -->
                 <option>National</option>
                 <option>International</option>
                 
@@ -134,7 +134,51 @@
               </div>
             </div>
 
-            <div class="col-md-4 mb-3">
+            <div class="col-md-6 mb-3">
+              <label class="required">Commercialised</label>
+              <select name="commercialised" class="custom-select d-block w-100">
+                <option value="">Choose...</option>
+                <option>Yes</option>
+                <option>No</option>
+                
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid type.
+              </div>
+            </div>
+
+          </div>
+          <div class="row data-row">
+            <div class="col-md-6 mb-3">
+              <label class="required">Status</label>
+              <select name="status" class="custom-select d-block w-100">
+                <option value="">Choose...</option>
+                <option>Submitted</option>
+                <option>Publised</option>
+                <option>Granted</option>
+                
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid type.
+              </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label class="required">Patent Specification</label>
+              <select name="specification" class="custom-select d-block w-100">
+                <option value="">Choose...</option>
+                <option>Complete</option>
+                <option>Provisional</option>
+                
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid type.
+              </div>
+            </div>
+          </div>
+          <div class="row data-row">
+
+            <div class="col-md-6 mb-3">
               <label class="required">COE</label>
 
               <!-- COE  -->
@@ -146,14 +190,10 @@
                 </div>
             </div>
           </div>
-          <label class="required">Description</label><br>
+         
 
-          <div name="description" id="editor">
-            <p>This is the editor content.</p>
-            <div class="invalid-feedback">
-                  Please enter valid details.
-                </div>
-          </div>
+          <%- include ("../partials/description") %>
+
           <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
               Submit</button>
           </div>

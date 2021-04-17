@@ -32,7 +32,7 @@ function submitForm(event) {
   const formData = new FormData(myForm);
   let description = quill.root.innerHTML;
   if (description === "<p><br></p>") {
-    description = null;
+    description = "No Description";
   }
   formData.append("description", description);
 

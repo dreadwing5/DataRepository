@@ -19,7 +19,24 @@ router.post("/students/:module", (req, res) => {
 });
 
 router.post("/faculty/:module", (req, res) => {
-  const module = req.params.module;
+  console.log(req.body);
+  for(const p in req.body){
+    console.log(p)
+    if(p.includes('-')){
+      let ele = p.split('-')
+      let ele1 = ele[0];
+      let ele2 = req.body[p];
+      delete req.body[p];
+      if(req.body[ele1]==undefined)
+        req.body[ele1]=ele2;
+      else
+        req.body[ele1]+=","+ele2;      
+    }
+  } 
+  // console.log(req.body);
+  const module = req.params.module.toLowerCase();
+  console.log(module)
+  console.table(req.body)
   connection.query(
     `INSERT INTO ${module} SET ?`,
     req.body,
