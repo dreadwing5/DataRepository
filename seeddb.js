@@ -58,7 +58,7 @@ let seeddb = async () => {
   });
 
   sql =
-    "Create Table fac_BookPublications(id varchar(255), rc-id varchar(255), PublisherName varchar(255), BookName varchar(255), isbn varchar(255), volumeNumber varchar(255), doi varchar(255),Date Date, COE varchar(255), description text, filterDate Date)";
+    "Create Table fac_BookPublications(id varchar(255), rcId varchar(255), PublisherName varchar(255), BookName varchar(255), isbn varchar(255), volumeNumber varchar(255), doi varchar(255),Date Date, COE varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Book Publications Table created successfully");
@@ -142,14 +142,14 @@ let seeddb = async () => {
   }); 
 
   sql =
-    "Create Table fac_JournalPaperPublication(id varchar(255),rc-id varchar(255),type varchar(255), PublisherName varchar(255), title varchar(255), isbn varchar(255), issn varchar(255), volumeNumber varchar(255),Index varchar(255), nameOfJournal varchar(255), COE varchar(255), description text, filterDate Date)";
+    "Create Table fac_JournalPaperPublication(id varchar(255), rcId varchar(255),type varchar(255), PublisherName varchar(255), title varchar(255), isbn varchar(255), issn varchar(255), volumeNumber varchar(255), Indexid varchar(255), nameOfJournal varchar(255), COE varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Journal Paper Publication Table created successfully");
   }); 
 
   sql =
-    "Create Table fac_MOOCcourse(id varchar(255) department varchar(255), Nameofdepartment varchar(255), duration varchar(255), status varchar(255), startdate Date, enddate Date, topic varchar(255), level varchar(255), description text, filterDate Date)";
+    "Create Table fac_MOOCcourse(id varchar(255), department varchar(255), Nameofdepartment varchar(255), duration varchar(255), status varchar(255), startdate Date, enddate Date, topic varchar(255), level varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("MOOC Course Table created successfully");
@@ -226,7 +226,7 @@ let seeddb = async () => {
   });
 
   sql =
-    "Create Table fac_WellBeingClub(id varchar(255), eventName varchar(255), duration varchar(255), topic varchar(255), companyName varchar(255), address text, startDate Date, endDate Date, resourcePerson varchar(255), designation varchar(255), expenditure varchar(255), fundedBy varchar(255), participantsNum varchar(255), eventLevel varchar(255), activityType varchar(255), level varchar(255), description text, filterDate Date)";
+    "Create Table fac_wellBeingClub(id varchar(255), eventName varchar(255), duration varchar(255), topic varchar(255), companyName varchar(255), address text, startDate Date, endDate Date, resourcePerson varchar(255), designation varchar(255), expenditure varchar(255), fundedBy varchar(255), participantsNum varchar(255), eventLevel varchar(255), activityType varchar(255), level varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Well Being Club Table created successfully");
@@ -316,8 +316,22 @@ let seeddb = async () => {
     if (err) throw err;
     console.log("Student Exchange Program Table created successfully");
   });
+
+  sql =
+    "Create Table COE(id int Auto_increment, name varchar(255), PRIMARY KEY(id));";
+  db.query(sql, (err, result) => {
+    if (err) throw err;
+    console.log("COE table has been created sucessfully");
+  });
+  sql =
+  "Create Table clubName(id int Auto_increment, name varchar(255), PRIMARY KEY(id));";
+db.query(sql, (err, result) => {
+  if (err) throw err;
+  console.log("Club name table has been created sucessfully");
+});
 };
 
 
 
 seeddb();
+
