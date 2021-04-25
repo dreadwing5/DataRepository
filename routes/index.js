@@ -96,13 +96,17 @@ router.get("/faculty/EE&C", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty Enterprenuership Details Page
-router.get("/faculty/entrepreneurshipdetails", ensureAuthenticated, (req, res) => {
-  res.render("fields/fac_entrepreneurshipDetails", {
-    title: "Enterprenuership Details",
-    module: "Faculty",
-    Username: req.user.name,
-  });
-});
+router.get(
+  "/faculty/entrepreneurshipdetails",
+  ensureAuthenticated,
+  (req, res) => {
+    res.render("fields/fac_entrepreneurshipDetails", {
+      title: "Enterprenuership Details",
+      module: "Faculty",
+      Username: req.user.name,
+    });
+  }
+);
 
 // Faculty Faculty Served As Page
 router.get("/faculty/facultyservedas", ensureAuthenticated, (req, res) => {
@@ -132,13 +136,17 @@ router.get("/faculty/idearepository", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty Industry Connect Database Page
-router.get("/faculty/industryconnectdatabase", ensureAuthenticated, (req, res) => {
-  res.render("fields/fac_IndustryConnectDatabase", {
-    title: "Industry Connect Database",
-    module: "Faculty",
-    Username: req.user.name,
-  });
-});
+router.get(
+  "/faculty/industryconnectdatabase",
+  ensureAuthenticated,
+  (req, res) => {
+    res.render("fields/fac_IndustryConnectDatabase", {
+      title: "Industry Connect Database",
+      module: "Faculty",
+      Username: req.user.name,
+    });
+  }
+);
 
 // Faculty Internship Cell Page
 router.get("/faculty/internshipcell", ensureAuthenticated, (req, res) => {
@@ -159,13 +167,17 @@ router.get("/faculty/IQACdata", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty Journal Paper Publication Page
-router.get("/faculty/journalpaperpublication", ensureAuthenticated, (req, res) => {
-  res.render("fields/fac_JournalPaperPublication", {
-    title: "Journal Paper Publication",
-    module: "Faculty",
-    Username: req.user.name,
-  });
-});
+router.get(
+  "/faculty/journalpaperpublication",
+  ensureAuthenticated,
+  (req, res) => {
+    res.render("fields/fac_JournalPaperPublication", {
+      title: "Journal Paper Publication",
+      module: "Faculty",
+      Username: req.user.name,
+    });
+  }
+);
 
 // Faculty MOOC Course Page
 router.get("/faculty/MOOCcourse", ensureAuthenticated, (req, res) => {
@@ -222,22 +234,30 @@ router.get("/faculty/results", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty Slow Learner Initiative Page
-router.get("/faculty/slowlearnerinitiative", ensureAuthenticated, (req, res) => {
-  res.render("fields/fac_slowlearnerinitiative", {
-    title: "Slow Learner Initiative",
-    module: "Faculty",
-    Username: req.user.name,
-  });
-});
+router.get(
+  "/faculty/slowlearnerinitiative",
+  ensureAuthenticated,
+  (req, res) => {
+    res.render("fields/fac_slowlearnerinitiative", {
+      title: "Slow Learner Initiative",
+      module: "Faculty",
+      Username: req.user.name,
+    });
+  }
+);
 
 // Faculty Sponsored Research Projects Page
-router.get("/faculty/sponsoredresearchprojects", ensureAuthenticated, (req, res) => {
-  res.render("fields/fac_SponsoredResearchProjects", {
-    title: "Sponsored Research Projects",
-    module: "Faculty",
-    Username: req.user.name,
-  });
-});
+router.get(
+  "/faculty/sponsoredresearchprojects",
+  ensureAuthenticated,
+  (req, res) => {
+    res.render("fields/fac_SponsoredResearchProjects", {
+      title: "Sponsored Research Projects",
+      module: "Faculty",
+      Username: req.user.name,
+    });
+  }
+);
 
 // Faculty Tech Talk Page
 router.get("/faculty/techtalk", ensureAuthenticated, (req, res) => {
@@ -275,8 +295,6 @@ router.get("/faculty/wellbeingclub", ensureAuthenticated, (req, res) => {
   });
 });
 
-
-
 //Student Routes
 
 router.get("/students/eventsAttended", ensureAuthenticated, (req, res) => {
@@ -300,6 +318,21 @@ router.get("/students/placement", ensureAuthenticated, (req, res) => {
     title: "Placement",
     module: "Student",
     Username: req.user.name,
+  });
+});
+
+//Get COE Route
+
+router.get("/coe", ensureAuthenticated, (req, res) => {
+  let data = [];
+  let sql = `Select * from COE`;
+  connection.query(sql, (err, result) => {
+    if (err) throw err;
+    console.log(result);
+    const results = Object.values(JSON.parse(JSON.stringify(result)));
+    res.send(results);
+    //Filter out the result
+    //Get request to fetch
   });
 });
 
