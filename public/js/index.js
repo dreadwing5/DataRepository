@@ -1,6 +1,9 @@
+"use strict";
+
 const modal = document.querySelector(".nav-modal");
 const overlay = document.querySelector(".overlay");
 const btnCloseModal = document.querySelector(".btn--close-modal");
+document.getElementById("alert").style.display = "none"; //Alert message
 
 const openModal = function () {
   modal.classList.remove("nav__hidden");

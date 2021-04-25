@@ -34,6 +34,9 @@
                   Please enter valid details.
                 </div>
             </div>
+          </div>
+          <div class="row data-row">
+
             <div class="col-md-6 mb-3">
               <label class="required">Status</label>
               <input type="text" name="status" class="form-control">
@@ -41,6 +44,19 @@
                   Please enter valid details.
                 </div>
             </div>
+            <div class="col-md-6 mb-3">
+              <label class="required">Faculty ID</label>
+              <select name="id" class="custom-select d-block w-100">
+                <option value="">Choose...</option>
+                <option>Faculty 1</option>
+                <option>Faculty 2</option>
+                
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid type.
+              </div>
+            </div>
+            
           </div>
           <div class="row data-row">
 
@@ -69,6 +85,26 @@
               <div class="invalid-feedback">
                   Please enter valid details.
                 </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="required">Department</label>
+              <select name="department" class="custom-select d-block w-100">
+                <option value="">Choose...</option>
+                <option>CSE</option>
+                <option>ISE</option>
+                <option>ECE</option>
+                <option>TCE</option>
+                <option>EEE</option>
+                <option>CIV</option>
+                <option>MECH</option>
+                <option>MBA</option>
+                <option>MCA</option>
+                <option>Basic Sciences</option>
+                <option>College Level</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid type.
+              </div>
             </div>
             
             
@@ -110,14 +146,10 @@
 
             
           </div>
-          <label class="required">Description</label><br>
+         
 
-          <div name="description" id="editor">
-            <p>This is the editor content.</p>
-            <div class="invalid-feedback">
-                  Please enter valid details.
-                </div>
-          </div>
+          <%- include ("../partials/description") %>
+
           <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
               Submit</button>
           </div>

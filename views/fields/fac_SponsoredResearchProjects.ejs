@@ -22,17 +22,28 @@
 
             <div class="col-md-6 mb-3">
               <label class="required">Names of PI</label>
-              <input type="text" name="NameofPI" class="form-control">
+              <select name="NameofPI" class="custom-select d-block w-100">
+                <option value="">Choose...</option>
+                <option>Faculty 1</option>
+                <option>Faculty 2</option>
+                
+              </select>
               <div class="invalid-feedback">
-                  Please enter valid details.
-                </div>
+                Please select a valid type.
+              </div>
             </div>
+
             <div class="col-md-6 mb-3">
               <label class="required">Names of CO->PI</label>
-              <input type="text" name="COtoPI" class="form-control">
+              <select name="COtoPI" class="custom-select d-block w-100">
+                <option value="">Choose...</option>
+                <option>Faculty 1</option>
+                <option>Faculty 2</option>
+                
+              </select>
               <div class="invalid-feedback">
-                  Please enter valid details.
-                </div>
+                Please select a valid type.
+              </div>
             </div>
           </div>
           <div class="row data-row">
@@ -56,12 +67,22 @@
           <div class="row data-row">
             
             <div class="col-md-6 mb-3">
+              <label class="required">RCID</label>
+              <input type="text" name="rcid" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
               <label class="required">Title of Project</label>
               <input type="text" name="title" class="form-control">
               <div class="invalid-feedback">
                   Please enter valid details.
                 </div>
             </div>
+          </div>
+            <div class="row data-row">
+
             <div class="col-md-6 mb-3">
               <label class="required">Proposed Project Amount</label>
               <input type="text" name="proposedAmount" class="form-control">
@@ -70,14 +91,14 @@
                 </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label class="required">Duration Year</label>
+              <label class="required">Duration</label>
               <input type="text" name="durationYear" class="form-control">
               <div class="invalid-feedback">
                   Please enter valid details.
                 </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label class="required">Grant amount received/Sanctioned amount</label>
+              <label class="required">Grant amount received till date</label>
               <input type="text" name="amount" class="form-control">
               <div class="invalid-feedback">
                   Please enter valid details.
@@ -85,12 +106,14 @@
             </div>
             
             <div class="col-md-6 mb-3">
-              <label class="required">Objectives</label>
-              <input type="text" name="objectives" class="form-control">
+              <label class="required">Total Grant Sanctioned</label>
+              <input type="text" name="received" class="form-control">
               <div class="invalid-feedback">
                   Please enter valid details.
                 </div>
             </div>
+
+            
             <div class="col-md-6 mb-3">
               <label class="required">Benefit in terms of learning/Skill/Knowledge obtained</label>
               <input type="text" name="benefit" class="form-control">
@@ -99,28 +122,38 @@
                 </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label class="required">Name of the Agency to whom submitted</label>
+              <label class="required">Funding Agency & Scheme</label>
               <input type="text" name="AgencyName" class="form-control">
               <div class="invalid-feedback">
                   Please enter valid details.
                 </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label class="required">Received</label>
-              <input type="text" name="received" class="form-control">
+              <label class="required">Objectives</label>
+              <input type="text" name="objectives" class="form-control">
               <div class="invalid-feedback">
                   Please enter valid details.
                 </div>
             </div>
 
-            
+            <div class="col-md-6 mb-3">
+              <label class="required">COE</label>
 
+              <!-- COE  -->
+
+              <%- include ("../partials/coe") %>
+
+                <div class="invalid-feedback">
+                  Please select a valid type.
+                </div>
+            </div>
+            
 
           </div>
           <div class="row data-row">
             
             
-            <div class="col-md-4 mb-3">
+            <div class="col-md-6 mb-3">
               <label class="required">Category</label>
               <select name="level" class="custom-select d-block w-100">
                 <option value="">Choose...</option>
@@ -137,19 +170,24 @@
               </div>
             </div>
 
-            <div class="col-md-4 mb-3">
-              <label class="required">COE</label>
-
-              <!-- COE  -->
-
-              <%- include ("../partials/coe") %>
-
-                <div class="invalid-feedback">
-                  Please select a valid type.
-                </div>
+            <div class="col-md-6 mb-3">
+              <label class="required">Status</label>
+              <select name="status" class="custom-select d-block w-100">
+                <option value="">Choose...</option>
+                <option>In Progress</option>
+                <option>Completed</option>
+                
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid type.
+              </div>
             </div>
+
+            
           </div>
           
+          <%- include ("../partials/description") %>
+
           <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
               Submit</button>
           </div>
