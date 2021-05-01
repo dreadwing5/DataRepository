@@ -37,7 +37,7 @@ router.get("/faculty/awards", (req, res) => {
 });
 
 // Faculty NSS and NCC Page
-router.get("/faculty/awardsnss&ncc", ensureAuthenticated, (req, res) => {
+router.get("/faculty/awardsnss&ncc", (req, res) => {
   res.render("fields/fac_awardsNSS&NCC", {
     title: "NSS And NCC",
     module: "Faculty",
@@ -46,7 +46,7 @@ router.get("/faculty/awardsnss&ncc", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty Academia Industry Connect Activity Attended Page
-router.get("/faculty/AICAattended", ensureAuthenticated, (req, res) => {
+router.get("/faculty/AICAattended", (req, res) => {
   res.render("fields/fac_AcademiaIndustryConnectActivityAttended", {
     title: "Academia Industry Connect Activity Attended",
     module: "Faculty",
@@ -55,7 +55,7 @@ router.get("/faculty/AICAattended", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty Academia Industry Connect Activity Organised Page
-router.get("/faculty/AICAorganised", ensureAuthenticated, (req, res) => {
+router.get("/faculty/AICAorganised", (req, res) => {
   res.render("fields/fac_AcademiaIndustryConnectActivityOrganised", {
     title: "Academia Industry Connect Activity Organised",
     module: "Faculty",
@@ -64,7 +64,7 @@ router.get("/faculty/AICAorganised", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty Book Publications Page
-router.get("/faculty/bookpublications", ensureAuthenticated, (req, res) => {
+router.get("/faculty/bookpublications", (req, res) => {
   res.render("fields/fac_BookPublications", {
     title: "Book Publications",
     module: "Faculty",
@@ -73,7 +73,7 @@ router.get("/faculty/bookpublications", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty Consultancy Page
-router.get("/faculty/consultancy", ensureAuthenticated, (req, res) => {
+router.get("/faculty/consultancy", (req, res) => {
   res.render("fields/fac_consultancy", {
     title: "Consultancy",
     module: "Faculty",
@@ -82,7 +82,7 @@ router.get("/faculty/consultancy", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty EE&C Page
-router.get("/faculty/EE&C", ensureAuthenticated, (req, res) => {
+router.get("/faculty/EE&C", (req, res) => {
   res.render("fields/fac_EE&C", {
     title: "EE&C",
     module: "Faculty",
@@ -93,7 +93,7 @@ router.get("/faculty/EE&C", ensureAuthenticated, (req, res) => {
 // Faculty Enterprenuership Details Page
 router.get(
   "/faculty/entrepreneurshipdetails",
-  ensureAuthenticated,
+
   (req, res) => {
     res.render("fields/fac_entrepreneurshipDetails", {
       title: "Enterprenuership Details",
@@ -104,7 +104,7 @@ router.get(
 );
 
 // Faculty Faculty Served As Page
-router.get("/faculty/facultyservedas", ensureAuthenticated, (req, res) => {
+router.get("/faculty/facultyservedas", (req, res) => {
   res.render("fields/fac_FacultyServedas", {
     title: "Faculty Served As",
     module: "Faculty",
@@ -113,7 +113,7 @@ router.get("/faculty/facultyservedas", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty FOSS Cell Page
-router.get("/faculty/fosscell", ensureAuthenticated, (req, res) => {
+router.get("/faculty/fosscell", (req, res) => {
   res.render("fields/fac_FOSScell", {
     title: "FOSS Cell",
     module: "Faculty",
@@ -122,7 +122,7 @@ router.get("/faculty/fosscell", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty Idea Repository Page
-router.get("/faculty/idearepository", ensureAuthenticated, (req, res) => {
+router.get("/faculty/idearepository", (req, res) => {
   res.render("fields/fac_ideaRepository", {
     title: "Idea Repository",
     module: "Faculty",
@@ -131,20 +131,16 @@ router.get("/faculty/idearepository", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty Industry Connect Database Page
-router.get(
-  "/faculty/industryconnectdatabase",
-  ensureAuthenticated,
-  (req, res) => {
-    res.render("fields/fac_IndustryConnectDatabase", {
-      title: "Industry Connect Database",
-      module: "Faculty",
-      Username: req.user.name,
-    });
-  }
-);
+router.get("/faculty/industryconnectdatabase", (req, res) => {
+  res.render("fields/fac_IndustryConnectDatabase", {
+    title: "Industry Connect Database",
+    module: "Faculty",
+    Username: req.user.name,
+  });
+});
 
 // Faculty Internship Cell Page
-router.get("/faculty/internshipcell", ensureAuthenticated, (req, res) => {
+router.get("/faculty/internshipcell", (req, res) => {
   res.render("fields/fac_InternshipCell", {
     title: "Internship Cell",
     module: "Faculty",
@@ -153,7 +149,7 @@ router.get("/faculty/internshipcell", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty IQAC Data Page
-router.get("/faculty/IQACdata", ensureAuthenticated, (req, res) => {
+router.get("/faculty/IQACdata", (req, res) => {
   res.render("fields/fac_IQACdata", {
     title: "IQAC Data",
     module: "Faculty",
@@ -164,7 +160,7 @@ router.get("/faculty/IQACdata", ensureAuthenticated, (req, res) => {
 // Faculty Journal Paper Publication Page
 router.get(
   "/faculty/journalpaperpublication",
-  ensureAuthenticated,
+
   (req, res) => {
     res.render("fields/fac_JournalPaperPublication", {
       title: "Journal Paper Publication",
@@ -175,7 +171,7 @@ router.get(
 );
 
 // Faculty MOOC Course Page
-router.get("/faculty/MOOCcourse", ensureAuthenticated, (req, res) => {
+router.get("/faculty/MOOCcourse", (req, res) => {
   res.render("fields/fac_MOOCcourse", {
     title: "MOOC Course",
     module: "Faculty",
@@ -184,7 +180,7 @@ router.get("/faculty/MOOCcourse", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty MOUs Page
-router.get("/faculty/Mous", ensureAuthenticated, (req, res) => {
+router.get("/faculty/Mous", (req, res) => {
   res.render("fields/fac_MoUs", {
     title: "MOUs",
     module: "Faculty",
@@ -193,7 +189,7 @@ router.get("/faculty/Mous", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty Patent Page
-router.get("/faculty/patent", ensureAuthenticated, (req, res) => {
+router.get("/faculty/patent", (req, res) => {
   res.render("fields/fac_patent", {
     title: "Patent",
     module: "Faculty",
@@ -202,7 +198,7 @@ router.get("/faculty/patent", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty PHD Details Page
-router.get("/faculty/phddetails", ensureAuthenticated, (req, res) => {
+router.get("/faculty/phddetails", (req, res) => {
   res.render("fields/fac_PhdDetails", {
     title: "PHD Details",
     module: "Faculty",
@@ -211,7 +207,7 @@ router.get("/faculty/phddetails", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty Professional Bodies Page
-router.get("/faculty/professionalbodies", ensureAuthenticated, (req, res) => {
+router.get("/faculty/professionalbodies", (req, res) => {
   res.render("fields/fac_ProfessionalBodies", {
     title: "Professional Bodies",
     module: "Faculty",
@@ -220,7 +216,7 @@ router.get("/faculty/professionalbodies", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty Results Page
-router.get("/faculty/results", ensureAuthenticated, (req, res) => {
+router.get("/faculty/results", (req, res) => {
   res.render("fields/fac_Results", {
     title: "Results",
     module: "Faculty",
@@ -229,33 +225,25 @@ router.get("/faculty/results", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty Slow Learner Initiative Page
-router.get(
-  "/faculty/slowlearnerinitiative",
-  ensureAuthenticated,
-  (req, res) => {
-    res.render("fields/fac_slowlearnerinitiative", {
-      title: "Slow Learner Initiative",
-      module: "Faculty",
-      Username: req.user.name,
-    });
-  }
-);
+router.get("/faculty/slowlearnerinitiative", (req, res) => {
+  res.render("fields/fac_slowlearnerinitiative", {
+    title: "Slow Learner Initiative",
+    module: "Faculty",
+    Username: req.user.name,
+  });
+});
 
 // Faculty Sponsored Research Projects Page
-router.get(
-  "/faculty/sponsoredresearchprojects",
-  ensureAuthenticated,
-  (req, res) => {
-    res.render("fields/fac_SponsoredResearchProjects", {
-      title: "Sponsored Research Projects",
-      module: "Faculty",
-      Username: req.user.name,
-    });
-  }
-);
+router.get("/faculty/sponsoredresearchprojects", (req, res) => {
+  res.render("fields/fac_SponsoredResearchProjects", {
+    title: "Sponsored Research Projects",
+    module: "Faculty",
+    Username: req.user.name,
+  });
+});
 
 // Faculty Tech Talk Page
-router.get("/faculty/techtalk", ensureAuthenticated, (req, res) => {
+router.get("/faculty/techtalk", (req, res) => {
   res.render("fields/fac_techtalk", {
     title: "Tech Talk",
     module: "Faculty",
@@ -264,7 +252,7 @@ router.get("/faculty/techtalk", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty Visitors Database Page
-router.get("/faculty/visitorsdatabase", ensureAuthenticated, (req, res) => {
+router.get("/faculty/visitorsdatabase", (req, res) => {
   res.render("fields/fac_VisitorsDatabase", {
     title: "Visitors Database",
     module: "Faculty",
@@ -273,7 +261,7 @@ router.get("/faculty/visitorsdatabase", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty VVIP Page
-router.get("/faculty/VVIP", ensureAuthenticated, (req, res) => {
+router.get("/faculty/VVIP", (req, res) => {
   res.render("fields/fac_VVIP", {
     title: "VVIP",
     module: "Faculty",
@@ -282,7 +270,7 @@ router.get("/faculty/VVIP", ensureAuthenticated, (req, res) => {
 });
 
 // Faculty Well Being Club Page
-router.get("/faculty/wellbeingclub", ensureAuthenticated, (req, res) => {
+router.get("/faculty/wellbeingclub", (req, res) => {
   res.render("fields/fac_WellBeingClub", {
     title: "Well Being Club",
     module: "Faculty",
@@ -318,7 +306,7 @@ router.get("/students/placement", (req, res) => {
 
 //Get COE Route
 
-router.get("/coe", ensureAuthenticated, (req, res) => {
+router.get("/coe", (req, res) => {
   let data = [];
   let sql = `Select * from COE`;
   connection.query(sql, (err, result) => {

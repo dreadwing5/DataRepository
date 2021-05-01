@@ -26,7 +26,7 @@
         <div class="row data-row">
             <div class="col-md-8 mb-3">
                 <h4 class="mb-3 title">
-                        <%=module%>
+                    <%=module%>
                 </h4>
             </div>
             <div class="col-md-4 mb-3 report">
@@ -36,104 +36,109 @@
             </div>
             <div>
                 <% event.forEach((event,j)=>{ %>
-                    <div class="mb-5">
-                        <h5 class="title">
 
-                            <p>
-                                <%=event%> Report
-                            </p>
-                            
-                        </h5>
-                        <div>
-                                <%let i=1%>
-                                <% data[j].forEach((obj)=>{ %>
-                    
-                                    <div class="row">
-                    
-                                        <table id="table-data" class="table" border="1">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">#</th>
-                                                    <% Object.keys(data[j][0]).forEach(key=> { %>
-                                                        <%if(key==='description' ){%>
-                                                            <th style="display:none;">
-                                                            </th>
-                                                            <%}else{%>
-                                                                <th scope="col">
-                                                                    <%= key.charAt(0).toUpperCase() +
+                <div class="mb-5">
+                    <h5 class="title">
+
+                        <p id="event-name-<%=j%>">
+                            <%=event%> Report
+                        </p>
+
+                    </h5>
+                    <div>
+                        <%let i=1%>
+
+                        <% data[j].forEach((obj)=>{ %>
+
+                        <div class="row">
+
+                            <table id="table-data" class="table" border="1" data-id="<%=j%>">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <% Object.keys(data[j][0]).forEach(key=> { %>
+                                        <%if(key==='description' ){%>
+                                        <th style="display:none;">
+                                        </th>
+                                        <%}else{%>
+                                        <th scope="col">
+                                            <%= key.charAt(0).toUpperCase() +
                                                                         key.slice(1).replace(/([a-z])([A-Z])/g, '$1 $2' );%>
-                                                                </th>
-                                                                <%}%>
+                                        </th>
+                                        <%}%>
                                                                     <% }) %>
-                                                    <th scope="col">Edit</th>
-                                                    <th scope="col">Delete</th>
-                                                </tr>
-                    
-                                            </thead>
-                    
-                                            <%const object=JSON.parse(JSON.stringify(obj))%>
-                    
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">
-                                                            <%=i++%>
-                                                        </th>
-                                                        <%Object.entries(object).forEach(([key,value])=> { %>
-                                                            <%if(key==='description'){%>
-                                                                <td style="display:none;">
-                                                                </td>
-                    
-                                                                <%}else{%>
-                    
-                                                                    <%if(key==='date'|| key==='fromDate' || key==='startDate'
+                                        <th scope="col">Edit</th>
+                                        <th scope="col">Delete</th>
+                                    </tr>
+
+                                </thead>
+
+                                <%const object=JSON.parse(JSON.stringify(obj))%>
+
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <%=i++%>
+                                        </th>
+                                        <%Object.entries(object).forEach(([key,value])=> { %>
+                                        <%if(key==='description'){%>
+                                        <td style="display:none;">
+                                        </td>
+
+                                        <%}else{%>
+
+                                        <%if(key==='date'|| key==='fromDate' || key==='startDate'
                                                                         ||key==='endDate' ) {%>
-                                                                        <td>
-                                                                            <%= value %>
-                                                                        </td>
-                                                                        <% function formatDate(date) { let d=new Date(date), month='' +
+                                        <td>
+                                            <%= value %>
+                                        </td>
+                                        <% function formatDate(date) { let d=new Date(date), month='' +
                                                                             (d.getMonth() + 1), day='' + d.getDate(), year=d.getFullYear();
                                                                             if (month.length < 2) month='0' + month; if (day.length < 2)
                                                                             day='0' + day; return [day, month, year].join('/'); } %>
-                                                                            <%} else {%>
-                    
-                                                                                <td>
-                    
-                    
-                                                                                    <% if(key==='description' ){%>
-                                                                                        <div>
-                                                                                            <%-value%>
-                    
-                                                                                        </div>
-                    
-                    
-                                                                                        <% } else {%>
-                    
-                                                                                            <%= value %>
-                    
-                                                                                                <%}%>
+                                        <%} else {%>
+
+                                        <td contenteditable>
+
+
+                                            <% if(key==='description' ){%>
+                                            <div>
+                                                <%-value%>
+
+                                            </div>
+
+
+                                            <% } else {%>
+
+                                            <%= value %>
+
+                                            <%}%>
                                                                                                     <%}%>
-                                                                                </td>
-                                                                                <%}%>
+                                        </td>
+                                        <%}%>
                     
                                                                                     <% }) %>
-                                                                        <td>
-                                                                            <button data-id1="<%=j%>" data-id2="<%=i%>" data-mod = "<%=event%>" class="btn btn-primary edit-entry">Edit</button>
-                                                                        </td>
-                                                                        <td>
-                                                                            <button class="btn btn-danger delete-entry">Delete</button>
-                                                                        </td>
-                    
-                                                    </tr>
-                    
-                                                </tbody>
-                                                <tfoot>
-                                                    <tr>
-                    
-                                                        <%if(object.description!=='null') {%>
-                                                            <td colspan="100">
-                                                                <%-object.description%>
-                                                            </td>
-                                                            <%}%>
+                                        <td>
+                                            <button data-id1="<%=j%>" data-id2="<%=i%>"
+                                                class="btn btn-primary edit-entry"
+                                                onclick="editData(this)">Edit</button>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-danger delete-entry"
+                                                onclick="deleteData(this)">Delete</button>
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+
+                                        <%if(object.description!=='null') {%>
+                                        <td contenteditable colspan="100">
+                                            <%-object.description%>
+                                        </td>
+                                        <%}%>
                                                     </tr>
                     
                     
@@ -148,39 +153,35 @@
                                     <% }) %>
                         </div>
                     </div>
-               
 
-                <% }) %>
 
-              
+                    <% }) %>
+
+
+                </div>
             </div>
+
         </div>
-       
-    </div>
-    <script>
-        let editBtn = document.querySelectorAll('.edit-entry');
-        Array.from(editBtn,eb=>{
-            eb.addEventListener('click',(e)=>{
-                let ele = e.target;
-                // console.log(ele);
-                let id1 = (ele.dataset.id1);
-                let id2 = ele.dataset.id2;
-                console.log(ele.dataset.mod);
-                id2-=2;
-                let obj = JSON.parse('<%- JSON.stringify(data) %>');
-                console.log(obj[id1][id2]);
-                delete obj[id1][id2]
-                data = obj;
-                console.log(obj[id1])
-                // location.reload();
-                // location.href = location.href;
-                // console.log(data)
-                // console.log(document.body)
-                // console.log(request.body)
-                
-            })
-        })
-    </script>
+
+        <script>
+            const deleteData = (row) => {
+                let data = row.closest('.table'); //This will selct the entire table
+
+
+                data.remove();
+            }
+
+            const editData = (row) => {
+                // let eventName = row.dataset.mod;
+                let id = row.closest('.table').rows[1].cells[1].innerText;
+                let eventID = row.closest('.table').dataset.id;
+                let eventName = document.getElementById(`event-name-${eventID}`).innerText;
+                eventName = _.trim(_.camelCase(eventName), "Report");
+                console.log(eventName);
+                window.location.href = `/edit/${eventName}/${id}`;
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
 </body>
 
 </html>

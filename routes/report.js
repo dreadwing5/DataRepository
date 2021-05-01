@@ -37,8 +37,8 @@ router.get("/faculty/search", (req, res) => {
 
 //Filter Data and Print for both Faculty & Student
 router.post("/search", (req, res) => {
-  console.log("inside");
-  console.log(req.body);
+  // console.log("inside");
+  // console.log(req.body);
   let module = req.body.moduleName;
   let event = "stu_" + req.body.event;
   if (module === "Faculty") {
@@ -119,6 +119,7 @@ router.post("/search", (req, res) => {
           data.push(datatemp);
           if (i == tables.length - 1) {
             // console.log(eventName)
+            console.log(table);
             if (detailsReq) {
               res.render("report/full_report", {
                 module: module,
@@ -182,7 +183,7 @@ router.post("/search", (req, res) => {
 
     module = [module];
     eventName = [eventName];
-    console.log(module, eventName);
+    // console.log(module, eventName);
     data = [data];
     if (detailsReq) {
       res.render("report/full_report", {
@@ -197,6 +198,41 @@ router.post("/search", (req, res) => {
         event: eventName,
       });
     }
+  });
+});
+
+router.get("/edit/:event/:id", (req, res) => {
+  // console.log(req.params.module);
+  // console.log(req.params.id);
+  function formatDate(date) {
+    let d = new Date(date),
+      month = "" + (d.getMonth() + 1),
+      day = "" + d.getDate(),
+      year = d.getFullYear();
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
+    return [year, month, day].join("-");
+  }
+
+  let event = `fac_${req.params.event}`;
+  let id = req.params.id;
+  let sql = `Select * from ${event} Where id=${id}`;
+  connection.query(sql, (err, result, fields) => {
+    result.forEach((res, i) => {
+      for (let key in res) {
+        if (key.includes("date") || key.includes("Date")) {
+          res[key] = formatDate(res[key]);
+        }
+      }
+      delete res.filterDate;
+    });
+    const data = JSON.parse(JSON.stringify(result[0]));
+    if (err) throw err;
+    res.render(`edit/${event}`, {
+      module: "Faculty",
+      Username: "test",
+      data: data,
+    });
   });
 });
 
