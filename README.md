@@ -9,4 +9,5 @@
 - [x] Create tables for new fields
 - [ ] Show error if data couldn't be submitted
 - [ ] Add foreign key (faculty) on each module
-
+- [ ] Seperate Faculty Module and Student Module
+- [ ] Separte Login for Admin
