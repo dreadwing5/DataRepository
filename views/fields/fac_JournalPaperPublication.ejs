@@ -17,7 +17,13 @@
             </div>
           </div>
           <div class="row data-row">
-
+            <div class="col-md-6 mb-3">
+              <label class="required">RC-ID</label>
+              <input type="text" name="rc-id" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
+            </div>
             <div class="col-md-6 mb-3">
               <label class="required">Publisher Name</label>
               <input type="text" name="PublisherName" class="form-control">
@@ -25,14 +31,29 @@
                   Please enter valid details.
                 </div>
             </div>
+          </div>
+          <div class="row data-row">
+
             <div class="col-md-6 mb-3">
               <label class="required">Title of the Paper</label>
               <input type="text" name="title" class="form-control">
               <div class="invalid-feedback">
-                  Please enter valid details.
-                </div>
+                Please enter valid details.
+              </div>
+            </div>
+          <div class="col-md-6 mb-3">
+            <label class="required">Type of Journal/Conference</label>
+            <select name="type" class="custom-select d-block w-100">
+              <option value="">Choose...</option>
+              <option>National Conference</option>
+              <option>International Conference</option>
+              <option>Journal</option>
+            </select>
+            <div class="invalid-feedback">
+              Please enter valid details.
             </div>
           </div>
+        </div>
 
           <div class="row data-row">
 
@@ -51,7 +72,7 @@
                 </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label class="required">Volume Number</label>
+              <label class="required">Volume Number/Issue/Edition</label>
               <input type="text" name="volumeNumber" class="form-control">
               <div class="invalid-feedback">
                  Please enter valid details.
@@ -70,7 +91,7 @@
           <div class="row data-row">
             
 
-            <div class="col-md-4 mb-3">
+            <div class="col-md-6 mb-3">
               <label class="required">COE</label>
 
               <!-- COE  -->
@@ -81,15 +102,38 @@
                   Please select a valid type.
                 </div>
             </div>
-          </div>
-          <label class="required">Description</label><br>
+            <div class="col-md-6 mb-3">
+              <label class="required">Indexed To</label>
+              <br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="Index-Scopus" value="Scopus">
+                <label class="form-check-label">
+                  Scopus
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="Index-SCI" value="SCI">
+                <label class="form-check-label">
+                  SCI
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="Index-Web of Science" value="Web of Science">
+                <label class="form-check-label">
+                  Web of Science
+                </label>
+              </div>
+              <div>
+                <label class="required">Others</label>
+                <input type="text" name="Index-Others" class="form-control">
+              </div>
 
-          <div name="description" id="editor">
-            <p>This is the editor content.</p>
-            <div class="invalid-feedback">
-                  Please enter valid details.
-                </div>
+            </div>
           </div>
+          
+
+          <%- include ("../partials/description") %>
+
           <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
               Submit</button>
           </div>

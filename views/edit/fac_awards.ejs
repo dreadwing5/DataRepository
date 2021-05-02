@@ -1,7 +1,7 @@
 <%- include ("../partials/header") %>
 
 <div class="container-fluid">
-  <section id="form">
+  <section id="form" data-src="<%=data%>">
     <form id="myForm" class="needs-validation" novalidate action="/faculty/fac_awards">
 
       <div class="container-fluid">
@@ -52,7 +52,7 @@
           <div class="col-md-6 mb-3">
             <div class="form-group">
               <label class="required">Date of Award</label>
-              <input type="date" name="date" class="form-control" required>
+              <input type="date" name="date" class="form-control" value="2013-01-08" required>
               <div class="invalid-feedback">
                 Valid details required.
               </div>
@@ -127,7 +127,7 @@
               <option value="">Choose...</option>
               <option>Winner</option>
               <option>Participated</option>
-              
+
             </select>
             <div class="invalid-feedback">
               Please select a valid type.
@@ -146,13 +146,13 @@
               <option>VI Sem</option>
               <option>VII Sem</option>
               <option>VIII Sem</option>
-              
+
             </select>
             <div class="invalid-feedback">
               Please select a valid type.
             </div>
           </div>
-          
+
           <div class="col-md-6 mb-3">
             <label class="required">COE</label>
 
@@ -167,18 +167,24 @@
 
         <%- include ("../partials/description") %>
 
-        <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
-            Submit</button>
+        <div class="submit-button"><button class="btn btn-secondary btn-lg btn-block buttons" type="submit">
+            Update</button>
         </div>
       </div>
     </form>
   </section>
 
+  <span id='variableJSON' hidden>
+    <%= JSON.stringify(data); %>
+  </span>
+
 </div>
 <!-- Footer -->
 
+<!--Custom Script -->
+<script type="text/javascript" src="/dist/index.js"></script>
 
-<%- include ("../partials/footer") %>
+<%- include ("../partials/footer-1") %>
 
 <script type="text/javascript" src="/js/date.js"></script>
 </body>
