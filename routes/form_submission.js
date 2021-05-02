@@ -56,4 +56,27 @@ router.post("/faculty/:module", (req, res) => {
   );
 });
 
+router.put("/update/:event/:id", (req, res) => {
+  const { event, id } = req.params;
+  connection.query(
+    `UPDATE fac_${event} SET ? Where id=${id}`,
+    req.body,
+    function (error, results, fields) {
+      if (error) {
+        console.log(error);
+        res.send({
+          code: 400,
+          failed: "error ocurred",
+        });
+      } else {
+        console.log("Data Updated Successfully!");
+        res.send({
+          code: 200,
+          message: "Updated Successfully!",
+        });
+      }
+    }
+  );
+});
+
 module.exports = router;

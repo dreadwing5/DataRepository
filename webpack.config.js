@@ -1,10 +1,17 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: {
+    index: [
+      "./public/js/autoFill.js",
+      "./public/js/quillConfig.js",
+      "./public/js/validateForm.js",
+      "./public/js/updateForm.js",
+    ],
+  },
   output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: "[name].js",
+    path: __dirname + "/public/dist",
   },
   module: {
     rules: [

@@ -167,8 +167,8 @@
 
         <%- include ("../partials/description") %>
 
-        <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
-            Submit</button>
+        <div class="submit-button"><button class="btn btn-secondary btn-lg btn-block buttons" type="submit">
+            Update</button>
         </div>
       </div>
     </form>
@@ -180,27 +180,9 @@
 
 </div>
 <!-- Footer -->
-<!-- Include the Quill library -->
-<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-<script src="../scripts/quill-image-uploader/dist/quill.imageUploader.min.js"></script>
-<script src="../scripts/quill-image-resize
-/image-resize.min.js"></script>
-<script>
-  const data = JSON.parse($('#variableJSON').text());
-  for (const [key, value] of Object.entries(data)) {
 
-    if (key === 'description') {
-      var editor = new Quill('#editor-container', {
-        theme: "snow",
-        modules: {
-          toolbar: "#toolbar-container"
-        }
-      })
-      editor.root.innerHTML = value;
-    }
-    document.getElementsByName(key)[0].value = value;
-  }
-</script>
+<!--Custom Script -->
+<script type="text/javascript" src="/dist/index.js"></script>
 
 <%- include ("../partials/footer-1") %>
 

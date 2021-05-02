@@ -178,7 +178,7 @@
                 let eventName = document.getElementById(`event-name-${eventID}`).innerText;
                 eventName = _.trim(_.camelCase(eventName), "Report");
                 console.log(eventName);
-                window.location.href = `/edit/${eventName}/${id}`;
+                window.location.href = `/edit?name=${eventName}&id=${id}`;
             }
         </script>
         <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>

@@ -201,9 +201,8 @@ router.post("/search", (req, res) => {
   });
 });
 
-router.get("/edit/:event/:id", (req, res) => {
-  // console.log(req.params.module);
-  // console.log(req.params.id);
+router.get("/edit?", (req, res) => {
+  const { name, id } = req.query;
   function formatDate(date) {
     let d = new Date(date),
       month = "" + (d.getMonth() + 1),
@@ -213,9 +212,7 @@ router.get("/edit/:event/:id", (req, res) => {
     if (day.length < 2) day = "0" + day;
     return [year, month, day].join("-");
   }
-
-  let event = `fac_${req.params.event}`;
-  let id = req.params.id;
+  let event = `fac_${name}`;
   let sql = `Select * from ${event} Where id=${id}`;
   connection.query(sql, (err, result, fields) => {
     result.forEach((res, i) => {
