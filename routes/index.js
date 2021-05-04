@@ -311,11 +311,8 @@ router.get("/coe", (req, res) => {
   let sql = `Select * from COE`;
   connection.query(sql, (err, result) => {
     if (err) throw err;
-    console.log(result);
     const results = Object.values(JSON.parse(JSON.stringify(result)));
     res.send(results);
-    //Filter out the result
-    //Get request to fetch
   });
 });
 

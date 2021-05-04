@@ -37,7 +37,7 @@ let seeddb = async () => {
   });
 
   sql =
-    "Create Table fac_awards(id varchar(255), category varchar(255),department varchar(255), filterDate Date, level varchar(255), eventName varchar(255), awardedBy varchar(255),sem varchar(255), result varchar(255), status varchar(255), date Date, description text, COE varchar(255))";
+    "Create Table fac_awards(id varchar(255) PRIMARY KEY, facultyID varchar(255), category varchar(255),department varchar(255), filterDate Date, level varchar(255), eventName varchar(255), awardedBy varchar(255),sem varchar(255), result varchar(255), status varchar(255), date Date, description text, COE varchar(255))";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Awards Table created successfully");
@@ -75,14 +75,18 @@ let seeddb = async () => {
     "Create Table fac_AcademiaIndustryConnectActivityAttended(id varchar(255), topic varchar(255),attendedAt varchar(255), activityName varchar(255), startDate Date, awardedDate Date, objectives text, benefit text, activityType varchar(255), level varchar(255), COE varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
-    console.log("Academia Industry Connect Activity Attended Table created successfully");
+    console.log(
+      "Academia Industry Connect Activity Attended Table created successfully"
+    );
   });
 
   sql =
     "Create Table fac_AcademiaIndustryConnectActivityOrganised(id varchar(255), topic varchar(255), duration varchar(255), companyName varchar(255), address text, startDate Date, endDate Date, resourcePerson varchar(255), designation varchar(255), expenditure varchar(255), fundedBy varchar(255), participantsNum varchar(255), objectives varchar(255),Association varchar(255), benefit varchar(255), semester varchar(255), activityType varchar(255), level varchar(255), COE varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
-    console.log("Academia Industry Connect Activity Organised Table created successfully");
+    console.log(
+      "Academia Industry Connect Activity Organised Table created successfully"
+    );
   });
 
   sql =
@@ -97,63 +101,63 @@ let seeddb = async () => {
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Consultancy Table created successfully");
-  }); 
-  
+  });
+
   sql =
     "Create Table fac_entrepreneurshipDetails(id varchar(255), CompanyName varchar(255), CompanyAddress varchar(255), establishmentDate Date, revenue varchar(255),Association varchar(255), objectives text, benefit text, Companytype varchar(255), COE varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Entrepreneurship Details Table created successfully");
-  }); 
+  });
 
   sql =
     "Create Table fac_FOSScell(id varchar(255), eventName varchar(255), duration varchar(255), topic varchar(255), companyName varchar(255), address text, startDate Date, endDate Date, resourcePerson varchar(255), designation varchar(255), expenditure varchar(255), fundedBy varchar(255), participantsNum varchar(255), activityType varchar(255), level varchar(255),COE varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("FOSS Cell Table created successfully");
-  }); 
+  });
 
   sql =
     "Create Table fac_EEandC(id varchar(255), topic varchar(255), duration varchar(255), companyName varchar(255), address text, startDate Date, endDate Date, resourcePerson varchar(255), designation varchar(255), expenditure varchar(255), fundedBY varchar(255), participantsNum varchar(255), objectives text, benefit text, semester varchar(255),Association varchar(255), activityType varchar(255), COE varchar(255), level varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("EE&C Table created successfully");
-  }); 
+  });
 
   sql =
     "Create Table fac_FacultyServedas(id varchar(255), college_university_name varchar(255), Eventname varchar(255), startDate Date, endDate Date, servedAs varchar(255), activityType varchar(255), COE varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Faculty Served As Table created successfully");
-  }); 
+  });
 
   sql =
     "Create Table fac_ideaRepository(id varchar(255), ideadate Date, COE varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Idea Repository Table created successfully");
-  }); 
+  });
 
   sql =
     "Create Table fac_IQACdata(id varchar(255), topic varchar(255), duration varchar(255), companyName varchar(255), address text, startDate Date, endDate Date, resourcePerson varchar(255), designation varchar(255), expenditure varchar(255), fundedBy varchar(255), participantsNum varchar(255), objectives text, benefit text, semester varchar(255),Association varchar(255), activityType varchar(255),COE varchar(255), level varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("IQAC Data Table created successfully");
-  }); 
+  });
 
   sql =
     "Create Table fac_JournalPaperPublication(id varchar(255), rcId varchar(255),type varchar(255), PublisherName varchar(255), title varchar(255), isbn varchar(255), issn varchar(255), volumeNumber varchar(255), Indexid varchar(255), nameOfJournal varchar(255), COE varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Journal Paper Publication Table created successfully");
-  }); 
+  });
 
   sql =
     "Create Table fac_MOOCcourse(id varchar(255), department varchar(255), Nameofdepartment varchar(255), duration varchar(255), status varchar(255), startdate Date, enddate Date, topic varchar(255), level varchar(255), description text, filterDate Date)";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("MOOC Course Table created successfully");
-  }); 
+  });
 
   sql =
     "Create Table fac_MoUs(id varchar(255), companyName varchar(255), address text, startDate Date, endDate Date, collaborationTitle varchar(255),SignedBy varchar(255), objectives text, benefit text, level varchar(255), COE varchar(255), description text, filterDate Date)";
@@ -232,13 +236,6 @@ let seeddb = async () => {
     console.log("Well Being Club Table created successfully");
   });
 
-
-
-
-
-
-
-
   sql =
     "Create Table student(usn varchar(255), password varchar(255), name varchar(255), department varchar(255), mailId varchar(255), phoneNumber varchar(255), primary key (usn))";
 
@@ -267,49 +264,49 @@ let seeddb = async () => {
     if (err) throw err;
     console.log("Placements Table created successfully");
   });
-  
+
   sql =
     "Create Table stu_projects(usn varchar(255), studentName varchar(255), projectName varchar(255), project varchar(255), startDate Date, awardedDate Date, semester varchar(255), projectType varchar(255), prize varchar(255), description text, filterDate Date, department varchar(255),COE varchar(255));";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Projects Table created successfully");
   });
-  
+
   sql =
     "Create Table alumni(usn varchar(255), studentName varchar(255), personalmailId varchar(225), mobileNumber varchar(225), companyName varchar(225), companymailId varchar(225), yearofJoin Date, yearofPass Date, jobLocation varchar(225));";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Alumni Table created successfully");
   });
-  
+
   sql =
     "Create Table higherStudies(usn varchar(255), studentName varchar(255), studiestype varchar(225), description varchar(225), exams varchar(225), date Date, department varchar(255),COE varchar(255));";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Higher Studies Table created successfully");
   });
-  
+
   sql =
     "Create Table stu_mooc(usn varchar(255), studentName varchar(255), startDate Date, endDate Date, description varchar(225), courseName varchar(225), boolExam varchar(225), department varchar(255),COE varchar(255));";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("MOOC Table created successfully");
   });
-  
+
   sql =
     "Create Table stu_bookPublication(usn varchar(255), studentName varchar(255), description varchar(225), date Date, department varchar(255),COE varchar(255));";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Book Publication Table created successfully");
   });
-  
+
   sql =
     "Create Table stu_journalPublication(usn varchar(255), studentName varchar(255), description varchar(225), department varchar(255),COE varchar(255));";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log("Journal Publication Table created successfully");
   });
-  
+
   sql =
     "Create Table stu_exhangeProgram(usn varchar(255), studentName varchar(255),description varchar(225), startDate Date, endDate Date, department varchar(255),COE varchar(255));";
   db.query(sql, (err, result) => {
@@ -324,14 +321,11 @@ let seeddb = async () => {
     console.log("COE table has been created sucessfully");
   });
   sql =
-  "Create Table clubName(id int Auto_increment, name varchar(255), PRIMARY KEY(id));";
-db.query(sql, (err, result) => {
-  if (err) throw err;
-  console.log("Club name table has been created sucessfully");
-});
+    "Create Table clubName(id int Auto_increment, name varchar(255), PRIMARY KEY(id));";
+  db.query(sql, (err, result) => {
+    if (err) throw err;
+    console.log("Club name table has been created sucessfully");
+  });
 };
 
-
-
 seeddb();
-
