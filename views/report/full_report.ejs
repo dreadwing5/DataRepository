@@ -23,7 +23,7 @@
 <body>
 
     <div class="container-fluid">
-        <div class="row data-row">
+        <div class="row data-row table__data">
             <div class="col-md-8 mb-3">
                 <h4 class="mb-3 title">
                     <%=module%>
@@ -57,9 +57,11 @@
                                     <tr>
                                         <th scope="col">#</th>
                                         <% Object.keys(data[j][0]).forEach(key=> { %>
-                                        <%if(key==='description' ){%>
+                                        <%if(key==='description' || key==='id'){%>
                                         <th style="display:none;">
                                         </th>
+
+
                                         <%}else{%>
                                         <th scope="col">
                                             <%= key.charAt(0).toUpperCase() +
@@ -81,8 +83,9 @@
                                             <%=i++%>
                                         </th>
                                         <%Object.entries(object).forEach(([key,value])=> { %>
-                                        <%if(key==='description'){%>
+                                        <%if(key==='description' || key==='id'){%>
                                         <td style="display:none;">
+                                            <%=value%>
                                         </td>
 
                                         <%}else{%>
@@ -98,7 +101,7 @@
                                                                             day='0' + day; return [day, month, year].join('/'); } %>
                                         <%} else {%>
 
-                                        <td contenteditable>
+                                        <td>
 
 
                                             <% if(key==='description' ){%>
@@ -120,12 +123,10 @@
                                                                                     <% }) %>
                                         <td>
                                             <button data-id1="<%=j%>" data-id2="<%=i%>"
-                                                class="btn btn-primary edit-entry"
-                                                onclick="editData(this)">Edit</button>
+                                                class="btn btn-primary edit__entry">Edit</button>
                                         </td>
                                         <td>
-                                            <button class="btn btn-danger delete-entry"
-                                                onclick="deleteData(this)">Delete</button>
+                                            <button class="btn btn-danger delete__entry">Delete</button>
                                         </td>
 
                                     </tr>
@@ -135,7 +136,7 @@
                                     <tr>
 
                                         <%if(object.description!=='null') {%>
-                                        <td contenteditable colspan="100">
+                                        <td colspan="100">
                                             <%-object.description%>
                                         </td>
                                         <%}%>
@@ -163,25 +164,37 @@
 
         </div>
 
-        <script>
-            const deleteData = (row) => {
-                let data = row.closest('.table'); //This will selct the entire table
-
-
-                data.remove();
-            }
-
-            const editData = (row) => {
-                // let eventName = row.dataset.mod;
-                let id = row.closest('.table').rows[1].cells[1].innerText;
-                let eventID = row.closest('.table').dataset.id;
-                let eventName = document.getElementById(`event-name-${eventID}`).innerText;
-                eventName = _.trim(_.camelCase(eventName), "Report");
-                console.log(eventName);
-                window.location.href = `/edit?name=${eventName}&id=${id}`;
-            }
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
 </body>
+<!--Custom Script -->
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+<script>
+    const editData = (row) => {
+        // let eventName = row.dataset.mod;
+        let id = row.closest(".table").rows[1].cells[1].innerText.trim(" ");
+        let eventID = row.closest(".table").dataset.id;
+        let eventName = document.getElementById(`event-name-${eventID}`).innerText;
+        eventName = _.trim(_.camelCase(eventName), "Report");
+        console.log(eventName);
+        window.location.href = `/edit?name=${eventName}&id=${id}`;
+    };
+
+    const deleteData = (row) => {
+        let data = row.closest(".table"); //This will selct the entire table
+        data.remove();
+    };
+    const table__data = document.querySelector('.table__data');
+    table__data.addEventListener('click', (e) => {
+        e.preventDefault();
+        //Matching Strategy
+        if (e.target.classList.contains('edit__entry')) {
+            editData(e.target);
+        }
+        if (e.target.classList.contains('delete__entry')) {
+            deleteData(e.target);
+
+        }
+    })
+</script>
+
 
 </html>

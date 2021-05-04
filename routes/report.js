@@ -214,17 +214,24 @@ router.get("/edit?", (req, res) => {
   }
   let event = `fac_${name}`;
   let sql = `Select * from ${event} Where id=${id}`;
-  connection.query(sql, (err, result, fields) => {
-    result.forEach((res, i) => {
-      for (let key in res) {
-        if (key.includes("date") || key.includes("Date")) {
-          res[key] = formatDate(res[key]);
+  connection.query(sql, (error, result, fields) => {
+    if (error) {
+      console.error(error);
+      res.send({
+        code: 400,
+        failed: "error ocurred",
+      });
+    } else {
+      result.forEach((res, i) => {
+        for (let key in res) {
+          if (key.includes("date") || key.includes("Date")) {
+            res[key] = formatDate(res[key]);
+          }
         }
-      }
-      delete res.filterDate;
-    });
+        delete res.filterDate;
+      });
+    }
     const data = JSON.parse(JSON.stringify(result[0]));
-    if (err) throw err;
     res.render(`edit/${event}`, {
       module: "Faculty",
       Username: "test",
