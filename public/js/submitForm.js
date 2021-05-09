@@ -1,5 +1,4 @@
-export const submitForm = (event) => {
-  event.preventDefault();
+export const submitForm = () => {
   const formData = new FormData(myForm);
   let description = quill.root.innerHTML;
   if (description === "<p><br></p>") {

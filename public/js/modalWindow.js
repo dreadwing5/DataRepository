@@ -6,7 +6,7 @@ const btnCloseModal = document.querySelector(".btn--close-modal");
 const navList = document.querySelector("#navList");
 const alertMessage = document.getElementById("alert");
 if (alertMessage) {
-  console.log("Hiding Alert Message!");
+  // console.log("Hiding Alert Message!");
   alertMessage.style.display = "none";
 }
 

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Data Repository</title>
+    <title><%=title%></title>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
         integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
@@ -61,55 +61,19 @@
 
                 <div class="sidebar-brand-icon">
 
-                    <%if (module==='Student' ) {%>
-                    <i class="fas fa-user-graduate"></i>
-                    <% } else { %>
+
                     <i class="fas fa-chalkboard-teacher"></i>
-                    <% } %>
+
                 </div>
                 <div class=" sidebar-brand-text mx-3">
-                    <%=module%>
+                    Faculty
                 </div>
             </a>
 
 
             <!-- Nav Item - Dashboard -->
 
-            <!-- Render only on Student Module -->
 
-            <%if (module==='Student' ) {%>
-            <li class="nav-item">
-                <a class="nav-link" href="/students/Awards">
-                    <i class="fas fa-trophy"></i>
-                    <span>Awards</span></a>
-            </li>
-
-
-
-            <li class="nav-item">
-                <a class="nav-link" href="/students/placement">
-                    <i class="fas fa-graduation-cap"></i>
-                    <span>Placement</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/students/eventsAttended">
-                    <i class="fas fa-calendar-check"></i>
-                    <span>Events Attended</span></a>
-            </li>
-
-            <li class="nav-item" id="navList">
-                <a class="nav-link" href="#navList">
-                    <i class="fas fa-chevron-circle-down"></i>
-                    <span>More...</span>
-                </a>
-            </li>
-
-
-            <% } %>
-
-            <!-- Render only on Faculty module -->
-
-            <%if (module==='Faculty' ) {%>
             <li class="nav-item">
                 <a class="nav-link" href="/faculty/Awards">
                     <i class="fas fa-trophy"></i>
@@ -136,7 +100,7 @@
             </li>
 
 
-            <%} %>
+
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline sidebar-button">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
