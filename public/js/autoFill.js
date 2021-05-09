@@ -7,13 +7,17 @@ import $ from "jquery";
 Quill.register("modules/imageUploader", ImageUploader);
 Quill.register("modules/imageResize", ImageResize);
 
-const data = JSON.parse($("#variableJSON").text());
-for (const [key, value] of Object.entries(data)) {
-  if (key !== "id") {
-    if (key === "description") {
-      let quill = new Quill("#editor-container", quillConfig);
-      quill.clipboard.dangerouslyPasteHTML(0, value);
+let variableJSON = $("#variableJSON")?.text();
+
+if (variableJSON) {
+  const data = JSON.parse(variableJSON);
+  for (const [key, value] of Object.entries(data)) {
+    if (key !== "id") {
+      if (key === "description") {
+        let quill = new Quill("#editor-container", quillConfig);
+        quill.clipboard.dangerouslyPasteHTML(0, value);
+      }
+      document.getElementsByName(key)[0].value = value;
     }
-    document.getElementsByName(key)[0].value = value;
   }
 }

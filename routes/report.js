@@ -119,7 +119,6 @@ router.post("/search", (req, res) => {
           data.push(datatemp);
           if (i == tables.length - 1) {
             // console.log(eventName)
-            console.log(table);
             if (detailsReq) {
               res.render("report/full_report", {
                 module: module,
@@ -200,6 +199,10 @@ router.post("/search", (req, res) => {
     }
   });
 });
+
+//@route    GET api/edit?
+//@desc     Edit Route
+//@access   Public
 
 router.get("/edit?", (req, res) => {
   const { name, id } = req.query;
