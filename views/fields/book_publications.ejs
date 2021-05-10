@@ -1,0 +1,122 @@
+<%- include ("../partials/header") %>
+
+<div class="container-fluid">
+  <section id="form">
+    <form id="myForm" class="needs-validation" novalidate action="/faculty/BookPublications">
+      <div class="container-fluid">
+
+        <!-- Header Section -->
+
+        <div class="row data-row">
+          <div class="col-md-8 mb-3">
+            <h4 class="mb-3 title">Book Publications Data Entry</h4>
+          </div>
+          <div class="col-md-4 mb-3 report">
+            <a href="/faculty/search" class="btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+          </div>
+        </div>
+        <div class="row data-row">
+
+          <div class="col-md-6 mb-3">
+            <label class="required">RC-ID</label>
+            <input type="text" name="rc-id" class="form-control">
+            <div class="invalid-feedback">
+              Please enter valid details.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="required">Publisher Name</label>
+            <input type="text" name="PublisherName" class="form-control">
+            <div class="invalid-feedback">
+              Please enter valid details.
+            </div>
+          </div>
+        </div>
+
+        <div class="row data-row">
+          <div class="col-md-6 mb-3">
+            <label class="required">Book Name</label>
+            <input type="text" name="BookName" class="form-control">
+            <div class="invalid-feedback">
+              Please enter valid details.
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="required">ISBN Number</label>
+            <input type="text" name="isbn" class="form-control">
+            <div class="invalid-feedback">
+              Please enter valid details.
+            </div>
+          </div>
+        </div>
+        <div class="row data-row">
+          <div class="col-md-6 mb-3">
+            <label class="required">Volume Number/Issue/Edition</label>
+            <input type="text" name="volumeNumber" class="form-control">
+            <div class="invalid-feedback">
+              Please enter valid details.
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="doi" class="required">DOI</label>
+            <input type="text" name="doi" class="form-control">
+            <div class="invalid-feedback">
+              Please enter valid details.
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row data-row">
+
+
+          <div class="col-md-6 mb-3">
+            <label class="required">COE</label>
+
+            <!-- COE  -->
+
+            <%- include ("../partials/coe") %>
+
+            <div class="invalid-feedback">
+              Please select a valid type.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="date" class="required">Date</label>
+            <input type="date" name="Date" class="form-control" onchange="setDate()">
+            <div class="invalid-feedback">
+              Please enter valid details.
+            </div>
+          </div>
+        </div>
+
+
+        <%- include ("../partials/description") %>
+
+        <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
+            Submit</button>
+        </div>
+      </div>
+
+    </form>
+
+
+
+  </section>
+
+</div>
+
+<!-- Footer -->
+
+
+<%- include ("../partials/footer") %>
+
+<script type="text/javascript" src="/js/date.js">
+</script>
+
+</body>
+
+</html>

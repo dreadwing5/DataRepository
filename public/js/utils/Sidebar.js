@@ -1,5 +1,7 @@
+/* This is a legacy code, don't touch it. I know you hate jquery,  me too but this will allow us 
+the sidebar to have auto resizing property. please someone find better solution*/
+
 !(function (s) {
-  "use strict";
   s("#sidebarToggle, #sidebarToggleTop").on("click", function (e) {
     s("body").toggleClass("sidebar-toggled"),
       s(".sidebar").toggleClass("toggled"),
@@ -18,7 +20,7 @@
       "mousewheel DOMMouseScroll wheel",
       function (e) {
         if (768 < s(window).width()) {
-          var o = e.originalEvent,
+          let o = e.originalEvent,
             l = o.wheelDelta || -o.detail;
           (this.scrollTop += 30 * (l < 0 ? 1 : -1)), e.preventDefault();
         }
@@ -30,7 +32,7 @@
         : s(".scroll-to-top").fadeOut();
     }),
     s(document).on("click", "a.scroll-to-top", function (e) {
-      var o = s(this);
+      let o = s(this);
       s("html, body")
         .stop()
         .animate(
@@ -42,4 +44,20 @@
         ),
         e.preventDefault();
     });
+})(jQuery);
+
+(function (s) {
+  "use strict";
+
+  let fullHeight = function () {
+    s(".js-fullheight").css("height", s(window).height());
+    s(window).resize(function () {
+      s(".js-fullheight").css("height", s(window).height());
+    });
+  };
+  fullHeight();
+
+  s("#sidebarCollapse").on("click", function () {
+    s("#sidebar").toggleClass("active");
+  });
 })(jQuery);

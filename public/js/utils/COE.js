@@ -1,4 +1,3 @@
-"use strict";
 let flag = 1;
 const select = document.getElementById("select");
 
