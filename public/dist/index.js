@@ -31280,10 +31280,10 @@ module.exports = function (list, options) {
 
 /***/ }),
 
-/***/ "./public/js/autoFill.js":
-/*!*******************************!*\
-  !*** ./public/js/autoFill.js ***!
-  \*******************************/
+/***/ "./public/js/utils/AutoFill.js":
+/*!*************************************!*\
+  !*** ./public/js/utils/AutoFill.js ***!
+  \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -31296,7 +31296,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var quill_image_uploader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! quill-image-uploader */ "./node_modules/quill-image-uploader/src/quill.imageUploader.js");
 /* harmony import */ var quill_image_resize__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! quill-image-resize */ "./node_modules/quill-image-resize/image-resize.min.js");
 /* harmony import */ var quill_image_resize__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(quill_image_resize__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _quillConfig__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./quillConfig */ "./public/js/quillConfig.js");
+/* harmony import */ var _QuillConfig__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./QuillConfig */ "./public/js/utils/QuillConfig.js");
 
 
 
@@ -31315,7 +31315,7 @@ if (isInsertMode === "false") {
     if (key !== "id") {
       //Since we don't have id in frontend
       if (key === "description") {
-        let quill = new (quill__WEBPACK_IMPORTED_MODULE_0___default())("#editor-container", _quillConfig__WEBPACK_IMPORTED_MODULE_3__.quillConfig); //new instance of quill in edit page
+        let quill = new (quill__WEBPACK_IMPORTED_MODULE_0___default())("#editor-container", _QuillConfig__WEBPACK_IMPORTED_MODULE_3__.quillConfig); //new instance of quill in edit page
         quill.clipboard.dangerouslyPasteHTML(0, value); //paste the description to quill editor
       }
       document.getElementsByName(key)[0].value = value;
@@ -31324,21 +31324,47 @@ if (isInsertMode === "false") {
 }
 
 if (isInsertMode === "true") {
-  _quillConfig__WEBPACK_IMPORTED_MODULE_3__.quillConfig.placeholder = "Add Description Here..";
-  let quill = new (quill__WEBPACK_IMPORTED_MODULE_0___default())("#editor-container", _quillConfig__WEBPACK_IMPORTED_MODULE_3__.quillConfig); //Create a new instance of quill in insert page
+  _QuillConfig__WEBPACK_IMPORTED_MODULE_3__.quillConfig.placeholder = "Add Description Here..";
+  let quill = new (quill__WEBPACK_IMPORTED_MODULE_0___default())("#editor-container", _QuillConfig__WEBPACK_IMPORTED_MODULE_3__.quillConfig); //Create a new instance of quill in insert page
 }
 
 
 /***/ }),
 
-/***/ "./public/js/modalWindow.js":
-/*!**********************************!*\
-  !*** ./public/js/modalWindow.js ***!
-  \**********************************/
+/***/ "./public/js/utils/Date.js":
+/*!*********************************!*\
+  !*** ./public/js/utils/Date.js ***!
+  \*********************************/
 /***/ (() => {
 
-"use strict";
+const dateControl = document.querySelectorAll(".date__control");
+const startDate = document.querySelector(".start__date");
 
+//Set Max Date on date fields
+if (dateControl) {
+  let today = new Date().toISOString().slice(0, 10);
+  dateControl.forEach((date) => {
+    date.setAttribute("max", today);
+  });
+}
+
+//make sure that the end date is less than the start date
+
+startDate?.addEventListener("change", () => {
+  let sDate = document.getElementsByName("startDate")[0];
+  sDate = sDate?.value;
+  let eDate = document.getElementsByName("endDate")[0];
+  eDate?.setAttribute("min", sDate);
+});
+
+
+/***/ }),
+
+/***/ "./public/js/utils/ModalWindow.js":
+/*!****************************************!*\
+  !*** ./public/js/utils/ModalWindow.js ***!
+  \****************************************/
+/***/ (() => {
 
 const modal = document.querySelector(".nav-modal");
 const overlay = document.querySelector(".overlay");
@@ -31377,10 +31403,10 @@ if (modal) {
 
 /***/ }),
 
-/***/ "./public/js/quillConfig.js":
-/*!**********************************!*\
-  !*** ./public/js/quillConfig.js ***!
-  \**********************************/
+/***/ "./public/js/utils/QuillConfig.js":
+/*!****************************************!*\
+  !*** ./public/js/utils/QuillConfig.js ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -31425,10 +31451,83 @@ const quillConfig = {
 
 /***/ }),
 
-/***/ "./public/js/submitForm.js":
-/*!*********************************!*\
-  !*** ./public/js/submitForm.js ***!
-  \*********************************/
+/***/ "./public/js/utils/Sidebar.js":
+/*!************************************!*\
+  !*** ./public/js/utils/Sidebar.js ***!
+  \************************************/
+/***/ (() => {
+
+/* This is a legacy code, don't touch it. I know you hate jquery,  me too but this will allow us 
+the sidebar to have auto resizing property. please someone find better solution*/
+
+!(function (s) {
+  s("#sidebarToggle, #sidebarToggleTop").on("click", function (e) {
+    s("body").toggleClass("sidebar-toggled"),
+      s(".sidebar").toggleClass("toggled"),
+      s(".sidebar").hasClass("toggled") &&
+        s(".sidebar .collapse").collapse("hide");
+  }),
+    s(window).resize(function () {
+      s(window).width() < 768 && s(".sidebar .collapse").collapse("hide"),
+        s(window).width() < 480 &&
+          !s(".sidebar").hasClass("toggled") &&
+          (s("body").addClass("sidebar-toggled"),
+          s(".sidebar").addClass("toggled"),
+          s(".sidebar .collapse").collapse("hide"));
+    }),
+    s("body.fixed-nav .sidebar").on(
+      "mousewheel DOMMouseScroll wheel",
+      function (e) {
+        if (768 < s(window).width()) {
+          let o = e.originalEvent,
+            l = o.wheelDelta || -o.detail;
+          (this.scrollTop += 30 * (l < 0 ? 1 : -1)), e.preventDefault();
+        }
+      }
+    ),
+    s(document).on("scroll", function () {
+      100 < s(this).scrollTop()
+        ? s(".scroll-to-top").fadeIn()
+        : s(".scroll-to-top").fadeOut();
+    }),
+    s(document).on("click", "a.scroll-to-top", function (e) {
+      let o = s(this);
+      s("html, body")
+        .stop()
+        .animate(
+          {
+            scrollTop: s(o.attr("href")).offset().top,
+          },
+          1e3,
+          "easeInOutExpo"
+        ),
+        e.preventDefault();
+    });
+})(jQuery);
+
+(function (s) {
+  "use strict";
+
+  let fullHeight = function () {
+    s(".js-fullheight").css("height", s(window).height());
+    s(window).resize(function () {
+      s(".js-fullheight").css("height", s(window).height());
+    });
+  };
+  fullHeight();
+
+  s("#sidebarCollapse").on("click", function () {
+    s("#sidebar").toggleClass("active");
+  });
+})(jQuery);
+
+
+/***/ }),
+
+/***/ "./public/js/utils/SubmitForm.js":
+/*!***************************************!*\
+  !*** ./public/js/utils/SubmitForm.js ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -31498,10 +31597,32 @@ const submitForm = () => {
 
 /***/ }),
 
-/***/ "./public/js/updateForm.js":
-/*!*********************************!*\
-  !*** ./public/js/updateForm.js ***!
-  \*********************************/
+/***/ "./public/js/utils/Textbox.js":
+/*!************************************!*\
+  !*** ./public/js/utils/Textbox.js ***!
+  \************************************/
+/***/ (() => {
+
+//Javascript for showing TextBox if users select other option
+
+const selectBox = document.getElementById("selectBox");
+
+selectBox?.addEventListener("click", () => {
+  const selectedValue = selectBox?.options[selectBox.selectedIndex].value;
+  if (selectedValue === "others") {
+    document.getElementById("textboxes").style.display = "block";
+  } else {
+    document.getElementById("textboxes").style.display = "none";
+  }
+});
+
+
+/***/ }),
+
+/***/ "./public/js/utils/UpdateForm.js":
+/*!***************************************!*\
+  !*** ./public/js/utils/UpdateForm.js ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -31586,10 +31707,10 @@ const updateForm = () => {
 
 /***/ }),
 
-/***/ "./public/js/utils.js":
-/*!****************************!*\
-  !*** ./public/js/utils.js ***!
-  \****************************/
+/***/ "./public/js/utils/Utils.js":
+/*!**********************************!*\
+  !*** ./public/js/utils/Utils.js ***!
+  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -31628,17 +31749,17 @@ table__data?.addEventListener("click", (e) => {
 
 /***/ }),
 
-/***/ "./public/js/validateForm.js":
-/*!***********************************!*\
-  !*** ./public/js/validateForm.js ***!
-  \***********************************/
+/***/ "./public/js/utils/ValidateForm.js":
+/*!*****************************************!*\
+  !*** ./public/js/utils/ValidateForm.js ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _updateForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./updateForm */ "./public/js/updateForm.js");
-/* harmony import */ var _submitForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./submitForm */ "./public/js/submitForm.js");
-/* harmony import */ var _autoFill__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./autoFill */ "./public/js/autoFill.js");
+/* harmony import */ var _UpdateForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UpdateForm */ "./public/js/utils/UpdateForm.js");
+/* harmony import */ var _SubmitForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SubmitForm */ "./public/js/utils/SubmitForm.js");
+/* harmony import */ var _AutoFill__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AutoFill */ "./public/js/utils/AutoFill.js");
 
 
 
@@ -31660,8 +31781,8 @@ __webpack_require__.r(__webpack_exports__);
               form.classList.add("was-validated");
             } else {
               e.preventDefault();
-              if (_autoFill__WEBPACK_IMPORTED_MODULE_2__.isInsertMode === "false") (0,_updateForm__WEBPACK_IMPORTED_MODULE_0__.updateForm)();
-              (0,_submitForm__WEBPACK_IMPORTED_MODULE_1__.submitForm)();
+              if (_AutoFill__WEBPACK_IMPORTED_MODULE_2__.isInsertMode === "false") (0,_UpdateForm__WEBPACK_IMPORTED_MODULE_0__.updateForm)();
+              (0,_SubmitForm__WEBPACK_IMPORTED_MODULE_1__.submitForm)();
             }
           },
           false
@@ -31771,12 +31892,15 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	__webpack_require__("./public/js/autoFill.js");
-/******/ 	__webpack_require__("./public/js/quillConfig.js");
-/******/ 	__webpack_require__("./public/js/validateForm.js");
-/******/ 	__webpack_require__("./public/js/updateForm.js");
-/******/ 	__webpack_require__("./public/js/modalWindow.js");
-/******/ 	var __webpack_exports__ = __webpack_require__("./public/js/utils.js");
+/******/ 	__webpack_require__("./public/js/utils/AutoFill.js");
+/******/ 	__webpack_require__("./public/js/utils/QuillConfig.js");
+/******/ 	__webpack_require__("./public/js/utils/ValidateForm.js");
+/******/ 	__webpack_require__("./public/js/utils/UpdateForm.js");
+/******/ 	__webpack_require__("./public/js/utils/ModalWindow.js");
+/******/ 	__webpack_require__("./public/js/utils/Utils.js");
+/******/ 	__webpack_require__("./public/js/utils/Textbox.js");
+/******/ 	__webpack_require__("./public/js/utils/Date.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./public/js/utils/Sidebar.js");
 /******/ 	
 /******/ })()
 ;

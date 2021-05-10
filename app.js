@@ -22,6 +22,7 @@ app.use(
 app.use("/", require("./routes/index"));
 app.use("/", require("./routes/form_submission"));
 app.use("/", require("./routes/report"));
+app.use("/", require("./routes/admin"));
 
 // Server Running at port 4000
 app.listen("4000", () => {

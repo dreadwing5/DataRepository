@@ -50,7 +50,7 @@
           <div class="col-md-6 mb-3">
             <div class="form-group">
               <label class="required">Date of Award</label>
-              <input type="date" name="date" class="form-control" required>
+              <input type="date" name="date" class="form-control date__control" required>
               <div class="invalid-feedback">
                 Valid details required.
               </div>
@@ -61,8 +61,7 @@
         <div class="row data-row">
           <div class="col-md-6 mb-3">
             <label class="required">Category</label>
-            <select name="category" class="custom-select d-block w-100" id="selectBox" required
-              onChange="changeFunc();">
+            <select name="category" class="custom-select d-block w-100" id="selectBox" required>
               <option value="">Choose...</option>
               <option>Hackathon</option>
               <option>Competition</option>
@@ -187,8 +186,6 @@
 
 
 <%- include ("../partials/footer") %>
-
-          <script type="text/javascript" src="/js/date.js"></script>
           </body>
 
           </html>

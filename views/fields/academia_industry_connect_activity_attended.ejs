@@ -49,14 +49,14 @@
 
           <div class="col-md-6 mb-3">
             <label for="date" class="required">Start Date</label>
-            <input type="date" name="startDate" class="form-control" onchange="setDate()">
+            <input type="date" name="startDate" class="form-control date__control start__date">
             <div class="invalid-feedback">
               Please enter valid details.
             </div>
           </div>
           <div class="col-md-6 mb-3">
             <label for="date" class="required">Awarded Date</label>
-            <input type="date" name="awardedDate" class="form-control eDate">
+            <input type="date" name="awardedDate" class="form-control date__control">
             <div class="invalid-feedback">
               Please enter valid details.
             </div>
@@ -86,7 +86,7 @@
       <div class="row data-row">
         <div class="col-md-4 mb-3">
           <label class="required">Activity Type</label>
-          <select name="activityType" class="custom-select d-block w-100" id="selectBox" onChange="changeFunc();">
+          <select name="activityType" class="custom-select d-block w-100" id="selectBox">
             <option value="">Choose...</option>
             <option>Training Programmes</option>
             <option>Guest Lecture</option>
@@ -161,10 +161,6 @@
 
 </div>
 
-
-
-
-<script type="text/javascript" src="/js/date.js">
 </script>
 
 </body>

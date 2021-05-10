@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
 
 router.get("/faculty/:module", (req, res) => {
   const moduleName = snakeCase(req.params.module); //Dynamically render the page using url params
-  const title = startCase(req.params.module);
+  const title = startCase(req.params.module); //Send the tiltle of html page
   res.render(`fields/${moduleName}`, {
     title: title,
     Username: "test",

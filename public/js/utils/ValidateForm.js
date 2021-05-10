@@ -1,6 +1,6 @@
-import { updateForm } from "./updateForm";
-import { submitForm } from "./submitForm";
-import { isInsertMode } from "./autoFill";
+import { updateForm } from "./UpdateForm";
+import { submitForm } from "./SubmitForm";
+import { isInsertMode } from "./AutoFill";
 
 (function () {
   window.addEventListener(

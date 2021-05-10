@@ -1,5 +1,3 @@
-"use strict";
-
 const modal = document.querySelector(".nav-modal");
 const overlay = document.querySelector(".overlay");
 const btnCloseModal = document.querySelector(".btn--close-modal");

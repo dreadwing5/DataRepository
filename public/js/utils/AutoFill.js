@@ -1,7 +1,7 @@
 import Quill from "quill";
 import ImageUploader from "quill-image-uploader";
 import ImageResize from "quill-image-resize";
-import { quillConfig } from "./quillConfig";
+import { quillConfig } from "./QuillConfig";
 
 Quill.register("modules/imageUploader", ImageUploader);
 Quill.register("modules/imageResize", ImageResize);

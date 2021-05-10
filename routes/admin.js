@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-const {
-  ensureAuthenticated,
-  forwardAuthenticated,
-} = require("../configs/admin-auth");
+// const {
+//   ensureAuthenticated,
+//   forwardAuthenticated,
+// } = require("../configs/admin-auth");
 
 //Admin Panel
-router.get("/admin", ensureAuthenticated, function (req, res) {
+router.get("/admin", function (req, res) {
   res.render("admin/admin_panel", {
     title: "Dashboard",
   });

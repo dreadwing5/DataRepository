@@ -5,12 +5,15 @@ module.exports = {
   devtool: false,
   entry: {
     index: [
-      "./public/js/autoFill.js",
-      "./public/js/quillConfig.js",
-      "./public/js/validateForm.js",
-      "./public/js/updateForm.js",
-      "./public/js/modalWindow.js",
-      "./public/js/utils.js",
+      "./public/js/utils/AutoFill.js",
+      "./public/js/utils/QuillConfig.js",
+      "./public/js/utils/ValidateForm.js",
+      "./public/js/utils/UpdateForm.js",
+      "./public/js/utils/ModalWindow.js",
+      "./public/js/utils/Utils.js",
+      "./public/js/utils/Textbox.js",
+      "./public/js/utils/Date.js",
+      "./public/js/utils/Sidebar.js",
     ],
   },
   output: {
