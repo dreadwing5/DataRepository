@@ -1,13 +1,6 @@
 import Quill from "quill";
-import ImageUploader from "quill-image-uploader";
-import ImageResize from "quill-image-resize";
 import { quillConfig } from "./QuillConfig";
-
-Quill.register("modules/imageUploader", ImageUploader);
-Quill.register("modules/imageResize", ImageResize);
-
-export const isInsertMode = document.getElementById("myForm")?.dataset
-  .isinsertmode;
+import { isInsertMode } from "./Utils";
 
 let data = document.querySelector("#variableJSON")?.textContent;
 
@@ -25,10 +18,3 @@ if (isInsertMode === "false") {
     }
   }
 }
-
-if (isInsertMode === "true") {
-  quillConfig.placeholder = "Add Description Here..";
-  //Create a new instance of quill in insert page
-}
-
-export const quill = new Quill("#editor-container", quillConfig);

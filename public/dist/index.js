@@ -31291,19 +31291,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "submitForm": () => (/* binding */ submitForm)
 /* harmony export */ });
-/* harmony import */ var _utils_AutoFill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/AutoFill */ "./public/js/utils/AutoFill.js");
-/* harmony import */ var _InsertData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./InsertData */ "./public/js/apis/InsertData.js");
-/* harmony import */ var _UpdateData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UpdateData */ "./public/js/apis/UpdateData.js");
+/* harmony import */ var quill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! quill */ "./node_modules/quill/dist/quill.js");
+/* harmony import */ var quill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(quill__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_Utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/Utils */ "./public/js/utils/Utils.js");
+/* harmony import */ var _InsertData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./InsertData */ "./public/js/apis/InsertData.js");
+/* harmony import */ var _UpdateData__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UpdateData */ "./public/js/apis/UpdateData.js");
+/* harmony import */ var _utils_QuillConfig__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/QuillConfig */ "./public/js/utils/QuillConfig.js");
+
+
+
+
 
 
 
 const submitForm = () => {
   const formData = new FormData(myForm);
-  if (_utils_AutoFill__WEBPACK_IMPORTED_MODULE_0__.isInsertMode === "false") {
+  if (_utils_Utils__WEBPACK_IMPORTED_MODULE_1__.isInsertMode === "false") {
     const description = document.querySelector(".ql-editor").innerHTML; //This will again append the content of quill in to description if we are fetching  the data
     formData.append("description", description);
   } else {
-    let description = _utils_AutoFill__WEBPACK_IMPORTED_MODULE_0__.quill.root.innerHTML;
+    let quill = new (quill__WEBPACK_IMPORTED_MODULE_0___default())("#editor-container", _utils_QuillConfig__WEBPACK_IMPORTED_MODULE_4__.quillConfig);
+
+    //Create a new instance of quill in insert page
+    let description = quill.root.innerHTML;
     if (description === "<p><br></p>") {
       description = "No Description";
     }
@@ -31349,7 +31359,7 @@ const submitForm = () => {
 
   const url = myForm.action;
 
-  _utils_AutoFill__WEBPACK_IMPORTED_MODULE_0__.isInsertMode === "false" ? (0,_UpdateData__WEBPACK_IMPORTED_MODULE_2__.updateData)(object) : (0,_InsertData__WEBPACK_IMPORTED_MODULE_1__.insertData)(object, url);
+  _utils_Utils__WEBPACK_IMPORTED_MODULE_1__.isInsertMode === "false" ? (0,_UpdateData__WEBPACK_IMPORTED_MODULE_3__.updateData)(object) : (0,_InsertData__WEBPACK_IMPORTED_MODULE_2__.insertData)(object, url);
 };
 
 
@@ -31429,50 +31439,30 @@ const updateData = async (data) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "isInsertMode": () => (/* binding */ isInsertMode),
-/* harmony export */   "quill": () => (/* binding */ quill)
-/* harmony export */ });
 /* harmony import */ var quill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! quill */ "./node_modules/quill/dist/quill.js");
 /* harmony import */ var quill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(quill__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var quill_image_uploader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! quill-image-uploader */ "./node_modules/quill-image-uploader/src/quill.imageUploader.js");
-/* harmony import */ var quill_image_resize__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! quill-image-resize */ "./node_modules/quill-image-resize/image-resize.min.js");
-/* harmony import */ var quill_image_resize__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(quill_image_resize__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _QuillConfig__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./QuillConfig */ "./public/js/utils/QuillConfig.js");
+/* harmony import */ var _QuillConfig__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./QuillConfig */ "./public/js/utils/QuillConfig.js");
+/* harmony import */ var _Utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Utils */ "./public/js/utils/Utils.js");
 
 
 
-
-
-quill__WEBPACK_IMPORTED_MODULE_0___default().register("modules/imageUploader", quill_image_uploader__WEBPACK_IMPORTED_MODULE_1__.default);
-quill__WEBPACK_IMPORTED_MODULE_0___default().register("modules/imageResize", (quill_image_resize__WEBPACK_IMPORTED_MODULE_2___default()));
-
-const isInsertMode = document.getElementById("myForm")?.dataset
-  .isinsertmode;
 
 let data = document.querySelector("#variableJSON")?.textContent;
 
-if (isInsertMode === "false") {
+if (_Utils__WEBPACK_IMPORTED_MODULE_2__.isInsertMode === "false") {
   for (const [key, value] of Object.entries(JSON.parse(data))) {
     // console.log(key, value);
     if (key !== "id") {
       //Since we don't have id in frontend
       if (key === "description") {
         //new instance of quill in edit page
-        let quill = new (quill__WEBPACK_IMPORTED_MODULE_0___default())("#editor-container", _QuillConfig__WEBPACK_IMPORTED_MODULE_3__.quillConfig);
+        let quill = new (quill__WEBPACK_IMPORTED_MODULE_0___default())("#editor-container", _QuillConfig__WEBPACK_IMPORTED_MODULE_1__.quillConfig);
         quill.clipboard.dangerouslyPasteHTML(0, value); //paste the description to quill editor
       }
       document.getElementsByName(key)[0].value = value;
     }
   }
 }
-
-if (isInsertMode === "true") {
-  _QuillConfig__WEBPACK_IMPORTED_MODULE_3__.quillConfig.placeholder = "Add Description Here..";
-  //Create a new instance of quill in insert page
-}
-
-const quill = new (quill__WEBPACK_IMPORTED_MODULE_0___default())("#editor-container", _QuillConfig__WEBPACK_IMPORTED_MODULE_3__.quillConfig);
 
 
 /***/ }),
@@ -31700,9 +31690,37 @@ selectBox?.addEventListener("click", () => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "isInsertMode": () => (/* binding */ isInsertMode)
+/* harmony export */ });
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var quill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! quill */ "./node_modules/quill/dist/quill.js");
+/* harmony import */ var quill__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(quill__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var quill_image_uploader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! quill-image-uploader */ "./node_modules/quill-image-uploader/src/quill.imageUploader.js");
+/* harmony import */ var quill_image_resize__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! quill-image-resize */ "./node_modules/quill-image-resize/image-resize.min.js");
+/* harmony import */ var quill_image_resize__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(quill_image_resize__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _QuillConfig__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./QuillConfig */ "./public/js/utils/QuillConfig.js");
 
+
+
+
+
+
+quill__WEBPACK_IMPORTED_MODULE_1___default().register("modules/imageUploader", quill_image_uploader__WEBPACK_IMPORTED_MODULE_2__.default);
+quill__WEBPACK_IMPORTED_MODULE_1___default().register("modules/imageResize", (quill_image_resize__WEBPACK_IMPORTED_MODULE_3___default()));
+
+
+
+const isInsertMode = document.getElementById("myForm")?.dataset
+  .isinsertmode;
+
+if (isInsertMode === "true") {
+  _QuillConfig__WEBPACK_IMPORTED_MODULE_4__.quillConfig.placeholder = "Add Description Here..";
+  let quill = new (quill__WEBPACK_IMPORTED_MODULE_1___default())("#editor-container", _QuillConfig__WEBPACK_IMPORTED_MODULE_4__.quillConfig);
+
+  //Create a new instance of quill in insert page
+}
 
 const editData = (row) => {
   // let eventName = row.dataset.mod;
@@ -31871,8 +31889,8 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module is referenced by other modules so it can't be inlined
 /******/ 	__webpack_require__("./public/js/utils/AutoFill.js");
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
 /******/ 	__webpack_require__("./public/js/utils/QuillConfig.js");
 /******/ 	__webpack_require__("./public/js/utils/ValidateForm.js");
 /******/ 	__webpack_require__("./public/js/utils/ModalWindow.js");
