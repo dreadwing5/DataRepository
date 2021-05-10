@@ -31280,6 +31280,147 @@ module.exports = function (list, options) {
 
 /***/ }),
 
+/***/ "./public/js/apis/FormData.js":
+/*!************************************!*\
+  !*** ./public/js/apis/FormData.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "submitForm": () => (/* binding */ submitForm)
+/* harmony export */ });
+/* harmony import */ var _utils_AutoFill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/AutoFill */ "./public/js/utils/AutoFill.js");
+/* harmony import */ var _InsertData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./InsertData */ "./public/js/apis/InsertData.js");
+/* harmony import */ var _UpdateData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UpdateData */ "./public/js/apis/UpdateData.js");
+
+
+
+const submitForm = () => {
+  const formData = new FormData(myForm);
+  if (_utils_AutoFill__WEBPACK_IMPORTED_MODULE_0__.isInsertMode === "false") {
+    const description = document.querySelector(".ql-editor").innerHTML; //This will again append the content of quill in to description if we are fetching  the data
+    formData.append("description", description);
+  } else {
+    let description = _utils_AutoFill__WEBPACK_IMPORTED_MODULE_0__.quill.root.innerHTML;
+    if (description === "<p><br></p>") {
+      description = "No Description";
+    }
+    formData.append("description", description);
+  }
+
+  const categoryName = document
+    .getElementById("selectBox")
+    ?.getAttribute("name");
+  if (categoryName) {
+    const category = document.querySelector(`select[name=${categoryName}]`)
+      .value;
+
+    //Check for others
+    const categoryValue =
+      category === "others"
+        ? document.querySelector(".other-text").value
+        : category;
+    formData.set(categoryName, categoryValue);
+  }
+
+  const object = {};
+  formData.forEach(function (value, key) {
+    object[key] = value;
+  });
+
+  object.filterDate = new Date();
+  let day = object.filterDate.getDate();
+  let month = object.filterDate.getMonth();
+  let year = object.filterDate.getFullYear();
+  if (day <= 5) {
+    day = 30;
+    month = month === 0 ? 11 : month - 1;
+    if (month === 11) {
+      year--;
+    }
+  } else {
+    day = 30;
+  }
+  month++;
+  object.filterDate =
+    year.toString() + "-" + month.toString() + "-" + day.toString();
+
+  const url = myForm.action;
+
+  _utils_AutoFill__WEBPACK_IMPORTED_MODULE_0__.isInsertMode === "false" ? (0,_UpdateData__WEBPACK_IMPORTED_MODULE_2__.updateData)(object) : (0,_InsertData__WEBPACK_IMPORTED_MODULE_1__.insertData)(object, url);
+};
+
+
+/***/ }),
+
+/***/ "./public/js/apis/InsertData.js":
+/*!**************************************!*\
+  !*** ./public/js/apis/InsertData.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "insertData": () => (/* binding */ insertData)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+
+const insertData = async (data, url) => {
+  try {
+    const resp = await axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, data);
+    document.getElementById("alert").style.display = "block";
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+    setTimeout(() => window.location.reload(), 2000);
+  } catch (err) {
+    // Handle Error Here
+    console.error(err);
+  }
+};
+
+
+/***/ }),
+
+/***/ "./public/js/apis/UpdateData.js":
+/*!**************************************!*\
+  !*** ./public/js/apis/UpdateData.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "updateData": () => (/* binding */ updateData)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+
+const updateData = async (data) => {
+  // console.log(object);
+  try {
+    let params = new URLSearchParams(location.search);
+    let event = params.get("name");
+    let id = params.get("id");
+
+    const updateUrl = `/update/${event}/${id}`;
+    const resp = await axios__WEBPACK_IMPORTED_MODULE_0___default().put(updateUrl, data);
+    document.getElementById("alert").style.display = "block";
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+    setTimeout(() => window.location.reload(), 2000);
+  } catch (err) {
+    // Handle Error Here
+    console.error(err);
+  }
+};
+
+
+/***/ }),
+
 /***/ "./public/js/utils/AutoFill.js":
 /*!*************************************!*\
   !*** ./public/js/utils/AutoFill.js ***!
@@ -31289,7 +31430,8 @@ module.exports = function (list, options) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "isInsertMode": () => (/* binding */ isInsertMode)
+/* harmony export */   "isInsertMode": () => (/* binding */ isInsertMode),
+/* harmony export */   "quill": () => (/* binding */ quill)
 /* harmony export */ });
 /* harmony import */ var quill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! quill */ "./node_modules/quill/dist/quill.js");
 /* harmony import */ var quill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(quill__WEBPACK_IMPORTED_MODULE_0__);
@@ -31307,6 +31449,7 @@ quill__WEBPACK_IMPORTED_MODULE_0___default().register("modules/imageResize", (qu
 
 const isInsertMode = document.getElementById("myForm")?.dataset
   .isinsertmode;
+
 let data = document.querySelector("#variableJSON")?.textContent;
 
 if (isInsertMode === "false") {
@@ -31315,7 +31458,8 @@ if (isInsertMode === "false") {
     if (key !== "id") {
       //Since we don't have id in frontend
       if (key === "description") {
-        let quill = new (quill__WEBPACK_IMPORTED_MODULE_0___default())("#editor-container", _QuillConfig__WEBPACK_IMPORTED_MODULE_3__.quillConfig); //new instance of quill in edit page
+        //new instance of quill in edit page
+        let quill = new (quill__WEBPACK_IMPORTED_MODULE_0___default())("#editor-container", _QuillConfig__WEBPACK_IMPORTED_MODULE_3__.quillConfig);
         quill.clipboard.dangerouslyPasteHTML(0, value); //paste the description to quill editor
       }
       document.getElementsByName(key)[0].value = value;
@@ -31325,8 +31469,10 @@ if (isInsertMode === "false") {
 
 if (isInsertMode === "true") {
   _QuillConfig__WEBPACK_IMPORTED_MODULE_3__.quillConfig.placeholder = "Add Description Here..";
-  let quill = new (quill__WEBPACK_IMPORTED_MODULE_0___default())("#editor-container", _QuillConfig__WEBPACK_IMPORTED_MODULE_3__.quillConfig); //Create a new instance of quill in insert page
+  //Create a new instance of quill in insert page
 }
+
+const quill = new (quill__WEBPACK_IMPORTED_MODULE_0___default())("#editor-container", _QuillConfig__WEBPACK_IMPORTED_MODULE_3__.quillConfig);
 
 
 /***/ }),
@@ -31457,7 +31603,7 @@ const quillConfig = {
   \************************************/
 /***/ (() => {
 
-/* This is a legacy code, don't touch it. I know you hate jquery,  me too but this will allow us 
+/* This is a legacy code, don't touch it. I know you hate jquery,  me too but this will allow 
 the sidebar to have auto resizing property. please someone find better solution*/
 
 !(function (s) {
@@ -31524,79 +31670,6 @@ the sidebar to have auto resizing property. please someone find better solution*
 
 /***/ }),
 
-/***/ "./public/js/utils/SubmitForm.js":
-/*!***************************************!*\
-  !*** ./public/js/utils/SubmitForm.js ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "submitForm": () => (/* binding */ submitForm)
-/* harmony export */ });
-const submitForm = () => {
-  const formData = new FormData(myForm);
-  let description = quill.root.innerHTML;
-  if (description === "<p><br></p>") {
-    description = "No Description";
-  }
-  formData.append("description", description);
-
-  const categoryName = document
-    .getElementById("selectBox")
-    ?.getAttribute("name");
-  if (categoryName) {
-    const category = document.querySelector(`select[name=${categoryName}]`)
-      .value;
-
-    //Check for others
-    const categoryValue =
-      category === "others"
-        ? document.querySelector(".other-text").value
-        : category;
-    formData.set(categoryName, categoryValue);
-  }
-
-  const object = {};
-  formData.forEach(function (value, key) {
-    object[key] = value;
-  });
-
-  object.filterDate = new Date();
-  let day = object.filterDate.getDate();
-  let month = object.filterDate.getMonth();
-  let year = object.filterDate.getFullYear();
-  if (day <= 5) {
-    day = 30;
-    month = month === 0 ? 11 : month - 1;
-    if (month === 11) {
-      year--;
-    }
-  } else {
-    day = 30;
-  }
-  month++;
-  object.filterDate =
-    year.toString() + "-" + month.toString() + "-" + day.toString();
-
-  console.log(object);
-
-  const url = myForm.action;
-  axios({
-    method: "post",
-    url: url,
-    data: object,
-  }).then(function (response) {
-    document.getElementById("alert").style.display = "block";
-    document.body.scrollTop = document.documentElement.scrollTop = 0;
-    setTimeout(() => window.location.reload(), 2000);
-  });
-};
-
-
-/***/ }),
-
 /***/ "./public/js/utils/Textbox.js":
 /*!************************************!*\
   !*** ./public/js/utils/Textbox.js ***!
@@ -31615,94 +31688,6 @@ selectBox?.addEventListener("click", () => {
     document.getElementById("textboxes").style.display = "none";
   }
 });
-
-
-/***/ }),
-
-/***/ "./public/js/utils/UpdateForm.js":
-/*!***************************************!*\
-  !*** ./public/js/utils/UpdateForm.js ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "updateForm": () => (/* binding */ updateForm)
-/* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-
-
-const updateForm = () => {
-  const formData = new FormData(myForm);
-  const quillData = document.querySelector(".ql-editor").innerHTML;
-  console.log(quillData);
-  let description = quillData;
-  if (description === "<p><br></p>") {
-    description = "No Description";
-  }
-  formData.append("description", description);
-
-  const categoryName = document
-    .getElementById("selectBox")
-    ?.getAttribute("name");
-  if (categoryName) {
-    const category = document.querySelector(`select[name=${categoryName}]`)
-      .value;
-
-    //Check for others
-    const categoryValue =
-      category === "others"
-        ? document.querySelector(".other-text").value
-        : category;
-    formData.set(categoryName, categoryValue);
-  }
-
-  const object = {};
-  formData.forEach(function (value, key) {
-    object[key] = value;
-  });
-
-  object.filterDate = new Date();
-  let day = object.filterDate.getDate();
-  let month = object.filterDate.getMonth();
-  let year = object.filterDate.getFullYear();
-  if (day <= 5) {
-    day = 30;
-    month = month === 0 ? 11 : month - 1;
-    if (month === 11) {
-      year--;
-    }
-  } else {
-    day = 30;
-  }
-  month++;
-  object.filterDate =
-    year.toString() + "-" + month.toString() + "-" + day.toString();
-
-  // console.log(object);
-  let params = new URLSearchParams(location.search);
-  let event = params.get("name");
-  let id = params.get("id");
-
-  const url = `/update/${event}/${id}`;
-
-  const sendPutRequest = async () => {
-    // console.log(object);
-    try {
-      const resp = await axios__WEBPACK_IMPORTED_MODULE_0___default().put(url, object);
-      document.getElementById("alert").style.display = "block";
-      document.body.scrollTop = document.documentElement.scrollTop = 0;
-      setTimeout(() => window.location.reload(), 2000);
-    } catch (err) {
-      // Handle Error Here
-      console.error(err);
-    }
-  };
-
-  sendPutRequest();
-};
 
 
 /***/ }),
@@ -31757,11 +31742,7 @@ table__data?.addEventListener("click", (e) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _UpdateForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UpdateForm */ "./public/js/utils/UpdateForm.js");
-/* harmony import */ var _SubmitForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SubmitForm */ "./public/js/utils/SubmitForm.js");
-/* harmony import */ var _AutoFill__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AutoFill */ "./public/js/utils/AutoFill.js");
-
-
+/* harmony import */ var _apis_FormData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../apis/FormData */ "./public/js/apis/FormData.js");
 
 
 (function () {
@@ -31781,8 +31762,7 @@ __webpack_require__.r(__webpack_exports__);
               form.classList.add("was-validated");
             } else {
               e.preventDefault();
-              if (_AutoFill__WEBPACK_IMPORTED_MODULE_2__.isInsertMode === "false") (0,_UpdateForm__WEBPACK_IMPORTED_MODULE_0__.updateForm)();
-              (0,_SubmitForm__WEBPACK_IMPORTED_MODULE_1__.submitForm)();
+              (0,_apis_FormData__WEBPACK_IMPORTED_MODULE_0__.submitForm)();
             }
           },
           false
@@ -31895,7 +31875,6 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	__webpack_require__("./public/js/utils/AutoFill.js");
 /******/ 	__webpack_require__("./public/js/utils/QuillConfig.js");
 /******/ 	__webpack_require__("./public/js/utils/ValidateForm.js");
-/******/ 	__webpack_require__("./public/js/utils/UpdateForm.js");
 /******/ 	__webpack_require__("./public/js/utils/ModalWindow.js");
 /******/ 	__webpack_require__("./public/js/utils/Utils.js");
 /******/ 	__webpack_require__("./public/js/utils/Textbox.js");

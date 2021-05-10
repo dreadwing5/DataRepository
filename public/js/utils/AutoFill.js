@@ -8,6 +8,7 @@ Quill.register("modules/imageResize", ImageResize);
 
 export const isInsertMode = document.getElementById("myForm")?.dataset
   .isinsertmode;
+
 let data = document.querySelector("#variableJSON")?.textContent;
 
 if (isInsertMode === "false") {
@@ -16,7 +17,8 @@ if (isInsertMode === "false") {
     if (key !== "id") {
       //Since we don't have id in frontend
       if (key === "description") {
-        let quill = new Quill("#editor-container", quillConfig); //new instance of quill in edit page
+        //new instance of quill in edit page
+        let quill = new Quill("#editor-container", quillConfig);
         quill.clipboard.dangerouslyPasteHTML(0, value); //paste the description to quill editor
       }
       document.getElementsByName(key)[0].value = value;
@@ -26,5 +28,7 @@ if (isInsertMode === "false") {
 
 if (isInsertMode === "true") {
   quillConfig.placeholder = "Add Description Here..";
-  let quill = new Quill("#editor-container", quillConfig); //Create a new instance of quill in insert page
+  //Create a new instance of quill in insert page
 }
+
+export const quill = new Quill("#editor-container", quillConfig);
