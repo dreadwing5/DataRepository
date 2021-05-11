@@ -1,10 +1,25 @@
+import Quill from "quill";
+
+import { isInsertMode } from "../utils/Utils";
+import { insertData } from "./InsertData";
+import { updateData } from "./UpdateData";
+import { quillConfig } from "../utils/QuillConfig";
+
 export const submitForm = () => {
   const formData = new FormData(myForm);
-  let description = quill.root.innerHTML;
-  if (description === "<p><br></p>") {
-    description = "No Description";
+  if (isInsertMode === "false") {
+    const description = document.querySelector(".ql-editor").innerHTML; //This will again append the content of quill in to description if we are fetching  the data
+    formData.append("description", description);
+  } else {
+    let quill = new Quill("#editor-container", quillConfig);
+
+    //Create a new instance of quill in insert page
+    let description = quill.root.innerHTML;
+    if (description === "<p><br></p>") {
+      description = "No Description";
+    }
+    formData.append("description", description);
   }
-  formData.append("description", description);
 
   const categoryName = document
     .getElementById("selectBox")
@@ -26,6 +41,8 @@ export const submitForm = () => {
     object[key] = value;
   });
 
+  //This is done to set the date to the last month no matter when we submit the form
+
   object.filterDate = new Date();
   let day = object.filterDate.getDate();
   let month = object.filterDate.getMonth();
@@ -43,16 +60,7 @@ export const submitForm = () => {
   object.filterDate =
     year.toString() + "-" + month.toString() + "-" + day.toString();
 
-  console.log(object);
-
   const url = myForm.action;
-  axios({
-    method: "post",
-    url: url,
-    data: object,
-  }).then(function (response) {
-    document.getElementById("alert").style.display = "block";
-    document.body.scrollTop = document.documentElement.scrollTop = 0;
-    setTimeout(() => window.location.reload(), 2000);
-  });
+
+  isInsertMode === "false" ? updateData(object) : insertData(object, url);
 };

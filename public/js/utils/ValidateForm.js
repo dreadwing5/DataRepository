@@ -1,6 +1,4 @@
-import { updateForm } from "./UpdateForm";
-import { submitForm } from "./SubmitForm";
-import { isInsertMode } from "./AutoFill";
+import { submitForm } from "../apis/FormData";
 
 (function () {
   window.addEventListener(
@@ -19,7 +17,6 @@ import { isInsertMode } from "./AutoFill";
               form.classList.add("was-validated");
             } else {
               e.preventDefault();
-              if (isInsertMode === "false") updateForm();
               submitForm();
             }
           },

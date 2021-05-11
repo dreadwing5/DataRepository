@@ -1,4 +1,4 @@
-/* This is a legacy code, don't touch it. I know you hate jquery,  me too but this will allow us 
+/* This is a legacy code, don't touch it. I know you hate jquery,  me too but this will allow 
 the sidebar to have auto resizing property. please someone find better solution*/
 
 !(function (s) {

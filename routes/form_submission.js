@@ -4,22 +4,6 @@ const connection = require("../configs/DBConnection");
 const { v4: uuidv4 } = require("uuid");
 const { snakeCase } = require("lodash");
 
-// router.post("/students/:module", (req, res) => {
-//   const module = req.params.module;
-//   connection.query(
-//     `INSERT INTO ${module} SET ?`,
-//     req.body,
-//     function (error, results, fields) {
-//       if (error) {
-//         console.log(error);
-//       } else {
-//         console.log("Data Added Successfully!");
-//         return res.send(results);
-//       }
-//     }
-//   );
-// });
-
 router.post("/faculty/:module", (req, res) => {
   // const id = uuidv4().toString().replaceAll("-", "");
   // console.log(id);
@@ -53,7 +37,8 @@ router.post("/faculty/:module", (req, res) => {
 });
 
 router.put("/update/:event/:id", (req, res) => {
-  const { event, id } = req.params;
+  let { event, id } = req.params;
+  event = snakeCase(event);
   connection.query(
     `UPDATE ${event} SET ? Where id=${id}`,
     req.body,
