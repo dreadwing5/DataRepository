@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title> Report</title>
+    <title>Faculty Report</title>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
         integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
@@ -26,7 +26,7 @@
         <div class="row data-row table__data">
             <div class="col-md-8 mb-3">
                 <h4 class="mb-3 title">
-                    <%=module%>
+                    FACULTY REPORT
                 </h4>
             </div>
             <div class="col-md-4 mb-3 report">
@@ -41,7 +41,7 @@
                     <h5 class="title">
 
                         <p id="event-name-<%=j%>">
-                            <%=event%> Report
+                            <%=event%> REPORT
                         </p>
 
                     </h5>
@@ -63,9 +63,7 @@
 
 
                                         <%}else{%>
-                                        <th scope="col">
-                                            <%= key.charAt(0).toUpperCase() +
-                                                                        key.slice(1).replace(/([a-z])([A-Z])/g, '$1 $2' );%>
+                                        <th scope="col" class=column__name data-column__name="<%=key%>">
                                         </th>
                                         <%}%>
                                                                     <% }) %>
@@ -89,38 +87,14 @@
                                         </td>
 
                                         <%}else{%>
-
-                                        <%if(key==='date'|| key==='fromDate' || key==='startDate'
-                                                                        ||key==='endDate' ) {%>
-                                        <td>
-                                            <%= value %>
-                                        </td>
-                                        <% function formatDate(date) { let d=new Date(date), month='' +
-                                                                            (d.getMonth() + 1), day='' + d.getDate(), year=d.getFullYear();
-                                                                            if (month.length < 2) month='0' + month; if (day.length < 2)
-                                                                            day='0' + day; return [day, month, year].join('/'); } %>
-                                        <%} else {%>
-
-                                        <td>
-
-
-                                            <% if(key==='description' ){%>
-                                            <div>
-                                                <%-value%>
-
-                                            </div>
-
-
-                                            <% } else {%>
-
-                                            <%= value %>
-
+                                        <td class="column__data" data-column__data="<%=value%>">
+                                            <!-- <%=value%> -->
                                             <%}%>
-                                                                                                    <%}%>
+                                                                                            
                                         </td>
-                                        <%}%>
-                    
-                                                                                    <% }) %>
+                                        <%})%>
+
+
                                         <td>
                                             <button data-id1="<%=j%>" data-id2="<%=i%>"
                                                 class="btn btn-primary edit__entry">Edit</button>
@@ -165,9 +139,8 @@
         </div>
 
 </body>
-<!--Custom Script -->
-<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
-<script type="text/javascript" src="/dist/index.js"></script>
+
+<script type="text/javascript" src="/scripts/index.js"></script>
 
 
 </html>

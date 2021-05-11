@@ -53,17 +53,17 @@
                 <div class="row data-row">
                     <div class="col-md-6 mb-3">
                         <label for="fromDate">From Date</label>
-                        <input type="date" name="fromDate" class="form-control">
+                        <input type="date" name="fromDate" class="form-control start__date">
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="toDate">To Date</label>
-                        <input type="date" name="toDate" class="form-control">
+                        <input type="date" name="toDate" class="form-control end__date">
                     </div>
                 </div>
                 <div class="row data-row">
                     <div class="col-md-6 mb-3">
-                        <label for="details">Details Required</label>
-                        <select class="custom-select d-block w-100" name="details">
+                        <label for="isDescriptionRequired">Details Required</label>
+                        <select class="custom-select d-block w-100" name="isDescriptionRequired">
                             <option value="">Choose...</option>
                             <option value="true">Yes</option>
                             <option value="false">No</option>
@@ -72,27 +72,27 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="dept">Departments</label>
-                        <select class="custom-select d-block w-100" name="dep">
+                        <select class="custom-select d-block w-100" name="dept">
                             <option value="">Choose...</option>
-                            <option value="all">All</option>
-                            <option value="cse">CSE</option>
-                            <option value="ise">ISE</option>
-                            <option value="ece">ECE</option>
-                            <option value="mech">MECH</option>
-                            <option value="civ">CIVIL</option>
-                            <option value="tce">TCE</option>
-                            <option value="mba">MBA</option>
-                            <option value="mca">MCA</option>
-                            <option value="ise">BASIC SCIENCE</option>
+                            <option value="ALL">All</option>
+                            <option value="CSE">CSE</option>
+                            <option value="ISE">ISE</option>
+                            <option value="ECE">ECE</option>
+                            <option value="MECH">MECH</option>
+                            <option value="CIV">CIVIL</option>
+                            <option value="TCE">TCE</option>
+                            <option value="MBA">MBA</option>
+                            <option value="MCA">MCA</option>
+                            <option value="Basic Science">Basic Science</option>
                         </select>
                     </div>
                 </div>
                 <div class="row data-row">
                     <div class="col-md-12 mb-3">
-                        <label for="COE">COE</label>
-                        <select class="custom-select d-block w-100" name="COE">
+                        <label for="coe">COE</label>
+                        <select class="custom-select d-block w-100" name="coe">
                             <option value="">Choose...</option>
-                            <option value="All">All</option>
+                            <option value="all">All</option>
                             <option value="Additive Manufacturing">Additive Manufacturing</option>
                             <option value="Data-Driven Internet of Things">Data-Driven Internet of Things</option>
                             <option value="Integrated Circuits">Integrated Circuits</option>
@@ -115,7 +115,6 @@
 
 
                 </div>
-                <input value="Faculty" name="moduleName" type="hidden" />
                 <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
                         Search</button>
                 </div>
@@ -127,9 +126,6 @@
 
 </div>
 
-<script>
-    document.getElementById("alert").style.display = "none";
-</script>
 <!-- Report Table -->
 
 <!-- Footer -->

@@ -2,7 +2,6 @@ const path = require("path");
 
 module.exports = {
   mode: "development",
-  devtool: false,
   entry: {
     index: [
       "./public/js/utils/AutoFill.js",
@@ -17,7 +16,9 @@ module.exports = {
   },
   output: {
     filename: "[name].js",
-    path: __dirname + "/public/dist",
+    path: __dirname + "/dist",
+    clean: true,
+    publicPath: "/",
   },
   module: {
     rules: [

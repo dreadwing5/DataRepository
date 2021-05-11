@@ -17,7 +17,7 @@ router.get("/faculty/:module", (req, res) => {
   res.render(`fields/${moduleName}`, {
     title: title,
     Username: "test",
-    isInsertMode: true,
+    isInsertMode: true, //This is for checking if we are inserting the data or updating it
   });
 });
 

@@ -41,6 +41,8 @@ export const submitForm = () => {
     object[key] = value;
   });
 
+  //This is done to set the date to the last month no matter when we submit the form
+
   object.filterDate = new Date();
   let day = object.filterDate.getDate();
   let month = object.filterDate.getMonth();
