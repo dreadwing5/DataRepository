@@ -30,6 +30,7 @@
 - [ ] Add Form Validation on Search page
 - [ ] Show error if data couldn't be submitted(frontend & backend) 
 - [ ] Add Added by and Updated by field on each events (backend) (if needed)
+- [ ] Create an api for image upload on local server using multer
 
 ### Low Priority ◝(^ヮ^)◜ <hr/>
 
