@@ -1,7 +1,7 @@
 # DataRepository Task List
 
 
-
+## Disclaimer ⚠️ : All the changes need to be implemented on development branch, do not push changes on master
 
 ## TODO : 
 - [x] Add All option in report generation ✅
