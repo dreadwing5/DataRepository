@@ -13,14 +13,25 @@
 - [x] Organise all the javascript file in public folder ✅
 - [x] Refactor Code ✅
 - [x] Seperate Faculty Module and Student Module (Remove any reference of student, student module will be handle in different repository) ✅
+  
+  Minor Issues ( Assigned to Shraddha ) 
+  
+- [ ] Remove onChange function from all ejs page (frontend)
+- [ ] Put date control class on each filed (except for search page) (see award & club activites for refernce)
+- [ ] Put data atribute - isInsertMode on each form (see awards & club activies for reference)
+- [ ] Remove all the date script tag from all pages
 
-
+  High Priority ⚡️
+  
+- [ ] Create Front Page for Faculty (Show all the available pages in sorted manner ) (frontend)
 - [ ] Add Get Request for all the Dynamic drop down menu (frontend)
 - [ ] Add Post, put, delete, insert API for dropdown menu (backend)
-- [ ] Create Front Page for Faculty (Show all the available pages in sorted manner ) (frontend)
 - [ ] Add Dynamic Dropdown Menu (Front end) 
+- [ ] Add Form Validation on Search page
 - [ ] Show error if data couldn't be submitted(frontend & backend) 
 - [ ] Add Added by and Updated by field on each events (backend) (if needed)
+
+Low Priority 
 
 - [ ] Separte Login for Admin
 - [ ] Minify Css
