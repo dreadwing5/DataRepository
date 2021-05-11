@@ -31,7 +31,7 @@
 - [ ] Show error if data couldn't be submitted(frontend & backend) 
 - [ ] Add Added by and Updated by field on each events (backend) (if needed)
 
-### Low Priority <hr/>
+### Low Priority ◝(^ヮ^)◜ <hr/>
 
 - [ ] Separte Login for Admin
 - [ ] Minify Css
