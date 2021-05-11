@@ -21,7 +21,7 @@
 - [ ] Put data atribute - isInsertMode on each form (see awards & club activies for reference)
 - [ ] Remove all the date script tag from all pages
 
-  High Priority ⚡️ <hr/>
+  ### High Priority ⚡️ <hr/>
   
 - [ ] Create Front Page for Faculty (Show all the available pages in sorted manner ) (frontend)
 - [ ] Add Get Request for all the Dynamic drop down menu (frontend)
@@ -31,7 +31,7 @@
 - [ ] Show error if data couldn't be submitted(frontend & backend) 
 - [ ] Add Added by and Updated by field on each events (backend) (if needed)
 
-Low Priority <hr/>
+  ###Low Priority <hr/>
 
 - [ ] Separte Login for Admin
 - [ ] Minify Css
