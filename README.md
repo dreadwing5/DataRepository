@@ -6,5 +6,5 @@
 - [ ] Add Search option for searching through various modules
 - [x] Create tables for new fields
 - [ ] Show error if data couldn't be submitted
-- [ ] Add Auto increment id on each field
+- [x] Add Auto increment id on each field
 - [ ] Add foreign key (faculty) on each module
