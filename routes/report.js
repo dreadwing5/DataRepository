@@ -37,7 +37,6 @@ function handleRoute(req, res) {
       res.department = "NULL";
     }
 
-    !isDescriptionRequired && delete res.description; //If description is not required, thne remove from the result
     delete res.filterDate; //Remove filter date from the result
 
     /* This if condition checks if the department is null or not, basically it's going to filter the result based on department and coe */
@@ -72,14 +71,10 @@ function handleRoute(req, res) {
           });
           data.push(dataTemp);
           if (i == tables.length - 1) {
-            //Check which page to render
-            const page = isDescriptionRequired
-              ? "full_report"
-              : report_without_desc;
-
-            res.render(`report/${page}`, {
+            res.render("report/report", {
               data: data,
               event: eventName,
+              isDescriptionRequired,
             });
           }
         });
@@ -104,22 +99,15 @@ function handleRoute(req, res) {
         return;
       }
 
-      //Check for Details req
-
-      // module = [module];
-
       /* This code is only there to support all filed in the report page,since we are going to create array of array of object */
 
-      event = [startCase(event)];
+      event = [startCase(event).toUpperCase()];
       data = [data];
 
-      //Check which page to render
-      const page = isDescriptionRequired ? "full_report" : report_without_desc;
-
-      res.render(`report/${page}`, {
+      res.render("report/report", {
         data: data,
         event: event,
-      });
+        isDescriptionRequired
     });
   };
 
@@ -128,7 +116,7 @@ function handleRoute(req, res) {
 
 //Filter Data and Print for both Faculty & Student
 router.post("/search", (req, res) => {
-  handleRoute(req, res);
+  handleRoute(req, res); //Handle search route
 });
 
 //@route    GET api/edit?
@@ -154,7 +142,7 @@ router.get("/edit?", (req, res) => {
             res[key] = formatDate(res[key], "yyyy-mm-dd"); //Format the date in 2020-02-12 so that html can understand the date format and parse it
           }
         }
-        delete res.filterDate; //We may need filterDate ifwe don't want to modify the search parameter
+        delete res.filterDate; //We may need filterDate if we don't want to modify the search parameter
       });
     }
     const data = JSON.parse(JSON.stringify(result[0]));

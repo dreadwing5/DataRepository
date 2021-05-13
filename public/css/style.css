@@ -12155,7 +12155,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .data-row {
-  margin-top: 2%;
+  margin: 0.8rem 0.2rem 0.8rem 0.2rem;
 }
 
 /* Submit and Reset buttons */
@@ -12365,4 +12365,15 @@ body.sidebar-toggled footer.sticky-footer {
   font-size: 1rem;
   font-family: "Ubuntu", sans-serif;
   color: #264653;
+}
+
+.report-header {
+  margin-top: 2%;
+}
+
+.report-title {
+  font-family: "Montserrat", "sans sarif";
+  font-size: 1.2rem;
+  color: #023047;
+  margin-bottom: 1%;
 }

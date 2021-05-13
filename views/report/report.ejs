@@ -15,6 +15,10 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
 
+    <!-- Jquery, here we go again -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
 
 
     <!-- Custom styles for this template-->
@@ -23,7 +27,7 @@
 <body>
 
     <div class="container-fluid">
-        <div class="row data-row table__data">
+        <div class="row report-header">
             <div class="col-md-8 mb-3">
                 <h4 class="mb-3 title">
                     FACULTY REPORT
@@ -34,109 +38,107 @@
                         class="fas fa-download fa-sm text-white-50"></i>
                     Export as PDF</button>
             </div>
-            <div>
-                <% event.forEach((event,j)=>{ %>
 
-                <div class="mb-5">
-                    <h5 class="title">
-
-                        <p id="event-name-<%=j%>">
-                            <%=event%> REPORT
-                        </p>
-
-                    </h5>
-                    <div>
-                        <%let i=1%>
-
-                        <% data[j].forEach((obj)=>{ %>
-
-                        <div class="row">
-
-                            <table id="table-data" class="table" border="1" data-id="<%=j%>">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <% Object.keys(data[j][0]).forEach(key=> { %>
-                                        <%if(key==='description' || key==='id'){%>
-                                        <th style="display:none;">
-                                        </th>
+        </div>
+    </div>
+    <div class="container-fluid table__data">
+        <% event.forEach((event,j)=>{ %>
 
 
-                                        <%}else{%>
-                                        <th scope="col" class=column__name data-column__name="<%=key%>">
-                                        </th>
-                                        <%}%>
+        <h5 class="report-title" id="event-name-<%=j%>" style="display : none;">
+            <%=event%> REPORT :
+        </h5>
+
+        <%let i=1%>
+
+        <% data[j].forEach((obj)=>{ %>
+
+
+        <div class="row data-row table__row">
+
+            <table id="table-data" class="table" border="1" data-id="<%=j%>">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <% Object.keys(data[j][0]).forEach(key=> { %>
+                        <%if(key==='description' || key==='id'){%>
+                        <th style="display:none;">
+                        </th>
+
+
+                        <%}else{%>
+                        <th scope="col" class=column__name data-column__name="<%=key%>">
+                        </th>
+                        <%}%>
                                                                     <% }) %>
-                                        <th scope="col">Edit</th>
-                                        <th scope="col">Delete</th>
-                                    </tr>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
 
-                                </thead>
+                </thead>
 
-                                <%const object=JSON.parse(JSON.stringify(obj))%>
+                <%const object=JSON.parse(JSON.stringify(obj))%>
 
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">
-                                            <%=i++%>
-                                        </th>
-                                        <%Object.entries(object).forEach(([key,value])=> { %>
-                                        <%if(key==='description' || key==='id'){%>
-                                        <td style="display:none;">
-                                            <%=value%>
-                                        </td>
+                <tbody>
+                    <tr>
+                        <th scope="row">
+                            <%=i++%>
+                        </th>
+                        <%Object.entries(object).forEach(([key,value])=> { %>
+                        <%if(key==='description' || key==='id'){%>
+                        <td style="display:none;">
+                            <%=value%>
+                        </td>
 
-                                        <%}else{%>
-                                        <td class="column__data" data-column__data="<%=value%>">
-                                            <!-- <%=value%> -->
-                                            <%}%>
+                        <%}else{%>
+                        <td class="column__data" data-column__data="<%=value%>">
+                            <!-- <%=value%> -->
+                            <%}%>
                                                                                             
                                         </td>
                                         <%})%>
 
 
-                                        <td>
-                                            <button data-id1="<%=j%>" data-id2="<%=i%>"
-                                                class="btn btn-primary edit__entry">Edit</button>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-danger delete__entry">Delete</button>
-                                        </td>
+                        <td>
+                            <button data-id1="<%=j%>" data-id2="<%=i%>"
+                                class="btn btn-primary edit__entry">Edit</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger delete__entry">Delete</button>
+                        </td>
 
-                                    </tr>
+                    </tr>
 
-                                </tbody>
-                                <tfoot>
-                                    <tr>
+                </tbody>
 
-                                        <%if(object.description!=='null') {%>
-                                        <td colspan="100">
-                                            <%-object.description%>
-                                        </td>
-                                        <%}%>
-                                                    </tr>
-                    
-                    
-                                                </tfoot>
-                    
-                    
-                                        </table>
-                                    </div>
-                    
-                    
-                    
-                                    <% }) %>
-                        </div>
-                    </div>
+                <tfoot class="table__footer" style="display : none"
+                    data-isdescriptionrequired="<%=isDescriptionRequired%>">
+                    <tr>
+                        <td colspan="100" class="table__description" data-description="<%=object.description%>">
+                            <!-- Place the data here if description is required -->
+                        </td>
+                    </tr>
 
 
-                    <% }) %>
+                </tfoot>
 
 
-                </div>
-            </div>
-
+            </table>
         </div>
+
+
+
+        <% }) %>
+
+
+
+
+        <% }) %>
+
+
+    </div>
+
+
 
 </body>
 
