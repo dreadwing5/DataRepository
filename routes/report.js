@@ -99,6 +99,10 @@ function handleRoute(req, res) {
         return;
       }
 
+      //Check for Details req
+
+      // module = [module];
+
       /* This code is only there to support all filed in the report page,since we are going to create array of array of object */
 
       event = [startCase(event).toUpperCase()];
@@ -107,7 +111,8 @@ function handleRoute(req, res) {
       res.render("report/report", {
         data: data,
         event: event,
-        isDescriptionRequired
+        isDescriptionRequired,
+      });
     });
   };
 
@@ -142,7 +147,7 @@ router.get("/edit?", (req, res) => {
             res[key] = formatDate(res[key], "yyyy-mm-dd"); //Format the date in 2020-02-12 so that html can understand the date format and parse it
           }
         }
-        delete res.filterDate; //We may need filterDate if we don't want to modify the search parameter
+        delete res.filterDate; //We may need filterDate ifwe don't want to modify the search parameter
       });
     }
     const data = JSON.parse(JSON.stringify(result[0]));
