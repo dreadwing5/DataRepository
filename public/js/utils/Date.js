@@ -11,7 +11,6 @@ if (dateControl) {
 }
 //make sure that the end date is less than the start date
 
-console.log("Hello World");
 start__date?.addEventListener("change", () => {
   end__date?.setAttribute("min", start__date.value);
 });

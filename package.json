@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js -e ejs",
+    "start": "nodemon server.js -e ejs,js --ignore 'public/'",
     "dev": "webpack --watch --config webpack.dev.config.js"
   },
   "repository": {

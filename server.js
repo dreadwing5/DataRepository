@@ -17,7 +17,7 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
 
   const liveReloadServer = livereload.createServer();
 
-  liveReloadServer.watch(publicDirectory);
+  liveReloadServer.watch([publicDirectory + "/css", __dirname + "dist"]);
 
   // ping browser on Express boot, once browser has reconnected and handshaken
   liveReloadServer.server.once("connection", () => {
