@@ -2,12 +2,10 @@
   "name": "facultymodule",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon app.js",
-    "build": "webpack --config webpack.production.config.js",
-    "dev": "webpack --config webpack.dev.config.js",
-    "watch": "webpack --watch"
+    "start": "nodemon server.js -e ejs",
+    "dev": "webpack --watch --config webpack.dev.config.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +19,6 @@
   "homepage": "https://github.com/Lone-Star5/facultyModule#readme",
   "dependencies": {
     "axios": "^0.21.1",
-    "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
@@ -37,8 +34,10 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "connect-livereload": "^0.6.1",
     "css-loader": "^5.2.4",
     "express": "^4.17.1",
+    "livereload": "^0.9.3",
     "nodemon": "^2.0.7",
     "style-loader": "^2.0.0",
     "webpack": "^5.36.2",

@@ -1,17 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const connection = require("../configs/DBConnection");
-const { v4: uuidv4 } = require("uuid");
+// const { v4: uuidv4 } = require("uuid");
 const { snakeCase } = require("lodash");
 
+//@route    PUT update/event/id
+//@desc    Insert form data into table
+//@access   Private
+
 router.post("/faculty/:module", (req, res) => {
-  // const id = uuidv4().toString().replaceAll("-", "");
-  // console.log(id);
-  // req.body.id = id;
-
-  // console.log(req.body);
   const moduleName = snakeCase(req.params.module);
-
   console.table(req.body);
 
   connection.query(
@@ -35,6 +33,10 @@ router.post("/faculty/:module", (req, res) => {
     }
   );
 });
+
+//@route    PUT update/event/id
+//@desc     Update the table using event name and id
+//@access   Private
 
 router.put("/update/:event/:id", (req, res) => {
   let { event, id } = req.params;
