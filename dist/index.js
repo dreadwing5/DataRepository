@@ -451,7 +451,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var quil
   \*********************************/
 /***/ (() => {
 
-eval("const dateControl = document.querySelectorAll(\".date__control\");\nconst start__date = document.querySelector(\".start__date\");\nconst end__date = document.querySelector(\".end__date\");\n\n//Set Max Date on date fields\nif (dateControl) {\n  let today = new Date().toISOString().slice(0, 10);\n  dateControl.forEach((date) => {\n    date.setAttribute(\"max\", today);\n  });\n}\n//make sure that the end date is less than the start date\n\nconsole.log(\"Hello World\");\nstart__date?.addEventListener(\"change\", () => {\n  end__date?.setAttribute(\"min\", start__date.value);\n});\n\n\n//# sourceURL=webpack://facultymodule/./public/js/utils/Date.js?");
+eval("const dateControl = document.querySelectorAll(\".date__control\");\nconst start__date = document.querySelector(\".start__date\");\nconst end__date = document.querySelector(\".end__date\");\n\n//Set Max Date on date fields\nif (dateControl) {\n  let today = new Date().toISOString().slice(0, 10);\n  dateControl.forEach((date) => {\n    date.setAttribute(\"max\", today);\n  });\n}\n//make sure that the end date is less than the start date\n\n// console.log(\"Hello World\");\nstart__date?.addEventListener(\"change\", () => {\n  end__date?.setAttribute(\"min\", start__date.value);\n});\n\n\n//# sourceURL=webpack://facultymodule/./public/js/utils/Date.js?");
 
 /***/ }),
 

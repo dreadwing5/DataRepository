@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+</head>
+<style>
+  .button {
+
+    border-radius: 8px;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .button2 {
+    background-color: white;
+    color: black;
+    width: 270px;
+    border: 2px solid #aec6cf;
+    font-family: Ubuntu;
+
+  }
+
+  .button2:hover {
+    background-color: var(--primary);
+    border: none;
+    color: white;
+  }
+
+  .center {
+    text-align: center;
+
+  }
+
+  .ex1 {
+
+    padding: 15px;
+  }
+</style>
+
+<body>
+  <div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content">
+
+      <!-- Topbar -->
+      <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow ">
+        <div id="img-logo" class="nav-item">
+          <img class="img-profile img-logo" src="/img/college-logo.png"></div>
+
+
+
+
+        <!-- Topbar Navbar -->
+        <ul class="navbar-nav ml-auto">
+
+
+          <!-- Nav Item - User Information -->
+          <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <span id="home-text"><%=Username%></span>
+              <img class="img-profile rounded-circle" src="/img/undraw_profile.svg">
+            </a>
+            <!-- Dropdown - User Information -->
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+              <a class="dropdown-item" href="#">
+                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                Profile
+              </a>
+              <a class="dropdown-item" href="#">
+                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                Settings
+              </a>
+
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/logout" data-toggle="modal" data-target="#logoutModal">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                Logout
+              </a>
+            </div>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <!-- End of Topbar -->
+
+      <div class="container-fluid ex1">
+        </a>
+        <h1 class="heading">Choose the Repository you want to have access to :</h1>
+        <!-- Topic Cards -->
+
+        <div class="row ex1">
+
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">Industry Connect Database </button>
+            </a>
+          </div>
+
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">Book Publications</button>
+            </a>
+          </div>
+
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">MoUs</button>
+            </a>
+          </div>
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">Slow Learner Initiative</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="row ex1">
+
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">Student Club Activities</button>
+            </a>
+          </div>
+
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">MOOC Course</button>
+            </a>
+          </div>
+
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">Tech Talk</button>
+            </a>
+          </div>
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">Phd Details</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="row ex1">
+
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">Idea Repository</button>
+            </a>
+          </div>
+
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">Consultancy</button>
+            </a>
+          </div>
+
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">Patent</button>
+            </a>
+          </div>
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">Sponsored Research Projects</button>
+            </a>
+          </div>
+        </div>
+        <div class="row ex1">
+
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">IQAC Data</button>
+            </a>
+          </div>
+
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">EE & C</button>
+            </a>
+          </div>
+
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">Professional Bodies</button>
+            </a>
+          </div>
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">Entrepreneurship Details</button>
+            </a>
+          </div>
+        </div>
+        <div class="row ex1">
+
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">Faculty Served as</button>
+            </a>
+          </div>
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">VVIP/VIP Guests at CMRIT</button>
+            </a>
+          </div>
+
+
+
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">FOSS Cell</button>
+            </a>
+          </div>
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">Visitors Database(Academic / Professional Trainers)</button>
+            </a>
+          </div>
+        </div>
+        <div class="row ex1">
+
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">Academia/Industry Connect Activity Organised
+              </button>
+            </a>
+          </div>
+
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">Journal & Conference Publications</button>
+            </a>
+          </div>
+
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">Academia/Industry Connect Activity Attended</button>
+            </a>
+          </div>
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">Awards & Achievements(NSS/NCC)</button>
+            </a>
+          </div>
+        </div>
+
+
+        <div class="row ex1">
+
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">Awards & Achievements in Events(Student&Faculty)</button>
+            </a>
+          </div>
+
+          <div class="col-sm-3 ">
+            <a href="">
+              <button class="button button2">Student/Faculty Exchange program</button>
+            </a>
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <%- include ("./partials/footer") %>
+</body>
+
+</html>

@@ -2,6 +2,9 @@ const path = require("path");
 
 module.exports = {
   mode: "development",
+  watchOptions: {
+    ignored: "**/node_modules",
+  },
   entry: {
     index: [
       "./public/js/utils/AutoFill.js",
