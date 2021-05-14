@@ -1,46 +1,47 @@
 <%- include ("../partials/header") %>
 
-  <div class="container-fluid">
-    <section id="form">
-      <form id="myForm" class="needs-validation" novalidate action="/faculty/fac_JournalPaperPublication" data-isinsertmode=<%=isInsertMode%>>
-        <div class="container-fluid">
+<div class="container-fluid">
+  <section id="form">
+    <form id="myForm" class="needs-validation" novalidate action="/faculty/JournalPaperPublication"
+      data-isinsertmode=<%=isInsertMode%>>
+      <div class="container-fluid">
 
-          <!-- Header Section -->
+        <!-- Header Section -->
 
-          <div class="row data-row">
-            <div class="col-md-8 mb-3">
-              <h4 class="mb-3 title">Paper and Journal Publication Form</h4>
-            </div>
-            <div class="col-md-4 mb-3 report">
-              <a href="/faculty/search" class="btn btn-sm btn-primary shadow-sm"><i
-                  class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+        <div class="row data-row">
+          <div class="col-md-8 mb-3">
+            <h4 class="mb-3 title">Paper and Journal Publication Form</h4>
+          </div>
+          <div class="col-md-4 mb-3 report">
+            <a href="/faculty/search" class="btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+          </div>
+        </div>
+        <div class="row data-row">
+          <div class="col-md-6 mb-3">
+            <label class="required">RC-ID</label>
+            <input type="text" name="rc-id" class="form-control">
+            <div class="invalid-feedback">
+              Please enter valid details.
             </div>
           </div>
-          <div class="row data-row">
-            <div class="col-md-6 mb-3">
-              <label class="required">RC-ID</label>
-              <input type="text" name="rc-id" class="form-control">
-              <div class="invalid-feedback">
-                  Please enter valid details.
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label class="required">Publisher Name</label>
-              <input type="text" name="PublisherName" class="form-control">
-              <div class="invalid-feedback">
-                  Please enter valid details.
-                </div>
+          <div class="col-md-6 mb-3">
+            <label class="required">Publisher Name</label>
+            <input type="text" name="PublisherName" class="form-control">
+            <div class="invalid-feedback">
+              Please enter valid details.
             </div>
           </div>
-          <div class="row data-row">
+        </div>
+        <div class="row data-row">
 
-            <div class="col-md-6 mb-3">
-              <label class="required">Title of the Paper</label>
-              <input type="text" name="title" class="form-control">
-              <div class="invalid-feedback">
-                Please enter valid details.
-              </div>
+          <div class="col-md-6 mb-3">
+            <label class="required">Title of the Paper</label>
+            <input type="text" name="title" class="form-control">
+            <div class="invalid-feedback">
+              Please enter valid details.
             </div>
+          </div>
           <div class="col-md-6 mb-3">
             <label class="required">Type of Journal/Conference</label>
             <select name="type" class="custom-select d-block w-100">
@@ -55,85 +56,85 @@
           </div>
         </div>
 
-          <div class="row data-row">
+        <div class="row data-row">
 
-            <div class="col-md-6 mb-3">
-              <label class="required">ISBN Number</label>
-              <input type="text" name="isbn" class="form-control">
-              <div class="invalid-feedback">
-                  Please enter valid details.
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label class="required">ISSN Number</label>
-              <input type="text" name="issn" class="form-control">
-              <div class="invalid-feedback">
-                  Please enter valid details.
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label class="required">Volume Number/Issue/Edition</label>
-              <input type="text" name="volumeNumber" class="form-control">
-              <div class="invalid-feedback">
-                 Please enter valid details.
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label class="required">Name of Journal/Conference</label>
-              <input type="text" name="nameOfJournal" class="form-control">
-              <div class="invalid-feedback">
-                  Please enter valid details.
-                </div>
+          <div class="col-md-6 mb-3">
+            <label class="required">ISBN Number</label>
+            <input type="text" name="isbn" class="form-control">
+            <div class="invalid-feedback">
+              Please enter valid details.
             </div>
           </div>
-          
-          
-          <div class="row data-row">
-            
-
-            <div class="col-md-6 mb-3">
-              <label class="required">COE</label>
-
-              <!-- COE  -->
-
-              <%- include ("../partials/coe") %>
-
-                <div class="invalid-feedback">
-                  Please select a valid type.
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label class="required">Indexed To</label>
-              <br>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="Index-Scopus" value="Scopus">
-                <label class="form-check-label">
-                  Scopus
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="Index-SCI" value="SCI">
-                <label class="form-check-label">
-                  SCI
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="Index-Web of Science" value="Web of Science">
-                <label class="form-check-label">
-                  Web of Science
-                </label>
-              </div>
-              <div>
-                <label class="required">Others</label>
-                <input type="text" name="Index-Others" class="form-control">
-              </div>
-
+          <div class="col-md-6 mb-3">
+            <label class="required">ISSN Number</label>
+            <input type="text" name="issn" class="form-control">
+            <div class="invalid-feedback">
+              Please enter valid details.
             </div>
           </div>
-          
+          <div class="col-md-6 mb-3">
+            <label class="required">Volume Number/Issue/Edition</label>
+            <input type="text" name="volumeNumber" class="form-control">
+            <div class="invalid-feedback">
+              Please enter valid details.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="required">Name of Journal/Conference</label>
+            <input type="text" name="nameOfJournal" class="form-control">
+            <div class="invalid-feedback">
+              Please enter valid details.
+            </div>
+          </div>
+        </div>
 
-          <%- include ("../partials/description") %>
-          <div class="submit-button">
+
+        <div class="row data-row">
+
+
+          <div class="col-md-6 mb-3">
+            <label class="required">COE</label>
+
+            <!-- COE  -->
+
+            <%- include ("../partials/coe") %>
+
+            <div class="invalid-feedback">
+              Please select a valid type.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="required">Indexed To</label>
+            <br>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="Index-Scopus" value="Scopus">
+              <label class="form-check-label">
+                Scopus
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="Index-SCI" value="SCI">
+              <label class="form-check-label">
+                SCI
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="Index-Web of Science" value="Web of Science">
+              <label class="form-check-label">
+                Web of Science
+              </label>
+            </div>
+            <div>
+              <label class="required">Others</label>
+              <input type="text" name="Index-Others" class="form-control">
+            </div>
+
+          </div>
+        </div>
+
+
+        <%- include ("../partials/description") %>
+        <div class="submit-button">
           <%if(isInsertMode){%>
           <button class="btn btn-primary btn-lg btn-block buttons" type="submit">
             Submit</button>
@@ -161,9 +162,9 @@
 
   <%- include ("../partials/footer") %>
 
-    <script  type="text/javascript" src="/js/date.js">
-    </script>
+          
+          </script>
 
-    </body>
+          </body>
 
-    </html>
+          </html>
