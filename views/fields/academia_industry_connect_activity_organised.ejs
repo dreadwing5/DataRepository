@@ -2,7 +2,8 @@
 
 <div class="container-fluid">
   <section id="form">
-    <form id="myForm" class="needs-validation" novalidate action="/faculty/AcademiaIndustryConnectActivityOrganised" data-isinsertmode=<%=isInsertMode%>>
+    <form id="myForm" class="needs-validation" novalidate action="/faculty/AcademiaIndustryConnectActivityOrganised"
+      data-isinsertmode=<%=isInsertMode%>>
       <div class="container-fluid">
 
         <!-- Header Section -->
@@ -55,14 +56,14 @@
 
           <div class="col-md-6 mb-3">
             <label for="date" class="required">Start Date</label>
-            <input type="date" name="startDate" class="form-control" onchange="setDate()">
+            <input type="date" name="startDate" class="form-control date__control start__date">
             <div class="invalid-feedback">
               Please enter valid details.
             </div>
           </div>
           <div class="col-md-6 mb-3">
             <label for="date" class="required">End Date</label>
-            <input type="date" name="endDate" class="form-control eDate">
+            <input type="date" name="endDate" class="form-control end__date">
             <div class="invalid-feedback">
               Please enter valid details.
             </div>
@@ -262,9 +263,9 @@
 
 <%- include ("../partials/footer") %>
 
-<script type="text/javascript" src="/js/date.js">
-</script>
+          
+          </script>
 
-</body>
+          </body>
 
-</html>
+          </html>

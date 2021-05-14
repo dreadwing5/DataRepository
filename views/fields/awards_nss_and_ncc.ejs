@@ -2,7 +2,8 @@
 
 <div class="container-fluid">
   <section id="form">
-    <form id="myForm" class="needs-validation" novalidate action="/faculty/AwardsNssAndNcc" data-isinsertmode=<%=isInsertMode%>>
+    <form id="myForm" class="needs-validation" novalidate action="/faculty/AwardsNssAndNcc"
+      data-isinsertmode=<%=isInsertMode%>>
 
       <div class="container-fluid">
         <div class="row data-row">
@@ -21,7 +22,7 @@
           <div class="col-md-6 mb-3">
             <div class="form-group">
               <label class="required">Date of Award</label>
-              <input type="date" name="date" class="form-control" required>
+              <input type="date" name="date" class="form-control date__control" required>
               <div class="invalid-feedback">
                 Valid details required.
               </div>
@@ -32,8 +33,7 @@
         <div class="row data-row">
           <div class="col-md-6 mb-3">
             <label class="required">Group</label>
-            <select name="category" class="custom-select d-block w-100" id="selectBox" required
-              onChange="changeFunc();">
+            <select name="category" class="custom-select d-block w-100" id="selectBox" required>
               <option value="">Choose...</option>
               <option>NSS</option>
               <option>NCC</option>
@@ -112,6 +112,6 @@
 
 
 <%- include ("../partials/footer") %>
-</body>
+          </body>
 
-</html>
+          </html>
