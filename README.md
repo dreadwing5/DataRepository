@@ -16,18 +16,18 @@
   
 ### Minor Issues ( Assigned to Shraddha )  <hr/>
   
-- [ ] Remove onChange function from all ejs page (frontend)
-- [ ] Put date control class on each filed (except for search page) (see award & club activites for refernce)
-- [ ] Put data atribute - isInsertMode on each form (see awards & club activies for reference)
-- [ ] Remove all the date script tag from all pages
+- [x] Remove onChange function from all ejs page (frontend)
+- [x] Put date control class on each filed (except for search page) (see award & club activites for refernce)
+- [x] Put data atribute - isInsertMode on each form (see awards & club activies for reference)
+- [x] Remove all the date script tag from all pages
 
 ### High Priority ⚡️ <hr/>
   
-- [ ] Create Front Page for Faculty (Show all the available pages in sorted manner ) (frontend)
+- [x] Create Front Page for Faculty (Show all the available pages in sorted manner ) (frontend)
 - [ ] Add Get Request for all the Dynamic drop down menu (frontend)
 - [ ] Add Post, put, delete, insert API for dropdown menu (backend)
 - [ ] Add Dynamic Dropdown Menu (Front end) 
-- [ ] Add Form Validation on Search page
+- [x] Add Form Validation on Search page
 - [ ] Show error if data couldn't be submitted(frontend & backend) 
 - [ ] Add Added by and Updated by field on each events (backend) (if needed)
 - [ ] Create an api for image upload on local server using multer
