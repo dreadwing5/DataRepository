@@ -20,6 +20,12 @@ router.get("/add-user", function (req, res) {
   });
 });
 
+//Add Fields page
+router.get("/admin/add-fields", function (req, res) {
+  res.render("admin/admin_addFields", {
+    title: "Add Fields",
+  });
+});
 //Login Page
 router.get("/admin/login", function (req, res) {
   res.render("admin/admin_login");
