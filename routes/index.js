@@ -38,56 +38,6 @@ router.get("/dropdown/:field", (req, res) => {
   });
 });
 
-router.post("/dropdown/:field", (req, res) => {
-  let field = snakeCase(req.params.field);
-  const { name } = req.body;
-  const value = `("${name}")`; //Format name into a string
-  connection.query(
-    `INSERT INTO ${field} (name) VALUES ${value}`,
-    function (error, results) {
-      if (error) {
-        console.error(error);
-        res.send({
-          code: 400,
-          failed: "error ocurred",
-        });
-      } else {
-        console.log("Data Added Successfully!");
-
-        res.send({
-          code: 200,
-          message: "Added successfully!!",
-        });
-      }
-    }
-  );
-});
-
-router.post("/dropdown/:field", (req, res) => {
-  let field = snakeCase(req.params.field);
-
-  const { column } = req.body;
-  connection.query(
-    `INSERT INTO ${fields} (name) VALUES ? ${column}`,
-    function (error, results) {
-      if (error) {
-        console.error(error);
-        res.send({
-          code: 400,
-          failed: "error ocurred",
-        });
-      } else {
-        console.log("Data Added Successfully!");
-
-        res.send({
-          code: 200,
-          message: "Added successfully!",
-        });
-      }
-    }
-  );
-});
-
 /* //For later use, where we need to make our own api for image upload
 const storage = multer.diskStorage({
   destination: "./public/uploads",
