@@ -101,7 +101,7 @@ add__field?.addEventListener("click", () => {
   field__name.focus(); //Move the cursor to the text field
   //Fetch the last index and update the current index
   const prevIndex = Number(
-    row.previousElementSibling.querySelector(".field__id").innerHTML
+    row.previousElementSibling.querySelector(".field__idx").innerHTML
   );
   const index = document.querySelector(".row__number");
   index.innerHTML = prevIndex + 1;
@@ -145,8 +145,23 @@ admin_table__data?.addEventListener("click", (e) => {
   e.preventDefault();
   //Matching Strategy
   if (e.target.classList.contains("delete__entry")) {
-    // deleteData(e.target);
-    console.log("DELETE");
+    const id = Number(e.target.closest(".field__id").dataset.id);
+
     //Send Delete Request
+    const sendDeleteRequest = async () => {
+      try {
+        const payload = { id: id };
+        const resp = await axios.delete("/dropdown/coe", { data: payload });
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+        // document.getElementById("alert").style.display = "block";
+        // setTimeout(() => window.location.reload(), 1000);
+        const row = e.target.closest(".table__field");
+        console.log(row); //This will select the entire table
+        row.remove();
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    sendDeleteRequest();
   }
 });

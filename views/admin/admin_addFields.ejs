@@ -55,11 +55,11 @@
         <tbody class="field--table__data">
 
           <%fields.map(({id,name},index)=>{%>
-          <tr class="tabel__field">
-            <td class="field__id" data-id="<%=id%>"><%=++index%></td>
+          <tr class="table__field">
+            <td class="field__idx"><%=++index%></td>
             <td><%=name%></td>
 
-            <td>
+            <td class="field__id" data-id="<%=id%>">
               <a class="delete__field" title="Delete" data-toggle="tooltip"><i
                   class="material-icons delete__entry">&#xE872;</i></a>
             </td>
