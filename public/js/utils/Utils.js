@@ -100,11 +100,10 @@ add__field?.addEventListener("click", () => {
   const field__name = document.querySelector(".field__name");
   field__name.focus(); //Move the cursor to the text field
   //Fetch the last index and update the current index
-  const prevIndex = Number(
-    row.previousElementSibling.querySelector(".field__idx").innerHTML
-  );
+  const prevIndex =
+    row.previousElementSibling?.querySelector(".field__idx").innerHTML;
   const index = document.querySelector(".row__number");
-  index.innerHTML = prevIndex + 1;
+  if (prevIndex) index.innerHTML = Number(prevIndex) + 1;
 
   const submit__button = document.querySelector(".table__submit--button");
   submit__button.removeAttribute("disabled"); //enable the submit button
