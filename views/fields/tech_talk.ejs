@@ -1,67 +1,77 @@
 <%- include ("../partials/header") %>
 
-  <div class="container-fluid">
-    <section id="form">
-      <form id="myForm" class="needs-validation" novalidate action="/faculty/fac_techtalk">
-        <div class="container-fluid">
+<div class="container-fluid">
+  <section id="form">
+    <form id="myForm" class="needs-validation" novalidate action="/faculty/TechTalk"
+      data-isinsertmode=<%=isInsertMode%>>
+      <div class="container-fluid">
 
-          <!-- Header Section -->
+        <!-- Header Section -->
 
-          <div class="row data-row">
-            <div class="col-md-8 mb-3">
-              <h4 class="mb-3 title">Tech Talk</h4>
-            </div>
-            <div class="col-md-4 mb-3 report">
-              <a href="/faculty/search" class="btn btn-sm btn-primary shadow-sm"><i
-                  class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+        <div class="row data-row">
+          <div class="col-md-8 mb-3">
+            <h4 class="mb-3 title">Tech Talk</h4>
+          </div>
+          <div class="col-md-4 mb-3 report">
+            <a href="/faculty/search" class="btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+          </div>
+        </div>
+
+
+        <div class="row data-row">
+
+          <div class="col-md-6 mb-3">
+            <label class="required">Topic</label>
+            <input type="text" name="topic" class="form-control">
+            <div class="invalid-feedback">
+              Please enter valid details.
             </div>
           </div>
-          
 
-          <div class="row data-row">
+          <div class="col-md-6 mb-3">
+            <label class="required">Faculty ID</label>
+            <select name="id" class="custom-select d-block w-100">
+              <option value="">Choose...</option>
+              <option>Faculty 1</option>
+              <option>Faculty 2</option>
 
-            <div class="col-md-6 mb-3">
-              <label class="required">Topic</label>
-              <input type="text" name="topic" class="form-control">
-              <div class="invalid-feedback">
-                  Please enter valid details.
-                </div>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid type.
             </div>
+          </div>
 
-            <div class="col-md-6 mb-3">
-              <label class="required">Faculty ID</label>
-              <select name="id" class="custom-select d-block w-100">
-                <option value="">Choose...</option>
-                <option>Faculty 1</option>
-                <option>Faculty 2</option>
-                
-              </select>
-              <div class="invalid-feedback">
-                Please select a valid type.
-              </div>
+        </div>
+        <div class="row data-row">
+
+          <div class="col-md-6 mb-3">
+            <label for="date" class="required">Date</label>
+            <input type="date" name="date" class="form-control date__control">
+            <div class="invalid-feedback">
+              Please enter valid details.
             </div>
-            
           </div>
-          <div class="row data-row">
 
-            <div class="col-md-6 mb-3">
-              <label for="date" class="required">Date</label>
-              <input type="date" name="date" class="form-control" onchange="setDate()">
-              <div class="invalid-feedback">
-                  Please enter valid details.
-                </div>
-            </div>
-            
-          </div>
-          
-          
-          
+        </div>
 
-          <%- include ("../partials/description") %>
-          
-          <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
-              Submit</button>
-          </div>
+
+
+
+        <%- include ("../partials/description") %>
+        <div class="submit-button">
+          <%if(isInsertMode){%>
+          <button class="btn btn-primary btn-lg btn-block buttons" type="submit">
+            Submit</button>
+          <%} else{%>
+          <button class="btn btn-secondary btn-lg btn-block buttons" type="submit">
+            Update</button>
+          <span id='variableJSON' hidden>
+            <%= JSON.stringify(data); %>
+          </span>
+          <%}%>
+        </div>
+         
         </div>
 
       </form>
@@ -77,9 +87,9 @@
 
   <%- include ("../partials/footer") %>
 
-    <script  type="text/javascript" src="/js/date.js">
-    </script>
+          
+          </script>
 
-    </body>
+          </body>
 
-    </html>
+          </html>

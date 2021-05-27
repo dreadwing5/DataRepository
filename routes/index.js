@@ -4,13 +4,6 @@ const connection = require("../configs/DBConnection");
 const { snakeCase, startCase } = require("lodash");
 
 router.get("/", (req, res) => {
-  res.render("home", {
-    Username: "test",
-  });
-});
-
-/*This is just a temp route for the old home menu */
-router.get("/home", (req, res) => {
   res.render("index", {
     Username: "test",
   });
