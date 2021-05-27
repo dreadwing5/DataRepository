@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
+const connection = require("../configs/DBConnection");
 // const {
 //   ensureAuthenticated,
 //   forwardAuthenticated,
@@ -20,6 +21,33 @@ router.get("/add-user", function (req, res) {
   });
 });
 
+//Render Add Dropdwon Field
+router.get("/admin/add-fields", (req, res) => {
+  connection.query("SELECT * FROM coe", (err, result) => {
+    if (err) {
+      console.error(err);
+      res.send({
+        code: 400,
+        failed: "error ocurred",
+      });
+    }
+
+    const results = Object.values(JSON.parse(JSON.stringify(result)));
+
+    //render coe page
+    res.render("admin/admin_addFields", {
+      title: "COE",
+      fields: results,
+    });
+  });
+});
+
+// //Add Fields page
+// router.get("/admin/add-fields", function (req, res) {
+//   res.render("admin/admin_addFields", {
+//     title: "Add Fields",
+//   });
+// });
 //Login Page
 router.get("/admin/login", function (req, res) {
   res.render("admin/admin_login");

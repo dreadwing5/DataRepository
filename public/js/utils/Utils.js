@@ -1,5 +1,6 @@
 import { trim, camelCase, startCase } from "lodash";
 import Quill from "quill";
+import axios from "axios";
 
 import ImageUploader from "quill-image-uploader";
 import ImageResize from "quill-image-resize";
@@ -54,12 +55,6 @@ tables?.forEach((table) => {
   report__title.style.display = "";
 });
 
-// const report__title = document.querySelectorAll(".report-title");
-// report__title?.forEach((title) => {
-//   console.log(title);
-//   console.log(title.querySelector(".row"));
-// });
-
 if (isInsertMode === "true") {
   quillConfig.placeholder = "Add Description Here..";
   let quill = new Quill("#editor-container", quillConfig);
@@ -91,5 +86,82 @@ table__data?.addEventListener("click", (e) => {
   }
   if (e.target.classList.contains("delete__entry")) {
     deleteData(e.target);
+  }
+});
+
+/* Admin Related DOM manipulation */
+
+// Add Data
+
+const add__field = document.querySelector(".add-new");
+add__field?.addEventListener("click", () => {
+  const row = document.querySelector(".hidden-row");
+  row.style.display = "";
+  const field__name = document.querySelector(".field__name");
+  field__name.focus(); //Move the cursor to the text field
+  //Fetch the last index and update the current index
+  const prevIndex = Number(
+    row.previousElementSibling.querySelector(".field__idx").innerHTML
+  );
+  const index = document.querySelector(".row__number");
+  index.innerHTML = prevIndex + 1;
+
+  const submit__button = document.querySelector(".table__submit--button");
+  submit__button.removeAttribute("disabled"); //enable the submit button
+
+  //Submit the data
+  submit__button.addEventListener("click", () => {
+    const field__name = document.querySelector(".field__name");
+    //Hnadle Empty value here
+    if (!field__name.value) {
+      const danger = document.querySelector(".text-danger");
+      danger.style.display = "";
+      setTimeout(() => {
+        danger.style.display = "none";
+      }, 1000);
+    }
+
+    //Send Post Request
+    const sendPostRequest = async () => {
+      try {
+        const data = { name: field__name.value };
+        const resp = await axios.post("/dropdown/coe", data);
+        submit__button.disabled = true;
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+        document.getElementById("alert").style.display = "block";
+        setTimeout(() => window.location.reload(), 1000);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    sendPostRequest();
+  });
+});
+
+//Delete Data
+const admin_table__data = document.querySelector(".field--table__data");
+admin_table__data?.addEventListener("click", (e) => {
+  e.preventDefault();
+  //Matching Strategy
+  if (e.target.classList.contains("delete__entry")) {
+    const id = Number(e.target.closest(".field__id").dataset.id);
+
+    //Send Delete Request
+    const sendDeleteRequest = async () => {
+      try {
+        const payload = { id: id };
+        const resp = await axios.delete("/dropdown/coe", { data: payload });
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+        // document.getElementById("alert").style.display = "block";
+        // setTimeout(() => window.location.reload(), 1000);
+        const row = e.target.closest(".table__field");
+        console.log(row); //This will select the entire table
+        row.remove();
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    sendDeleteRequest();
   }
 });

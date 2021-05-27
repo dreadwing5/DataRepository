@@ -16,48 +16,21 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 </head>
 <style>
-  .button {
-    border-radius: 8px;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-  }
-
-  .button2 {
-    background-color: white;
-    color: #1d3557;
-    width: 270px;
-    border: 2px solid #aec6cf;
-    font-family: Ubuntu, "sans-serif";
-    font-size: 1.35rem;
-  }
-
-  .button2:hover {
-    background-color: var(--primary);
-    border: none;
-    color: white;
-  }
-
-  .center {
-    text-align: center;
-
-  }
-
-  .ex1 {
-
-    padding: 15px;
-  }
+ .grey-bg {  
+    background-color: #F5F7FA;
+}
 </style>
 
 <body>
@@ -115,200 +88,512 @@
         <h6 class="heading">Choose the Repository you want to have access to :</h6>
         <!-- Topic Cards -->
 
-        <div class="row ex1">
-
-          <div class="col-sm-3 ">
-            <a href="/faculty/IndustryConnectDatabase">
-              <button class="button button2">Industry Connect Database </button>
-            </a>
-          </div>
-
-          <div class="col-sm-3 ">
-            <a href="/faculty/BookPublications">
-              <button class="button button2">Book Publications</button>
-            </a>
-          </div>
-
-          <div class="col-sm-3 ">
-            <a href="/faculty/Mous">
-              <button class="button button2">MoUs</button>
-            </a>
-          </div>
-          <div class="col-sm-3 ">
-            <a href="/faculty/SlowLearnerInitiative">
-              <button class="button button2">Slow Learner Initiative</button>
-            </a>
-          </div>
+        <div class="grey-bg container-fluid">
+          <section id="minimal-statistics">
+            <div class="row">
+              <div class="col-xl-3 col-sm-6 col-12"> 
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                          <i class="fa fa-industry primary font-large-2 float-left"></i>
+                        </div>
+                        <div class="media-body text-right">
+                          <a href="/faculty/IndustryConnectDatabase">
+                            <h5>Industry Connect</h5></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                          <i class="fa fa-book font-large-2 float-left"></i>
+                        </div>
+                        <div class="media-body text-right">
+                          
+                          <a href="/faculty/BookPublications">
+                            <h5>Book Publications</h5></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                          <i class="fa fa-handshake font-large-2 float-left"></i>
+                        </div>
+                        <div class="media-body text-right">
+                    <a href="/faculty/Mous">
+                          <h5>MoU</h5></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                          <i class="fas fa-hands-helping danger font-large-2 float-left"></i>
+                        </div>
+                        <div class="media-body text-right">
+                          <a href="/faculty/SlowLearnerInitiative">
+                            <h5>Slow Learner Initiative</h5></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="row">
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="media-body text-left">
+                          <a href="/faculty/ClubActivities">
+                          <h5>Student Club Activities</h5></a>
+                        </div>
+                        <div class="align-self-center">
+                          <i class="fa fa-play-circle danger font-large-2 float-right"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="media-body text-left">
+                          <a href="/faculty/MoocCourse">
+                          <h5>MOOC</h5></a>
+                        </div>
+                        <div class="align-self-center">
+                          <i class="fa fa-desktop success font-large-2 float-right"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="media-body text-left">
+                          <a href="/faculty/TechTalk">
+                          <h5>Tech Talk</h5></a>
+                        </div>
+                        <div class="align-self-center">
+                          <i class="fas fa-chalkboard-teacher warning font-large-2 float-right"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="media-body text-left">
+                          <a href="/faculty/PhdDetails">
+                          <h5>Phd Details</h5></a>
+                        </div>
+                        <div class="align-self-center">
+                          <i class="fas fa-microscope primary font-large-2 float-right"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-xl-3 col-sm-6 col-12"> 
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                          <i class="fa fa-lightbulb primary font-large-2 float-left"></i>
+                        </div>
+                        <div class="media-body text-right">
+                          <a href="/faculty/IdeaRepository">
+                            <h5>Idea Repository</h5></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                          <i class="icon-speech warning font-large-2 float-left"></i>
+                        </div>
+                        <div class="media-body text-right">
+                          
+                          <a href="/faculty/Consultancy">                <h5>Consultancy</h5></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                          <i class="fa fa-file-text success font-large-2 float-left"></i>
+                        </div>
+                        <div class="media-body text-right">
+                    <a href="/faculty/Patent">
+                          <h5>Patent</h5></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                          <i class="fas fa-atom danger font-large-2 float-left"></i>
+                        </div>
+                        <div class="media-body text-right">
+                          <a href="/faculty/SponsoredResearchProjects">
+                            <h5>Sponsored Research Projects</h5></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+               <div class="row">
+              <div class="col-xl-3 col-sm-6 col-12"> 
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                          <i class="fa fa-check danger font-large-2 float-left"></i>
+                        </div>
+                        <div class="media-body text-right">
+                          <a href="/faculty/IqacData">
+                            <h5>IQAC Data</h5></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                          <i class="fas fa-shapes success font-large-2 float-left"></i>
+                        </div>
+                        <div class="media-body text-right">
+                          
+                          <a href="/faculty/EEAndC">               <h5>EE And C</h5></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                          <i class="fab fa-black-tie font-large-2 float-left"></i>
+                        </div>
+                        <div class="media-body text-right">
+                           <a href="/faculty/ProfessionalBodies">
+                          <h5>Professional Bodies</h5></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                          <i class="fas fa-business-time danger font-large-2 float-left"></i>
+                        </div>
+                        <div class="media-body text-right">
+                          <a href="/faculty/EntrepreneurshipDetails">
+                            <h5>Entrepreneurship Details</h5></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="row">
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="media-body text-left">
+                         <a href="/faculty/FacultyServedAs">
+                          <h5>Faculty Served as</h5></a>
+                        </div>
+                        <div class="align-self-center">
+                          <i class="fas fa-save primary font-large-2 float-right"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="media-body text-left">
+                          <a href="/faculty/VVIP">
+                          <h5>VVIP / VIP Guests at CMRIT</h5></a>
+                        </div>
+                        <div class="align-self-center">
+                          <i class="icon-user font-large-2 float-right"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="media-body text-left">
+                          <a href="/faculty/FossCell">
+                          <h5>FOSS Cell</h5></a>
+                        </div>
+                        <div class="align-self-center">
+                          <i class="icon-pie-chart warning font-large-2 float-right"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="media-body text-left">
+                          <a href="/faculty/VisitorsDatabase">
+                          <h5>Visitors Database (Academic / Professional Trainers)</h5></a>
+                        </div>
+                        <div class="align-self-center">
+                          <i class="fas fa-users primary font-large-2 float-right"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-3 col-sm-6 col-12"> 
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                          <i class="fas fa-caravan primary font-large-2 float-left"></i>
+                        </div>
+                        <div class="media-body text-right">
+                          <a href="/faculty/EventsAttended">
+                            <h5>Events Attended</h5></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                  <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                          <i class="fas fa-calendar-alt warning font-large-2 float-left"></i>
+                        </div>
+                        <div class="media-body text-right">
+                          
+                          <a href="/faculty/AcademiaIndustryConnectActivityOrganised">
+                            <h5>Academia / Industry Connect Activity Organised</h5></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                          <i class="far fa-edit success font-large-2 float-left"></i>
+                        </div>
+                        <div class="media-body text-right">
+                           <a href="/faculty/JournalPaperPublication">
+                          <h5>Journal & Conference Publications</h5></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                          <i class="fas fa-landmark font-large-2 float-left"></i>
+                        </div>
+                        <div class="media-body text-right">
+                          <a href="/faculty/AcademiaIndustryConnectActivityAttended">
+                            <h5>Academia / Industry Connect Activity Attended</h5></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="row">
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="media-body text-left">
+                         <a href="/faculty/AwardsNssAndNcc">
+                          <h5>Awards and Achievements (NSS/NCC)</h5></a>
+                        </div>
+                        <div class="align-self-center">
+                          <i class="fas fa-award danger font-large-2 float-right"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="media-body text-left">
+                          <a href="/faculty/Awards">
+                          <h5>Awards and Achievements in Events</h5></a>
+                        </div>
+                        <div class="align-self-center">
+                          <i class="icon-user success font-large-2 float-right"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+                        <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                          <i class="icon-graph warning font-large-2 float-left"></i>
+                        </div>
+                        <div class="media-body text-right">
+                          
+                          <a href="/faculty/Results"><h5>Faculty Results</h5></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                          <i class="fas fa-heartbeat danger font-large-2 float-left"></i>
+                        </div>
+                        <div class="media-body text-right">
+                           <a href="/faculty/WellBeingClub">
+                          <h5>Well Being Club</h5></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+              
+              
+          </section>
+          
+          
         </div>
-
-        <div class="row ex1">
-
-          <div class="col-sm-3 ">
-            <a href="/faculty/ClubActivities">
-              <button class="button button2">Student Club Activities</button>
-            </a>
-          </div>
-
-          <div class="col-sm-3 ">
-            <a href="/faculty/MoocCourse">
-              <button class="button button2">MOOC Course</button>
-            </a>
-          </div>
-
-          <div class="col-sm-3 ">
-            <a href="/faculty/TechTalk">
-              <button class="button button2">Tech Talk</button>
-            </a>
-          </div>
-          <div class="col-sm-3 ">
-            <a href="/faculty/PhdDetails">
-              <button class="button button2">Phd Details</button>
-            </a>
-          </div>
-        </div>
-
-        <div class="row ex1">
-
-          <div class="col-sm-3 ">
-            <a href="/faculty/IdeaRepository">
-              <button class="button button2">Idea Repository</button>
-            </a>
-          </div>
-
-          <div class="col-sm-3 ">
-            <a href="/faculty/Consultancy">
-              <button class="button button2">Consultancy</button>
-            </a>
-          </div>
-
-          <div class="col-sm-3 ">
-            <a href="/faculty/Patent">
-              <button class="button button2">Patent</button>
-            </a>
-          </div>
-          <div class="col-sm-3 ">
-            <a href="/faculty/SponsoredResearchProjects">
-              <button class="button button2">Sponsored Research Projects</button>
-            </a>
-          </div>
-        </div>
-        <div class="row ex1">
-
-          <div class="col-sm-3 ">
-            <a href="/faculty/IqacData">
-              <button class="button button2">IQAC Data</button>
-            </a>
-          </div>
-
-          <div class="col-sm-3 ">
-            <a href="/faculty/EEAndC">
-              <button class="button button2">EE And C</button>
-            </a>
-          </div>
-
-          <div class="col-sm-3 ">
-            <a href="/faculty/ProfessionalBodies">
-              <button class="button button2">Professional Bodies</button>
-            </a>
-          </div>
-          <div class="col-sm-3 ">
-            <a href="/faculty/EntrepreneurshipDetails">
-              <button class="button button2">Entrepreneurship Details</button>
-            </a>
-          </div>
-        </div>
-        <div class="row ex1">
-
-          <div class="col-sm-3 ">
-            <a href="/faculty/FacultyServedAs">
-              <button class="button button2">Faculty Served as</button>
-            </a>
-          </div>
-          <div class="col-sm-3 ">
-            <a href="/faculty/VVIP">
-              <button class="button button2">VVIP / VIP Guests at CMRIT</button>
-            </a>
-          </div>
-
-
-
-          <div class="col-sm-3 ">
-            <a href="/faculty/FossCell">
-              <button class="button button2">FOSS Cell</button>
-            </a>
-          </div>
-          <div class="col-sm-3 ">
-            <a href="/faculty/VisitorsDatabase">
-              <button class="button button2">Visitors Database (Academic / Professional Trainers)</button>
-            </a>
-          </div>
-        </div>
-        <div class="row ex1">
-
-          <div class="col-sm-3 ">
-            <a href="/faculty/AcademiaIndustryConnectActivityOrganised">
-              <button class="button button2">Academia / Industry Connect Activity Organised
-              </button>
-            </a>
-          </div>
-
-          <div class="col-sm-3 ">
-            <a href="/faculty/JournalPaperPublication">
-              <button class="button button2">Journal & Conference Publications</button>
-            </a>
-          </div>
-
-          <div class="col-sm-3 ">
-            <a href="/faculty/AcademiaIndustryConnectActivityAttended">
-              <button class="button button2">Academia / Industry Connect Activity Attended</button>
-            </a>
-          </div>
-          <div class="col-sm-3 ">
-            <a href="/faculty/AwardsNssAndNcc">
-              <button class="button button2">Awards and Achievements (NSS/NCC)</button>
-            </a>
-          </div>
-        </div>
-
-
-        <div class="row ex1">
-
-          <div class="col-sm-3 ">
-            <a href="/faculty/Awards">
-              <button class="button button2">Awards and Achievements in Events</button>
-            </a>
-          </div>
-
-          <div class="col-sm-3 ">
-            <a href="/faculty/Results">
-              <button class="button button2">Faculty Results</button>
-            </a>
-          </div>
-          <div class="col-sm-3 ">
-            <a href="/faculty/WellBeingClub">
-              <button class="button button2">Well Being Club</button>
-            </a>
-          </div>
-
-          <div class="col-sm-3 ">
-            <a href="/faculty/EventsAttended">
-              <button class="button button2">Events Attended</button>
-            </a>
-          </div>
-
-
-        </div>
-
-        <div class="row ex1">
-          <div class="col-sm-3 ">
-            <a href="/faculty/BookPublication">
-              <button class="button button2">Book Publication</button>
-            </a>
-          </div>
-        </div>
-
-
-      </div>
 
     </div>
 

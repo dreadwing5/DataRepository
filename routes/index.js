@@ -24,7 +24,6 @@ router.get("/faculty/:module", (req, res) => {
 //Get dropdown list
 router.get("/dropdown/:field", (req, res) => {
   let field = snakeCase(req.params.field);
-  let data = [];
   let sql = `Select * from ${field}`;
   connection.query(sql, (err, result) => {
     if (error) {
@@ -37,56 +36,6 @@ router.get("/dropdown/:field", (req, res) => {
     const results = Object.values(JSON.parse(JSON.stringify(result)));
     res.send(results);
   });
-});
-
-router.post("/dropdown/:field", (req, res) => {
-  let field = snakeCase(req.params.field);
-
-  const { column } = req.body;
-  connection.query(
-    `INSERT INTO ${fields} (name) VALUES ? ${column}`,
-    function (error, results) {
-      if (error) {
-        console.error(error);
-        res.send({
-          code: 400,
-          failed: "error ocurred",
-        });
-      } else {
-        console.log("Data Added Successfully!");
-
-        res.send({
-          code: 200,
-          message: "Added successfully!!",
-        });
-      }
-    }
-  );
-});
-
-router.post("/dropdown/:field", (req, res) => {
-  let field = snakeCase(req.params.field);
-
-  const { column } = req.body;
-  connection.query(
-    `INSERT INTO ${fields} (name) VALUES ? ${column}`,
-    function (error, results) {
-      if (error) {
-        console.error(error);
-        res.send({
-          code: 400,
-          failed: "error ocurred",
-        });
-      } else {
-        console.log("Data Added Successfully!");
-
-        res.send({
-          code: 200,
-          message: "Added successfully!",
-        });
-      }
-    }
-  );
 });
 
 /* //For later use, where we need to make our own api for image upload
