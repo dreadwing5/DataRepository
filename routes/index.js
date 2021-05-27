@@ -24,7 +24,6 @@ router.get("/faculty/:module", (req, res) => {
 //Get dropdown list
 router.get("/dropdown/:field", (req, res) => {
   let field = snakeCase(req.params.field);
-  let data = [];
   let sql = `Select * from ${field}`;
   connection.query(sql, (err, result) => {
     if (error) {
@@ -41,10 +40,10 @@ router.get("/dropdown/:field", (req, res) => {
 
 router.post("/dropdown/:field", (req, res) => {
   let field = snakeCase(req.params.field);
-
-  const { column } = req.body;
+  const { name } = req.body;
+  const value = `("${name}")`; //Format name into a string
   connection.query(
-    `INSERT INTO ${fields} (name) VALUES ? ${column}`,
+    `INSERT INTO ${field} (name) VALUES ${value}`,
     function (error, results) {
       if (error) {
         console.error(error);
