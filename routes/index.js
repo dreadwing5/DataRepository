@@ -38,6 +38,11 @@ router.get("/dropdown/:field", (req, res) => {
   });
 });
 
+//404 Page
+router.get("/error/404", (req, res) => {
+  res.render("404");
+});
+
 /* //For later use, where we need to make our own api for image upload
 const storage = multer.diskStorage({
   destination: "./public/uploads",
