@@ -35,7 +35,8 @@ const table__footer = document.querySelector(".table__footer");
 const isDescriptionRequired =
   table__footer && JSON.parse(table__footer.dataset.isdescriptionrequired);
 
-console.log("isDescriptionRequired", isDescriptionRequired);
+// console.log("isDescriptionRequired", isDescriptionRequired);
+
 if (isDescriptionRequired) {
   const table__description = document.querySelectorAll(".table__description"); //get all the description table
   table__description.forEach((table) => {

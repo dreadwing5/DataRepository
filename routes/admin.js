@@ -9,14 +9,14 @@ const connection = require("../configs/DBConnection");
 
 //Admin Panel
 router.get("/admin", function (req, res) {
-  res.render("admin/admin_panel", {
+  res.render("admin/dashboard", {
     title: "Dashboard",
   });
 });
 
 //Add User Page
 router.get("/add-user", function (req, res) {
-  res.render("admin/admin_addUser", {
+  res.render("admin/add_user", {
     title: "Add User",
   });
 });
@@ -35,22 +35,25 @@ router.get("/admin/add-fields", (req, res) => {
     const results = Object.values(JSON.parse(JSON.stringify(result)));
 
     //render coe page
-    res.render("admin/admin_addFields", {
+    res.render("admin/add_fields", {
       title: "COE",
       fields: results,
     });
   });
 });
 
-// //Add Fields page
-// router.get("/admin/add-fields", function (req, res) {
-//   res.render("admin/admin_addFields", {
-//     title: "Add Fields",
-//   });
-// });
 //Login Page
 router.get("/admin/login", function (req, res) {
-  res.render("admin/admin_login");
+  res.render("admin/login");
+});
+
+//Work in progress
+router.get("/admin/roles", (req, res) => {
+  res.render("404");
+});
+
+router.get("/admin/remove-user", (req, res) => {
+  res.render("404");
 });
 
 //Login Handle
