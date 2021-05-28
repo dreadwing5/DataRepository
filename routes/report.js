@@ -50,13 +50,15 @@ function handleRoute(req, res) {
   };
 
   const getAllTables = () => {
-    let sql = `select table_name from information_schema.tables where table_schema="data_repository"`;
+    let sql = `SELECT table_name FROM information_schema.tables WHERE table_schema = "data_repository"`;
+
     connection.query(sql, (err, result) => {
-      if (err) throw err;
-      result.forEach((res) => {
-        let table = res.table_name;
-        if (!(table === "faculty" || table === "coe")) tables.push(table);
-      });
+      if (err) console.log(err);
+      result.forEach(({ TABLE_NAME }) => {
+        let table = TABLE_NAME;
+        if (!(table === "faculty" || table === "coe" || table === "club_name"))
+          tables.push(table);
+      }); //filter out table
       let data = [];
       let eventName = [];
       tables.forEach((table, i) => {
@@ -64,7 +66,7 @@ function handleRoute(req, res) {
         //For each table we are going to fetch the table data and push it into data array
         let sql = `Select * from ${table}`;
         connection.query(sql, (err, result) => {
-          if (err) throw err;
+          if (err) console.log(err);
           let dataTemp = [];
           result.forEach((res) => {
             filterData(res, dataTemp);
