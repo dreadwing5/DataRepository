@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const connection = require("../configs/DBConnection");
 const { snakeCase, startCase } = require("lodash");
 
 router.get("/", (req, res) => {
@@ -18,23 +17,6 @@ router.get("/faculty/:module", (req, res) => {
     title: title,
     Username: "test",
     isInsertMode: true, //This is for checking if we are inserting the data or updating it
-  });
-});
-
-//Get dropdown list
-router.get("/dropdown/:field", (req, res) => {
-  let field = snakeCase(req.params.field);
-  let sql = `Select * from ${field}`;
-  connection.query(sql, (err, result) => {
-    if (error) {
-      console.error(error);
-      res.send({
-        code: 400,
-        failed: "error ocurred",
-      });
-    }
-    const results = Object.values(JSON.parse(JSON.stringify(result)));
-    res.send(results);
   });
 });
 
