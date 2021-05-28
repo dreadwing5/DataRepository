@@ -1,9 +1,10 @@
-let flag = 1;
-const select = document.getElementById("select");
+import axios from "axios";
 
-const sendGetRequest = async () => {
+let flag = 1;
+export const sendGetRequest = async () => {
+  if (flag === 0) return; //Stop the dropdoen from sending multiple get
   try {
-    const resp = await axios.get("/coe");
+    const resp = await axios.get("/dropdown/coe");
     for (const { name } of resp.data) {
       let option = document.createElement("option");
       option.value = name;
@@ -15,9 +16,3 @@ const sendGetRequest = async () => {
     console.error(err);
   }
 };
-
-select.addEventListener("click", () => {
-  if (flag === 1) {
-    sendGetRequest();
-  }
-});

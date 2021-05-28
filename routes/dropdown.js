@@ -3,6 +3,23 @@ const router = express.Router();
 const connection = require("../configs/DBConnection");
 const { snakeCase } = require("lodash");
 
+//Get dropdown list
+router.get("/dropdown/:field", (req, res) => {
+  let field = snakeCase(req.params.field);
+  let sql = `Select * from ${field}`;
+  connection.query(sql, (err, result) => {
+    if (err) {
+      console.error(err);
+      res.send({
+        code: 400,
+        failed: "error ocurred",
+      });
+    }
+    const results = Object.values(JSON.parse(JSON.stringify(result)));
+    res.send(results);
+  });
+});
+
 //Insert dropdwon field
 router.post("/dropdown/:field", (req, res) => {
   let field = snakeCase(req.params.field);

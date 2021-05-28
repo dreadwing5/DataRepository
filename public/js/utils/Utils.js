@@ -10,6 +10,8 @@ Quill.register("modules/imageResize", ImageResize);
 
 import { quillConfig } from "./QuillConfig";
 
+import { sendGetRequest } from "../apis/COE";
+
 export const isInsertMode =
   document.getElementById("myForm")?.dataset.isinsertmode;
 
@@ -165,3 +167,8 @@ admin_table__data?.addEventListener("click", (e) => {
     sendDeleteRequest();
   }
 });
+
+//Handle dropdwon menu here
+const select = document.getElementById("select");
+
+select?.addEventListener("click", sendGetRequest);
