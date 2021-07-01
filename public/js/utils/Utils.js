@@ -175,3 +175,14 @@ dropdownList?.forEach((dropdown) => {
   let tableName = dropdown.getAttribute("name");
   sendGetRequest(tableName);
 });
+
+//Admin Configuration
+// console.log(userRole);
+if (typeof userRole !== "undefined" && userRole === "admin") {
+  console.log(userRole);
+  const dropdownList = document.querySelectorAll(".db__dropdown");
+  dropdownList?.forEach((dropdown) => {
+    let addButton = dropdown.previousElementSibling;
+    addButton.classList.add("show");
+  });
+}

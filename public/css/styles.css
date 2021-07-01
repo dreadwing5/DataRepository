@@ -1,5 +1,18 @@
 /* Custom css */
 
+.add__fields-btn {
+  margin-left: 1.1rem;
+  display: none;
+}
+
+.add__fields-btn i {
+  font-size: 1.5rem;
+}
+
+.show {
+  display: inline-flex;
+}
+
 footer.sticky-footer {
   padding: 2rem 0;
   flex-shrink: 0;

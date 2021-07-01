@@ -17,6 +17,7 @@ router.get("/faculty/:module", (req, res) => {
     title: title,
     Username: "test",
     isInsertMode: true, //This is for checking if we are inserting the data or updating it
+    role: "admin", // This is for testing, we will send the actual user on production
   });
 });
 

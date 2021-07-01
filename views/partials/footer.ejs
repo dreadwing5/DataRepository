@@ -218,11 +218,14 @@
 
 <div class="overlay nav__hidden"></div>
 
+<script>
 
+let userRole = '<%-JSON.stringify(locals.role) %>';
+if(userRole!==''){
+    userRole = JSON.parse(userRole);
+}
 
-
-
-
+</script>
 
 
 <!--Custom Script -->
