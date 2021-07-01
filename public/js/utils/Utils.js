@@ -168,7 +168,10 @@ admin_table__data?.addEventListener("click", (e) => {
   }
 });
 
-//Handle dropdwon menu here
-const select = document.getElementById("select");
+//Handle dropdwons menu here, fetch all the dropdowns and populate it
 
-select?.addEventListener("click", sendGetRequest);
+const dropdownList = document.querySelectorAll(".db__dropdown");
+dropdownList?.forEach((dropdown) => {
+  let tableName = dropdown.getAttribute("name");
+  sendGetRequest(tableName);
+});
